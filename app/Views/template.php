@@ -7,7 +7,7 @@
     rel="stylesheet"
     href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
   />
-  <title>Document</title>
+  <title><?= $title ?? 'LMS_PROJECT' ?></title>
   <style>
     .navbar {
       background: linear-gradient(90deg, #4e54c8, #8f94fb);
@@ -32,35 +32,22 @@
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <a class="nav-link <?= ($page ?? '')=='home'?'active':'' ?>" href="<?= base_url('/home') ?>">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
+            <a class="nav-link <?= ($page ?? '')=='about'?'active':'' ?>" href="<?= base_url('/about') ?>">About</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Services</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a
-              class="nav-link dropdown-toggle"
-              href="#"
-              id="navbarDropdownMenuLink"
-              role="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              More
-            </a>
-            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdownMenuLink">
-              <li><a class="dropdown-item" href="#">Contact</a></li>
-              <li><a class="dropdown-item" href="#">Help</a></li>
-              <li><a class="dropdown-item" href="#">Settings</a></li>
-            </ul>
+            <a class="nav-link <?= ($page ?? '')=='contact'?'active':'' ?>" href="<?= base_url('/contact') ?>">Contact</a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
+
+  <div class="container mt-4">
+    <?= $this->renderSection('content') ?>
+  </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
