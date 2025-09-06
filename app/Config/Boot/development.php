@@ -11,7 +11,11 @@
  | If you set 'display_errors' to '1', CI4's detailed error report will show.
  */
 error_reporting(E_ALL);
+<<<<<<< HEAD
 ini_set('display_errors', '0');
+=======
+ini_set('display_errors', '1');
+>>>>>>> 66ab1210812ed10f4233bf14cfcb48aa1710e1b2
 
 /*
  |--------------------------------------------------------------------------

@@ -1,8 +1,16 @@
+<<<<<<< HEAD
+=======
+<?php
+include 'template.php';
+?>
+
+>>>>>>> 66ab1210812ed10f4233bf14cfcb48aa1710e1b2
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD
     <title>About - ITE311 Project</title>
     <style>
         body { 
@@ -63,3 +71,12 @@
     </div>
 </body>
 </html>
+=======
+    <title>About</title>
+</head>
+<body>
+   
+    <h1>About Us</h1>
+</body>
+</html>
+>>>>>>> 66ab1210812ed10f4233bf14cfcb48aa1710e1b2
