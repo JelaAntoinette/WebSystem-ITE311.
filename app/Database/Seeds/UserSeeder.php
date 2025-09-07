@@ -4,14 +4,11 @@ namespace App\Database\Seeds;
 
 use CodeIgniter\Database\Seeder;
 
-/**
- * UserSeeder - Seeds the users table with sample data
- */
 class UserSeeder extends Seeder
 {
     public function run()
     {
-        // Insert sample users matching the users table structure
+       
         $data = [
             [
                 'name'       => 'System Administrator',
