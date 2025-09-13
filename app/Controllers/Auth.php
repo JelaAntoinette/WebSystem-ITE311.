@@ -7,9 +7,9 @@ namespace App\Controllers;
  */
 class Auth extends BaseController
 {
-    protected $session;
-    protected $validation;
-    protected $db;
+    protected $session; 
+    protected $validation; 
+    protected $db; 
 
     public function __construct()
     {
@@ -168,7 +168,7 @@ class Auth extends BaseController
      */
     public function logout()
     {
-        $this->session->destroy();
+        $this->session->destroy(); 
         $this->session->setFlashdata('success', 'You have been logged out successfully.');
         return redirect()->to(base_url('login'));
     }

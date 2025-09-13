@@ -11,7 +11,7 @@
             box-sizing: border-box;
         }
         
-        body {
+        body {  
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: #8B5FBF;
             min-height: 100vh;
