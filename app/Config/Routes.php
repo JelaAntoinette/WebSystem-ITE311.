@@ -14,9 +14,9 @@ $routes->get('about', 'Home::about');
 $routes->get('contact', 'Home::contact');
 
 // Authentication Routes
-$routes->get('register', 'Auth::register');     // Show registration form
-$routes->post('register', 'Auth::register');    // Process registration
-$routes->get('login', 'Auth::login');           // Show login form
-$routes->post('login', 'Auth::log..in');          // Process login
-$routes->get('logout', 'Auth::logout');         // Logout user
-$routes->get('dashboard', 'Auth::dashboard');   // User dashboard
+$routes->get('register', 'Auth::register');   // Show registration form
+$routes->post('register', 'Auth::register');  // Process registration
+$routes->get('login', 'Auth::login');         // Show login form
+$routes->post('login', 'Auth::login');        // ✅ Process login
+$routes->get('logout', 'Auth::logout');       // Logout user
+$routes->get('dashboard', 'Auth::dashboard'); // User dashboard
