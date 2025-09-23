@@ -83,7 +83,15 @@ class Auth extends BaseController
                     'role'       => $user['role'],
                     'isLoggedIn' => true
                 ]);
-                return redirect()->to(base_url('dashboard'));
+                
+                // Redirect based on role
+                if ($user['role'] === 'admin') {
+                    return redirect()->to(base_url('admin/dashboard'));
+                } elseif ($user['role'] === 'teacher') {
+                    return redirect()->to(base_url('teacher/dashboard'));
+                } else {
+                    return redirect()->to(base_url('student/dashboard'));
+                }
             } else {
                 $this->session->setFlashdata('error', 'Invalid login credentials.');
             }

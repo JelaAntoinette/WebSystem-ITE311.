@@ -5,7 +5,7 @@ class AdminController extends BaseController
     public function dashboard()
     {
         $session = session();
-        if ($session->get('role') !== 'admin') {
+        if ($session->get('role') !== 'teacher') {
             return redirect()->to('/login'); // Unauthorized access
         }
 
