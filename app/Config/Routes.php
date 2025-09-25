@@ -20,3 +20,4 @@ $routes->get('login', 'Auth::login');         // Show login form
 $routes->post('login', 'Auth::login');        // ✅ Process login
 $routes->get('logout', 'Auth::logout');       // Logout user
 $routes->get('dashboard', 'Auth::dashboard'); // User dashboard
+
