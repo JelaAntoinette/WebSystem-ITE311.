@@ -1,18 +1,25 @@
-<nav class="navbar">
-    <div class="navbar-container">
-        <a class="navbar-brand" href="<?= base_url('dashboard') ?>">LMS</a>
-        <div class="navbar-links">
-            <span class="navbar-user">Welcome, <?= esc($user['name']) ?></span>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-            <!-- Role-specific navigation -->
-            <?php if ($user['role'] === 'admin'): ?>
-                <a href="<?= base_url('/users') ?>">Manage Users</a>
-                <a href="<?= base_url('/reports') ?>">Reports</a>
-            <?php elseif ($user['role'] === 'teacher'): ?>
-                <a href="<?= base_url('/classes') ?>">My Classes</a>
-            <?php else: ?>
-                <a href="<?= base_url('/courses') ?>">My Courses</a>
-            <?php endif; ?>
+<nav class="navbar navbar-expand-lg navbar-dark bg-info">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="<?= base_url('dashboard') ?>">My Website</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav" aria-label="Toggle">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="nav">
+            <ul class="navbar-nav ms-auto">
+                <?php if ($user['role'] === 'admin'): ?>
+                 
+                  
+                <?php elseif ($user['role'] === 'teacher'): ?>
+                    <li class="nav-item"><a class="nav-link" href="<?= base_url('/classes') ?>">My Classes</a></li>
+                <?php else: ?>
+                    <li class="nav-item"><a class="nav-link" href="<?= base_url('/courses') ?>">My Courses</a></li>
+                <?php endif; ?>
+            </ul>
         </div>
     </div>
 </nav>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
