@@ -2,7 +2,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container-fluid">
-        <a class="navbar-brand" href="<?= base_url('dashboard') ?>">My Website</a>
+        <a class="navbar-brand" href="<?= base_url('dashboard') ?>">LMS</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav" aria-label="Toggle">
             <span class="navbar-toggler-icon"></span>
         </button>
