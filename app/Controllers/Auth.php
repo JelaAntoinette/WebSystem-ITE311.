@@ -34,7 +34,7 @@ class Auth extends BaseController
                 'name'       => $name,
                 'email'      => $email,
                 'password'   => $hashedPassword,
-                'role'       => 'user',
+                'role' => $this->request->getPost('role'), // instead of default 'student'
                 'created_at' => date('Y-m-d H:i:s')
             ];
 
@@ -84,14 +84,8 @@ class Auth extends BaseController
                     'isLoggedIn' => true
                 ]);
                 
-                // Redirect based on role
-                if ($user['role'] === 'admin') {
-                    return redirect()->to(base_url('admin/dashboard'));
-                } elseif ($user['role'] === 'teacher') {
-                    return redirect()->to(base_url('teacher/dashboard'));
-                } else {
-                    return redirect()->to(base_url('student/dashboard'));
-                }
+                // Redirect ALL users to the unified dashboard
+                return redirect()->to(base_url('dashboard'));
             } else {
                 $this->session->setFlashdata('error', 'Invalid login credentials.');
             }
@@ -114,15 +108,27 @@ class Auth extends BaseController
             return redirect()->to(base_url('login'));
         }
 
+        $role = $this->session->get('role');
         $data = [
             'user' => [
                 'userID' => $this->session->get('userID'),
                 'name'   => $this->session->get('name'),
                 'email'  => $this->session->get('email'),
-                'role'   => $this->session->get('role')
+                'role'   => $role
             ],
             'title' => 'Dashboard'
         ];
+
+        // Role-specific data example
+        if ($role === 'admin') {
+            $builder = $this->db->table('users');
+            $data['allUsers'] = $builder->get()->getResultArray();
+        } elseif ($role === 'teacher') {
+            // Example: fetch teacher's classes
+            $data['classes'] = []; // replace with actual query
+        } else { // student
+            $data['courses'] = []; // replace with actual query
+        }
 
         return view('auth/dashboard', $data);
     }
