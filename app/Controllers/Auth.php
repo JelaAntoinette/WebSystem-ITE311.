@@ -13,41 +13,42 @@ class Auth extends BaseController
         $this->db = \Config\Database::connect();
     }
 
-    // Register (GET + POST)
-    public function register()
-    {
-        if ($this->request->getMethod() === 'POST') {
-            $name     = $this->request->getPost('name');
-            $email    = $this->request->getPost('email');
-            $password = $this->request->getPost('password');
-            $confirm  = $this->request->getPost('password_confirm');
+   // Register (GET + POST)
+public function register()
+{
+    if ($this->request->getMethod() === 'POST') {
+        $name     = $this->request->getPost('name');
+        $email    = $this->request->getPost('email');
+        $password = $this->request->getPost('password');
+        $confirm  = $this->request->getPost('password_confirm');
 
-            if ($password !== $confirm) {
-                $this->session->setFlashdata('error', 'Passwords do not match.');
-                return redirect()->back()->withInput();
-            }
-
-            $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-
-            $builder = $this->db->table('users');
-            $userData = [
-                'name'       => $name,
-                'email'      => $email,
-                'password'   => $hashedPassword,
-                'role' => $this->request->getPost('role'), // instead of default 'student'
-                'created_at' => date('Y-m-d H:i:s')
-            ];
-
-            if ($builder->insert($userData)) {
-                $this->session->setFlashdata('success', 'Registration successful! Please login.');
-                return redirect()->to(base_url('login'));
-            } else {
-                $this->session->setFlashdata('error', 'Registration failed.');
-            }
+        if ($password !== $confirm) {
+            $this->session->setFlashdata('error', 'Passwords do not match.');
+            return redirect()->back()->withInput();
         }
 
-        return view('auth/register');
+        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
+        $builder = $this->db->table('users');
+        $userData = [
+            'name'       => $name,
+            'email'      => $email,
+            'password'   => $hashedPassword,
+            'role'       => 'student', // ✅ default role
+            'created_at' => date('Y-m-d H:i:s')
+        ];
+
+        if ($builder->insert($userData)) {
+            $this->session->setFlashdata('success', 'Registration successful! Please login.');
+            return redirect()->to(base_url('login'));
+        } else {
+            $this->session->setFlashdata('error', 'Registration failed.');
+        }
     }
+
+    return view('auth/register');
+}
+
 
     // Login (GET + POST)
     public function login()

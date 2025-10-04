@@ -142,15 +142,7 @@
                 <input type="password" class="form-control" id="password_confirm" name="password_confirm" required>
             </div>
 
-            <!-- Role Select Field -->
-            <div class="form-group">
-                <label for="role" class="form-label">Role</label>
-                <select name="role" id="role" class="form-control" required>
-                    <option value="student" <?= old('role') == 'student' ? 'selected' : '' ?>>Student</option>
-                    <option value="teacher" <?= old('role') == 'teacher' ? 'selected' : '' ?>>Teacher</option>
-                    <option value="admin" <?= old('role') == 'admin' ? 'selected' : '' ?>>Admin</option>
-                </select>
-            </div>
+            <!-- Removed Role Select Field -->
 
             <button type="submit" class="btn-primary">Create Account</button>
         </form>
