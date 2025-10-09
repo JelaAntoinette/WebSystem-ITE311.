@@ -22,3 +22,6 @@ $routes->get('logout', 'Auth::logout');       // Logout user
 $routes->get('dashboard', 'Auth::dashboard'); // User dashboard
 
 
+// app/Config/Routes.php
+$routes->post('course/enroll', 'Course::enroll');
+$routes->get('/student/dashboard', 'Student::dashboard');
