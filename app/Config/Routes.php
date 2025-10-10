@@ -17,18 +17,29 @@ $routes->get('contact', 'Home::contact');
 $routes->get('register', 'Auth::register');   // Show registration form
 $routes->post('register', 'Auth::register');  // Process registration
 $routes->get('login', 'Auth::login');         // Show login form
-$routes->post('login', 'Auth::login');        // ✅ Process login
+$routes->post('login', 'Auth::login');        // Process login
 $routes->get('logout', 'Auth::logout');       // Logout user
 $routes->get('dashboard', 'Auth::dashboard'); // User dashboard
 
-
-// app/Config/Routes.php
+// Course enrollment
 $routes->post('course/enroll', 'Course::enroll');
-$routes->get('/student/dashboard', 'Student::dashboard');
+$routes->get('student/dashboard', 'Student::dashboard');
 
-$routes->get('/admin/users', 'ManageUser::index');
-$routes->get('/admin/users/delete/(:num)', 'ManageUser::delete/$1');
-$routes->get('/admin/users/create', 'ManageUser::create');
-$routes->post('/admin/users/store', 'ManageUser::store');
-$routes->get('/admin/users/edit/(:num)', 'ManageUser::edit/$1');
-$routes->post('/admin/users/update/(:num)', 'ManageUser::update/$1');
+// Admin routes
+$routes->group('admin', function($routes) {
+    $routes->get('/', 'AdminController::dashboard');  // Admin dashboard
+    $routes->get('dashboard', 'AdminController::dashboard');  // Alternative dashboard route
+    $routes->get('users', 'AdminController::index');
+    $routes->get('users/create', 'AdminController::create');
+    $routes->post('users/store', 'AdminController::store');
+    $routes->get('users/edit/(:num)', 'AdminController::edit/$1');
+    $routes->post('users/update/(:num)', 'AdminController::update/$1');
+    $routes->get('users/delete/(:num)', 'AdminController::delete/$1');
+    $routes->get('logout', 'AdminController::logout');
+});
+
+// Optional shortcut route
+$routes->get('users', 'AdminController::index');
+
+// Test route
+$routes->get('test-db', 'TestController::testDb');
