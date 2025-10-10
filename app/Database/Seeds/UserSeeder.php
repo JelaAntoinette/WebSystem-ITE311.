@@ -22,7 +22,7 @@ class UserSeeder extends Seeder
                 'name'       => 'John Smith',
                 'email'      => 'john@lms.com',
                 'password'   => password_hash('user123', PASSWORD_DEFAULT),
-                'role'       => 'user',
+                'role'       => 'teacher',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ],
