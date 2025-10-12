@@ -25,6 +25,12 @@ $routes->get('dashboard', 'Auth::dashboard'); // User dashboard
 $routes->post('course/enroll', 'Course::enroll');
 $routes->get('student/dashboard', 'Student::dashboard');
 
+// COURSE ROUTES
+$routes->get('courses', 'Course::index');
+$routes->get('course/view/(:num)', 'Course::view/$1');
+$routes->post('course/enroll', 'Course::enroll');
+
+
 // Admin routes
 $routes->group('admin', function($routes) {
     $routes->get('/', 'AdminController::dashboard');  // Admin dashboard

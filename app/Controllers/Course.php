@@ -1,11 +1,50 @@
 <?php
 
 namespace App\Controllers;
+
 use App\Models\EnrollmentModel;
 use CodeIgniter\Controller;
 
-class Course extends Controller
+class Course extends BaseController
 {
+    public function index()
+    {
+        $db = \Config\Database::connect();
+        $data['courses'] = $db->table('courses')->get()->getResult();
+
+        return view('student_dashboard', $data);
+    }
+
+    public function view($id = null)
+    {
+        if ($id === null) {
+            return redirect()->to('/student/dashboard');
+        }
+
+        $db = \Config\Database::connect();
+        $course = $db->table('courses')->where('id', $id)->get()->getRow();
+        
+        if (!$course) {
+            return redirect()->to('/student/dashboard');
+        }
+
+        // Get enrollment status
+        $session = session();
+        $enrollmentModel = new EnrollmentModel();
+        $isEnrolled = false;
+        
+        if ($session->has('user_id')) {
+            $isEnrolled = $enrollmentModel->isAlreadyEnrolled($session->get('user_id'), $id);
+        }
+
+        $data = [
+            'course' => $course,
+            'isEnrolled' => $isEnrolled
+        ];
+
+        return view('courses/view', $data);
+    }
+
     public function enroll()
     {
         // Start session

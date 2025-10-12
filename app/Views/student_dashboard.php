@@ -5,11 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Dashboard - LMS</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body class="bg-light">
 
 <div class="container py-5">
+    <!-- Back Button -->
+    <div class="mb-4">
+        <a href="<?= site_url('dashboard') ?>" class="btn btn-secondary">
+            <i class="bi bi-arrow-left"></i> Back to Main Dashboard
+        </a>
+    </div>
+
     <h2 class="text-center mb-4 text-primary fw-bold">🎓 Student Dashboard</h2>
 
     <!-- ✅ Enrolled Courses Section -->
@@ -20,7 +28,9 @@
                 <ul class="list-group">
                     <?php foreach ($enrolled as $course): ?>
                         <li class="list-group-item d-flex justify-content-between align-items-center">
-                            <?= esc($course['name']) ?>
+                            <a href="<?= site_url('course/view/' . $course['id']) ?>" class="text-decoration-none text-dark">
+                                <?= esc($course['name']) ?>
+                            </a>
                             <span class="badge bg-success">Enrolled</span>
                         </li>
                     <?php endforeach; ?>
@@ -39,7 +49,9 @@
                 <ul class="list-group" id="availableCourses">
                     <?php foreach ($courses as $course): ?>
                         <li class="list-group-item d-flex justify-content-between align-items-center">
-                            <?= esc($course['name']) ?>
+                            <a href="<?= site_url('course/view/' . $course['id']) ?>" class="text-decoration-none text-dark">
+                                <?= esc($course['name']) ?>
+                            </a>
                             <button 
                                 class="btn btn-sm btn-outline-primary enroll-btn"
                                 data-course-id="<?= esc($course['id']) ?>"
@@ -78,7 +90,8 @@ $(document).ready(function() {
         const button = $(this);
         const courseId = button.data('course-id');
 
-        $.post('<?= base_url('student/enroll') ?>', { course_id: courseId }, function(response) {
+      $.post('<?= base_url('course/enroll') ?>', { course_id: courseId }, function(response) {
+
             let alertClass = (response.status === 'success') ? 'alert-success' : 'alert-danger';
             
             $('#alertBox').html(`
