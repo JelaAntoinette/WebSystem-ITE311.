@@ -4,10 +4,17 @@ namespace App\Database\Seeds;
 
 use CodeIgniter\Database\Seeder;
 
-class CourseSeeder extends Seeder
+class CoursesSeeder extends Seeder
 {
     public function run()
     {
+        // First, disable foreign key checks and get the database connection
+        $db = db_connect();
+        $db->query('SET FOREIGN_KEY_CHECKS=0');
+        
+        // Clear the table
+        $this->db->table('courses')->truncate();
+
         $data = [
             [
                 'name' => 'Introduction to Web Development',
@@ -41,7 +48,17 @@ class CourseSeeder extends Seeder
             ]
         ];
 
-        // Insert sample courses
-        $this->db->table('courses')->insertBatch($data);
+        try {
+            // Insert the data
+            $this->db->table('courses')->insertBatch($data);
+            
+            // Re-enable foreign key checks
+            $db = db_connect();
+            $db->query('SET FOREIGN_KEY_CHECKS=1');
+            
+            echo "Courses seeded successfully!\n";
+        } catch (\Exception $e) {
+            echo "Error seeding courses: " . $e->getMessage() . "\n";
+        }
     }
 }
