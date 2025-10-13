@@ -1,17 +1,30 @@
-<?php namespace App\Controllers;
+<?php 
 
-class AdminController extends BaseController
+namespace App\Controllers;
+
+class TeacherController extends BaseController
 {
     public function dashboard()
     {
         $session = session();
-        if ($session->get('role') !== 'teacher') {
-            return redirect()->to('/login'); // Unauthorized access
+        
+        if (!$session->get('isLoggedIn') || $session->get('role') !== 'teacher') {
+            return redirect()->to('/login');
         }
 
-        // Prepare any data needed
-        $data['users'] = []; // Example data
+        // Prepare user data
+        $data['user'] = [
+            'userID' => $session->get('userID'),
+            'name'   => $session->get('name'),
+            'email'  => $session->get('email'),
+            'role'   => $session->get('role')
+        ];
+
+        // Example: fetch teacher's classes (you can customize this)
+        $data['classes'] = []; // Replace with actual query if you have a classes table
+        $data['title'] = 'Teacher Dashboard';
         
-        return view('admin/dashboard', $data);
+        // Use the unified dashboard view
+        return view('auth/dashboard', $data);
     }
 }

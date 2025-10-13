@@ -19,23 +19,25 @@ $routes->post('register', 'Auth::register');
 $routes->get('login', 'Auth::login');
 $routes->post('login', 'Auth::login');
 $routes->get('logout', 'Auth::logout');
-$routes->get('dashboard', 'Auth::dashboard');
 
-// Student Dashboard
-$routes->get('student/dashboard', 'Student::dashboard'); 
+// Fallback generic dashboard route (redirects to role-specific)
+$routes->get('dashboard', 'Auth::dashboardRedirect');
 
-// Course Routes
-$routes->get('courses', 'Course::index');          // show all courses
-$routes->get('course/view/(:num)', 'Course::view/$1'); 
-$routes->post('course/enroll', 'Course::enroll');  // handle enrollments
+// Role-specific Dashboard Routes
+$routes->get('student/dashboard', 'StudentController::dashboard');
+$routes->get('student/my-courses', 'StudentController::myCourses');  // ✅ NEW ROUTE
+$routes->get('teacher/dashboard', 'TeacherController::dashboard');
+$routes->get('admin/dashboard', 'AdminController::dashboard');
 
-// To make AJAX enroll work (since your JS uses 'student/enroll')
-$routes->post('student/enroll', 'Course::enroll');
+// Course Routes (Student)
+$routes->get('courses', 'Course::index');
+$routes->get('course/view/(:num)', 'Course::view/$1');
+$routes->post('course/enroll', 'StudentController::enroll');  // ✅ Fixed route
+$routes->post('student/enroll', 'StudentController::enroll');
 
 // Admin Routes
 $routes->group('admin', function($routes) {
     $routes->get('/', 'AdminController::dashboard');
-    $routes->get('dashboard', 'AdminController::dashboard');
     $routes->get('users', 'AdminController::index');
     $routes->get('users/create', 'AdminController::create');
     $routes->post('users/store', 'AdminController::store');
@@ -45,7 +47,7 @@ $routes->group('admin', function($routes) {
     $routes->get('logout', 'AdminController::logout');
 });
 
-// Optional shortcut route
+// Optional shortcut route for managing users
 $routes->get('users', 'AdminController::index');
 
 // Test route

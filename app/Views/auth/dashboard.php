@@ -41,6 +41,8 @@
         @media (min-width: 768px) { .dashboard-grid { grid-template-columns: 1fr 1fr; } .welcome-card { grid-column: 1 / -1; } }
         .enroll-btn { background:#8B5FBF;color:white;border:none;border-radius:5px;padding:6px 12px;cursor:pointer;transition:0.2s; }
         .enroll-btn:hover { background:#7A4FB0; }
+        .view-all-link { font-size: 12px; float: right; color: #8B5FBF; text-decoration: none; }
+        .view-all-link:hover { color: #7A4FB0; text-decoration: underline; }
     </style>
 </head>
 <body>
@@ -101,7 +103,7 @@
                         <?php foreach ($courses as $course): ?>
                             <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid #eee;">
                                 <div>
-                                    <strong><?= esc($course['course_name']) ?></strong><br>
+                                    <strong><?= esc($course['course_name']) ?></strong><br>  <!-- ✅ Fixed column name -->
                                     <small><?= esc($course['description'] ?? '') ?></small>
                                 </div>
                                 <button class="enroll-btn" data-id="<?= $course['id'] ?>">Enroll</button>
@@ -113,14 +115,24 @@
                     <?php endif; ?>
                 </div>
 
-                <!-- ✅ My Courses Section -->
+                <!-- ✅ My Courses Section with View All Link -->
                 <div class="role-card">
-                    <h5>My Courses</h5>
+                    <h5>My Courses 
+                        <a href="<?= base_url('student/my-courses') ?>" class="view-all-link">View All →</a>
+                    </h5>
                     <?php if (!empty($enrolled)): ?>
                         <ul>
-                            <?php foreach ($enrolled as $course): ?>
+                            <?php 
+                            $displayCount = 0;
+                            foreach ($enrolled as $course): 
+                                if ($displayCount >= 3) break; // Show only first 3 courses
+                                $displayCount++;
+                            ?>
                                 <li><?= esc($course['course_name']) ?></li>
                             <?php endforeach; ?>
+                            <?php if (count($enrolled) > 3): ?>
+                                <li><a href="<?= base_url('student/my-courses') ?>">... and <?= count($enrolled) - 3 ?> more</a></li>
+                            <?php endif; ?>
                         </ul>
                     <?php else: ?>
                         <p>You haven't enrolled in any courses yet.</p>
@@ -143,7 +155,7 @@
             let msgBox = $('#msg-' + courseId);
 
             $.ajax({
-                url: '<?= base_url('course/enroll') ?>', // ✅ updated to Course controller
+                url: '<?= base_url('student/enroll') ?>', // ✅ Fixed to point to StudentController
                 type: 'POST',
                 data: { course_id: courseId },
                 dataType: 'json',
@@ -152,6 +164,10 @@
                     if (response.status === 'success') {
                         button.prop('disabled', true).text('Enrolled');
                         msgBox.css('color', 'green');
+                        // Auto-refresh after 2 seconds to show course in "My Courses"
+                        setTimeout(function() {
+                            location.reload();
+                        }, 2000);
                     } else {
                         msgBox.css('color', 'red');
                     }

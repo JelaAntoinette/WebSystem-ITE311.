@@ -23,17 +23,39 @@ class AdminController extends BaseController
             $count_teacher = $this->db->table('users')->where('role', 'teacher')->countAllResults();
             $count_student = $this->db->table('users')->where('role', 'student')->countAllResults();
             
-            return view('admin/dashboard', [
+            // Get all users for admin view
+            $builder = $this->db->table('users');
+            $allUsers = $builder->get()->getResultArray();
+
+            // Prepare user data
+            $data = [
+                'user' => [
+                    'userID' => $this->session->get('userID'),
+                    'name'   => $this->session->get('name'),
+                    'email'  => $this->session->get('email'),
+                    'role'   => $this->session->get('role')
+                ],
                 'title' => 'Admin Dashboard',
                 'admin_count' => $count_admin,
                 'teacher_count' => $count_teacher,
-                'student_count' => $count_student
-            ]);
+                'student_count' => $count_student,
+                'allUsers' => $allUsers
+            ];
+
+            return view('auth/dashboard', $data);
         } catch (\Exception $e) {
-            return view('admin/dashboard', [
+            $data = [
+                'user' => [
+                    'userID' => $this->session->get('userID'),
+                    'name'   => $this->session->get('name'),
+                    'email'  => $this->session->get('email'),
+                    'role'   => $this->session->get('role')
+                ],
                 'title' => 'Admin Dashboard',
-                'error' => $e->getMessage()
-            ]);
+                'error' => $e->getMessage(),
+                'allUsers' => []
+            ];
+            return view('auth/dashboard', $data);
         }
     }
 
@@ -104,8 +126,6 @@ class AdminController extends BaseController
 
         return view('admin/manage_users', $data);
     }
-
-    // Dashboard method is already defined above
 
     public function store()
     {

@@ -13,42 +13,41 @@ class Auth extends BaseController
         $this->db = \Config\Database::connect();
     }
 
-   // Register (GET + POST)
-public function register()
-{
-    if ($this->request->getMethod() === 'POST') {
-        $name     = $this->request->getPost('name');
-        $email    = $this->request->getPost('email');
-        $password = $this->request->getPost('password');
-        $confirm  = $this->request->getPost('password_confirm');
+    // Register (GET + POST)
+    public function register()
+    {
+        if ($this->request->getMethod() === 'POST') {
+            $name     = $this->request->getPost('name');
+            $email    = $this->request->getPost('email');
+            $password = $this->request->getPost('password');
+            $confirm  = $this->request->getPost('password_confirm');
 
-        if ($password !== $confirm) {
-            $this->session->setFlashdata('error', 'Passwords do not match.');
-            return redirect()->back()->withInput();
+            if ($password !== $confirm) {
+                $this->session->setFlashdata('error', 'Passwords do not match.');
+                return redirect()->back()->withInput();
+            }
+
+            $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
+            $builder = $this->db->table('users');
+            $userData = [
+                'name'       => $name,
+                'email'      => $email,
+                'password'   => $hashedPassword,
+                'role'       => 'student', // default role
+                'created_at' => date('Y-m-d H:i:s')
+            ];
+
+            if ($builder->insert($userData)) {
+                $this->session->setFlashdata('success', 'Registration successful! Please login.');
+                return redirect()->to(base_url('login'));
+            } else {
+                $this->session->setFlashdata('error', 'Registration failed.');
+            }
         }
 
-        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-
-        $builder = $this->db->table('users');
-        $userData = [
-            'name'       => $name,
-            'email'      => $email,
-            'password'   => $hashedPassword,
-            'role'       => 'student', // ✅ default role
-            'created_at' => date('Y-m-d H:i:s')
-        ];
-
-        if ($builder->insert($userData)) {
-            $this->session->setFlashdata('success', 'Registration successful! Please login.');
-            return redirect()->to(base_url('login'));
-        } else {
-            $this->session->setFlashdata('error', 'Registration failed.');
-        }
+        return view('auth/register');
     }
-
-    return view('auth/register');
-}
-
 
     // Login (GET + POST)
     public function login()
@@ -66,7 +65,7 @@ public function register()
                     'role'       => 'admin',
                     'isLoggedIn' => true
                 ]);
-                return redirect()->to(base_url('dashboard'));
+                return redirect()->to(base_url('admin/dashboard'));
             }
 
             // Check DB
@@ -85,8 +84,15 @@ public function register()
                     'isLoggedIn' => true
                 ]);
                 
-                // Redirect ALL users to the unified dashboard
-                return redirect()->to(base_url('dashboard'));
+                // Redirect based on role
+                $role = $user['role'];
+                if ($role === 'admin') {
+                    return redirect()->to(base_url('admin/dashboard'));
+                } elseif ($role === 'teacher') {
+                    return redirect()->to(base_url('teacher/dashboard'));
+                } else { // student
+                    return redirect()->to(base_url('student/dashboard'));
+                }
             } else {
                 $this->session->setFlashdata('error', 'Invalid login credentials.');
             }
@@ -102,35 +108,21 @@ public function register()
         return redirect()->to(base_url('login'));
     }
 
-    // Dashboard
-    public function dashboard()
+    // Fallback dashboard redirect
+    public function dashboardRedirect()
     {
         if (!$this->session->get('isLoggedIn')) {
             return redirect()->to(base_url('login'));
         }
 
         $role = $this->session->get('role');
-        $data = [
-            'user' => [
-                'userID' => $this->session->get('userID'),
-                'name'   => $this->session->get('name'),
-                'email'  => $this->session->get('email'),
-                'role'   => $role
-            ],
-            'title' => 'Dashboard'
-        ];
-
-        // Role-specific data example
+        
         if ($role === 'admin') {
-            $builder = $this->db->table('users');
-            $data['allUsers'] = $builder->get()->getResultArray();
+            return redirect()->to(base_url('admin/dashboard'));
         } elseif ($role === 'teacher') {
-            // Example: fetch teacher's classes
-            $data['classes'] = []; // replace with actual query
-        } else { // student
-            $data['courses'] = []; // replace with actual query
+            return redirect()->to(base_url('teacher/dashboard'));
+        } else {
+            return redirect()->to(base_url('student/dashboard'));
         }
-
-        return view('auth/dashboard', $data);
     }
 }

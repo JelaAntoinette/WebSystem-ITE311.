@@ -29,6 +29,13 @@ class CreateEnrollmentsTable extends Migration
                 'type' => 'DATETIME',
                 'null' => false,
             ],
+            // ✅ ADD THIS STATUS COLUMN HERE
+            'status' => [
+                'type' => 'VARCHAR',
+                'constraint' => 20,
+                'default' => 'active',
+                'null' => false,
+            ],
         ]);
 
         $this->forge->addKey('id', true);

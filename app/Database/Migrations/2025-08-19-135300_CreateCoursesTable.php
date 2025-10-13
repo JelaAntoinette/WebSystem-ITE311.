@@ -15,7 +15,7 @@ class CreateCoursesTable extends Migration
                 'unsigned'       => true,
                 'auto_increment' => true,
             ],
-            'name' => [
+            'course_name' => [
                 'type'       => 'VARCHAR',
                 'constraint' => 100,
                 'null'       => false,
