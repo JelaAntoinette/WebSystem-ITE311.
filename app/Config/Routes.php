@@ -6,7 +6,7 @@ use CodeIgniter\Router\RouteCollection;
  * @var RouteCollection $routes
  */
 
-// Default route - redirects to homepage
+// Default route
 $routes->get('/', 'Home::index');
 
 // Main application routes
@@ -14,27 +14,28 @@ $routes->get('about', 'Home::about');
 $routes->get('contact', 'Home::contact');
 
 // Authentication Routes
-$routes->get('register', 'Auth::register');   // Show registration form
-$routes->post('register', 'Auth::register');  // Process registration
-$routes->get('login', 'Auth::login');         // Show login form
-$routes->post('login', 'Auth::login');        // Process login
-$routes->get('logout', 'Auth::logout');       // Logout user
-$routes->get('dashboard', 'Auth::dashboard'); // User dashboard
+$routes->get('register', 'Auth::register');
+$routes->post('register', 'Auth::register');
+$routes->get('login', 'Auth::login');
+$routes->post('login', 'Auth::login');
+$routes->get('logout', 'Auth::logout');
+$routes->get('dashboard', 'Auth::dashboard');
 
-// Course enrollment
-$routes->post('course/enroll', 'Course::enroll');
-$routes->get('student/dashboard', 'Student::dashboard');
+// Student Dashboard
+$routes->get('student/dashboard', 'Student::dashboard'); 
 
-// COURSE ROUTES
-$routes->get('courses', 'Course::index');
-$routes->get('course/view/(:num)', 'Course::view/$1');
-$routes->post('course/enroll', 'Course::enroll');
+// Course Routes
+$routes->get('courses', 'Course::index');          // show all courses
+$routes->get('course/view/(:num)', 'Course::view/$1'); 
+$routes->post('course/enroll', 'Course::enroll');  // handle enrollments
 
+// To make AJAX enroll work (since your JS uses 'student/enroll')
+$routes->post('student/enroll', 'Course::enroll');
 
-// Admin routes
+// Admin Routes
 $routes->group('admin', function($routes) {
-    $routes->get('/', 'AdminController::dashboard');  // Admin dashboard
-    $routes->get('dashboard', 'AdminController::dashboard');  // Alternative dashboard route
+    $routes->get('/', 'AdminController::dashboard');
+    $routes->get('dashboard', 'AdminController::dashboard');
     $routes->get('users', 'AdminController::index');
     $routes->get('users/create', 'AdminController::create');
     $routes->post('users/store', 'AdminController::store');

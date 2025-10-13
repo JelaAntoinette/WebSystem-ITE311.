@@ -1,0 +1,162 @@
+DEBUG - 2025-10-13 10:35:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-13 10:35:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-13 10:36:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-13 10:36:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-13 10:36:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-13 10:36:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-10-13 10:36:27 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "student_dashboard.php"
+[Method: GET, Route: courses]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('student_dashboard.php')
+ 2 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('student_dashboard', [], true)
+ 3 APPPATH\Controllers\Course.php(15): view('student_dashboard', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Course->index()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-10-13 10:56:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-13 10:56:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-13 10:56:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-13 10:57:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-13 10:57:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-10-13 11:05:16 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "student_dashboard.php"
+[Method: GET, Route: courses]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('student_dashboard.php')
+ 2 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('student_dashboard', [], true)
+ 3 APPPATH\Controllers\Course.php(15): view('student_dashboard', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Course->index()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-10-13 11:13:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-10-13 12:56:27 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "student_dashboard.php"
+[Method: GET, Route: courses]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('student_dashboard.php')
+ 2 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('student_dashboard', [], true)
+ 3 APPPATH\Controllers\Course.php(15): view('student_dashboard', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Course->index()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-13 12:56:27 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "student_dashboard.php"
+[Method: GET, Route: courses]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('student_dashboard.php')
+ 2 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('student_dashboard', [], true)
+ 3 APPPATH\Controllers\Course.php(15): view('student_dashboard', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Course->index()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-13 13:02:15 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "student_dashboard.php"
+[Method: GET, Route: courses]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('student_dashboard.php')
+ 2 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('student_dashboard', [], true)
+ 3 APPPATH\Controllers\Course.php(15): view('student_dashboard', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Course->index()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-13 13:02:15 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "student_dashboard.php"
+[Method: GET, Route: courses]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('student_dashboard.php')
+ 2 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('student_dashboard', [], true)
+ 3 APPPATH\Controllers\Course.php(15): view('student_dashboard', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Course->index()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-13 13:02:16 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "student_dashboard.php"
+[Method: GET, Route: courses]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('student_dashboard.php')
+ 2 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('student_dashboard', [], true)
+ 3 APPPATH\Controllers\Course.php(15): view('student_dashboard', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Course->index()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-10-13 13:08:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-13 13:08:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-13 13:08:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-13 13:08:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-10-13 13:08:10 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "student_dashboard.php"
+[Method: GET, Route: courses]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('student_dashboard.php')
+ 2 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('student_dashboard', [], true)
+ 3 APPPATH\Controllers\Course.php(15): view('student_dashboard', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Course->index()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-13 13:12:48 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "student_dashboard.php"
+[Method: GET, Route: courses]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('student_dashboard.php')
+ 2 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('student_dashboard', [], true)
+ 3 APPPATH\Controllers\Course.php(15): view('student_dashboard', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Course->index()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-13 13:12:48 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "student_dashboard.php"
+[Method: GET, Route: courses]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('student_dashboard.php')
+ 2 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('student_dashboard', [], true)
+ 3 APPPATH\Controllers\Course.php(15): view('student_dashboard', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Course->index()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-13 13:12:49 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "student_dashboard.php"
+[Method: GET, Route: courses]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('student_dashboard.php')
+ 2 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('student_dashboard', [], true)
+ 3 APPPATH\Controllers\Course.php(15): view('student_dashboard', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Course->index()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-10-13 13:13:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-10-13 13:14:25 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "student_dashboard.php"
+[Method: GET, Route: courses]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('student_dashboard.php')
+ 2 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('student_dashboard', [], true)
+ 3 APPPATH\Controllers\Course.php(15): view('student_dashboard', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Course->index()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-10-13 13:14:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
