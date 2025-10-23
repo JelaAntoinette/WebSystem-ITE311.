@@ -1,0 +1,46 @@
+DEBUG - 2025-10-14 03:03:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-14 03:03:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-14 03:03:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-14 03:03:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-14 03:03:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-14 03:03:54 --> Current User ID from session: 5
+DEBUG - 2025-10-14 03:03:54 --> Session data: {"__ci_last_regenerate":1760411023,"_ci_previous_url":"http:\/\/localhost\/ITE311-JEMINEZ\/student\/dashboard","userID":"5","name":"Jela Jeminez","email":"jelajeminez8@gmail.com","role":"student","isLoggedIn":true}
+DEBUG - 2025-10-14 03:03:54 --> All enrollments for user: [{"id":"1","user_id":"5","course_id":"2","enrollment_date":"2025-10-13 16:04:11","status":"active"},{"id":"2","user_id":"5","course_id":"1","enrollment_date":"2025-10-13 16:16:41","status":"active"},{"id":"3","user_id":"5","course_id":"3","enrollment_date":"2025-10-13 16:26:33","status":"active"}]
+DEBUG - 2025-10-14 03:03:54 --> User data from database: [{"id":"5","name":"Jela Jeminez","email":"jelajeminez8@gmail.com","password":"$2y$10$mIfpjpwXxy3DZTC55tFxqOzGmEZ7mQL\/qROA0lJu2eNAcCECFdc.C","role":"student","created_at":"2025-10-13 16:03:55","updated_at":null}]
+ERROR - 2025-10-14 03:03:54 --> mysqli_sql_exception: Unknown column 'c.name' in 'field list' in C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\MySQLi\Connection.php(327): mysqli->query('\r\n             ...', 0)
+#1 C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('\r\n             ...')
+#2 C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('\r\n             ...')
+#3 C:\xampp\htdocs\ITE311-JEMINEZ\app\Controllers\Course.php(38): CodeIgniter\Database\BaseConnection->query('\r\n             ...', Array)
+#4 C:\xampp\htdocs\ITE311-JEMINEZ\system\CodeIgniter.php(933): App\Controllers\Course->index()
+#5 C:\xampp\htdocs\ITE311-JEMINEZ\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+#6 C:\xampp\htdocs\ITE311-JEMINEZ\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\ITE311-JEMINEZ\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#8 C:\xampp\htdocs\ITE311-JEMINEZ\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#9 C:\xampp\htdocs\ITE311-JEMINEZ\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#10 {main}
+ERROR - 2025-10-14 03:03:54 --> Database error in Course controller: Unknown column 'c.name' in 'field list'
+DEBUG - 2025-10-14 03:04:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-14 03:15:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-14 03:15:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-14 03:17:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-14 03:17:13 --> Current User ID from session: 5
+DEBUG - 2025-10-14 03:17:13 --> Session data: {"__ci_last_regenerate":1760411712,"_ci_previous_url":"http:\/\/localhost\/ITE311-JEMINEZ\/student\/dashboard","userID":"5","name":"Jela Jeminez","email":"jelajeminez8@gmail.com","role":"student","isLoggedIn":true}
+DEBUG - 2025-10-14 03:17:13 --> All enrollments for user: [{"id":"1","user_id":"5","course_id":"2","enrollment_date":"2025-10-13 16:04:11","status":"active"},{"id":"2","user_id":"5","course_id":"1","enrollment_date":"2025-10-13 16:16:41","status":"active"},{"id":"3","user_id":"5","course_id":"3","enrollment_date":"2025-10-13 16:26:33","status":"active"}]
+DEBUG - 2025-10-14 03:17:13 --> User data from database: [{"id":"5","name":"Jela Jeminez","email":"jelajeminez8@gmail.com","password":"$2y$10$mIfpjpwXxy3DZTC55tFxqOzGmEZ7mQL\/qROA0lJu2eNAcCECFdc.C","role":"student","created_at":"2025-10-13 16:03:55","updated_at":null}]
+ERROR - 2025-10-14 03:17:13 --> mysqli_sql_exception: Unknown column 'c.name' in 'field list' in C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\MySQLi\Connection.php(327): mysqli->query('\r\n             ...', 0)
+#1 C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('\r\n             ...')
+#2 C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('\r\n             ...')
+#3 C:\xampp\htdocs\ITE311-JEMINEZ\app\Controllers\Course.php(38): CodeIgniter\Database\BaseConnection->query('\r\n             ...', Array)
+#4 C:\xampp\htdocs\ITE311-JEMINEZ\system\CodeIgniter.php(933): App\Controllers\Course->index()
+#5 C:\xampp\htdocs\ITE311-JEMINEZ\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+#6 C:\xampp\htdocs\ITE311-JEMINEZ\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\ITE311-JEMINEZ\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#8 C:\xampp\htdocs\ITE311-JEMINEZ\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#9 C:\xampp\htdocs\ITE311-JEMINEZ\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#10 {main}
+ERROR - 2025-10-14 03:17:13 --> Database error in Course controller: Unknown column 'c.name' in 'field list'
+DEBUG - 2025-10-14 03:18:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

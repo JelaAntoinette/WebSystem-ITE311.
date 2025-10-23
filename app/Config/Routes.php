@@ -35,6 +35,20 @@ $routes->get('course/view/(:num)', 'Course::view/$1');
 $routes->post('course/enroll', 'StudentController::enroll');  // ✅ Fixed route
 $routes->post('student/enroll', 'StudentController::enroll');
 
+//announcement route
+$routes->get('/announcements', 'Announcement::index');
+
+// Material Management Routes
+$routes->get('/admin/course/(:num)/upload', 'Materials::upload/$1');
+$routes->post('/admin/course/(:num)/upload', 'Materials::upload/$1');
+
+$routes->get('/materials/delete/(:num)', 'Materials::delete/$1');
+$routes->get('/materials/download/(:num)', 'Materials::download/$1');
+
+// Optional: For student view
+$routes->get('/materials/course/(:num)', 'Materials::viewCourseMaterials/$1');
+
+
 // Admin Routes
 $routes->group('admin', function($routes) {
     $routes->get('/', 'AdminController::dashboard');
@@ -52,3 +66,10 @@ $routes->get('users', 'AdminController::index');
 
 // Test route
 $routes->get('test-db', 'TestController::testDb');
+
+
+//Lab seben
+$routes->get('/admin/course/(:num)/upload', 'Materials::upload/$1');
+$routes->post('/admin/course/(:num)/upload', 'Materials::upload/$1');
+$routes->get('/materials/delete/(:num)', 'Materials::delete/$1');
+$routes->get('/materials/download/(:num)', 'Materials::download/$1');

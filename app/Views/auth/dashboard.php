@@ -85,15 +85,27 @@
                     </ul>
                 </div>
 
-            <?php elseif ($user['role'] === 'teacher' && isset($classes)): ?>
-                <div class="role-card">
-                    <h5>My Classes</h5>
-                    <ul>
-                        <?php foreach($classes as $c): ?>
-                            <li><?= esc($c['class_name']) ?></li>
+           <?php elseif ($user['role'] === 'teacher' && isset($user['courses'])): ?>
+            <div class="role-card">
+                <h5>Classes</h5>
+                <ul>
+                    <?php if (!empty($user['courses'])): ?>
+                        <?php foreach ($user['courses'] as $course): ?>
+                            <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid #eee;">
+                                <div>
+                                    <strong><?= esc($course['course_name']) ?></strong><br>
+                                    <small><?= esc($course['description'] ?? '') ?></small>
+                                </div>
+                                <a href="<?= base_url('/admin/course/' . $course['id'] . '/upload') ?>" class="enroll-btn">Upload Materials</a>
+                            </div>
                         <?php endforeach; ?>
-                    </ul>
-                </div>
+                    <?php else: ?>
+                        <p>No available courses.</p>
+                    <?php endif; ?>
+                </ul>
+            </div>
+
+
 
             <?php elseif ($user['role'] === 'student'): ?>
                 <!-- ✅ Available Courses Section -->

@@ -1,0 +1,369 @@
+DEBUG - 2025-10-23 07:01:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-23 07:01:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-23 07:02:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-23 07:03:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-23 07:21:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-23 07:22:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-23 07:22:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-23 07:22:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-23 07:22:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-23 07:22:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-23 07:22:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-23 07:22:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-23 07:23:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-23 07:23:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-23 07:24:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-23 07:24:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-23 07:24:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-23 07:24:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-23 07:27:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-23 07:27:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-23 07:32:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-10-23 07:32:20 --> ErrorException: Undefined variable $courses
+[Method: GET, Route: teacher/dashboard]
+in APPPATH\Views\auth\dashboard.php on line 92.
+ 1 APPPATH\Views\auth\dashboard.php(92): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $courses', 'C:\\xampp\\htdocs\\ITE311-JEMINEZ\\app\\Views\\auth\\dashboard.php', 92)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\ITE311-JEMINEZ\\app\\Views\\auth\\dashboard.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('auth/dashboard', [], true)
+ 5 APPPATH\Controllers\TeacherController.php(28): view('auth/dashboard', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\TeacherController->dashboard()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TeacherController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-10-23 07:32:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-10-23 07:32:42 --> ErrorException: Undefined variable $course
+[Method: GET, Route: teacher/dashboard]
+in APPPATH\Views\auth\dashboard.php on line 92.
+ 1 APPPATH\Views\auth\dashboard.php(92): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $course', 'C:\\xampp\\htdocs\\ITE311-JEMINEZ\\app\\Views\\auth\\dashboard.php', 92)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\ITE311-JEMINEZ\\app\\Views\\auth\\dashboard.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('auth/dashboard', [], true)
+ 5 APPPATH\Controllers\TeacherController.php(28): view('auth/dashboard', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\TeacherController->dashboard()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TeacherController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-10-23 07:33:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-10-23 07:33:41 --> ErrorException: Undefined variable $courses
+[Method: GET, Route: teacher/dashboard]
+in APPPATH\Views\auth\dashboard.php on line 92.
+ 1 APPPATH\Views\auth\dashboard.php(92): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $courses', 'C:\\xampp\\htdocs\\ITE311-JEMINEZ\\app\\Views\\auth\\dashboard.php', 92)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\ITE311-JEMINEZ\\app\\Views\\auth\\dashboard.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('auth/dashboard', [], true)
+ 5 APPPATH\Controllers\TeacherController.php(28): view('auth/dashboard', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\TeacherController->dashboard()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TeacherController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-10-23 07:34:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-23 07:34:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-23 07:34:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-23 07:34:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-23 07:35:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-23 07:35:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-23 07:41:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-23 07:41:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-23 07:41:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-23 07:41:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-23 07:43:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-23 07:43:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-23 07:45:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-23 07:46:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-23 07:47:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-23 07:47:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-10-23 07:47:50 --> mysqli_sql_exception: Column 'course_id' cannot be null in C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\MySQLi\Connection.php(327): mysqli->query('INSERT INTO `en...', 0)
+#1 C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `en...')
+#2 C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `en...')
+#3 C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `en...', Array, false)
+#4 C:\xampp\htdocs\ITE311-JEMINEZ\app\Controllers\StudentController.php(131): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 C:\xampp\htdocs\ITE311-JEMINEZ\system\CodeIgniter.php(933): App\Controllers\StudentController->enroll()
+#6 C:\xampp\htdocs\ITE311-JEMINEZ\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\StudentController))
+#7 C:\xampp\htdocs\ITE311-JEMINEZ\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\ITE311-JEMINEZ\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\ITE311-JEMINEZ\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp\htdocs\ITE311-JEMINEZ\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+DEBUG - 2025-10-23 07:50:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-23 07:50:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-23 07:50:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-10-23 07:50:58 --> mysqli_sql_exception: Column 'course_id' cannot be null in C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\MySQLi\Connection.php(327): mysqli->query('INSERT INTO `en...', 0)
+#1 C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `en...')
+#2 C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `en...')
+#3 C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `en...', Array, false)
+#4 C:\xampp\htdocs\ITE311-JEMINEZ\app\Controllers\StudentController.php(131): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 C:\xampp\htdocs\ITE311-JEMINEZ\system\CodeIgniter.php(933): App\Controllers\StudentController->enroll()
+#6 C:\xampp\htdocs\ITE311-JEMINEZ\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\StudentController))
+#7 C:\xampp\htdocs\ITE311-JEMINEZ\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\ITE311-JEMINEZ\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\ITE311-JEMINEZ\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp\htdocs\ITE311-JEMINEZ\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+DEBUG - 2025-10-23 07:51:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-23 07:51:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-10-23 07:51:35 --> mysqli_sql_exception: Column 'course_id' cannot be null in C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\MySQLi\Connection.php(327): mysqli->query('INSERT INTO `en...', 0)
+#1 C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `en...')
+#2 C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `en...')
+#3 C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `en...', Array, false)
+#4 C:\xampp\htdocs\ITE311-JEMINEZ\app\Controllers\StudentController.php(131): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 C:\xampp\htdocs\ITE311-JEMINEZ\system\CodeIgniter.php(933): App\Controllers\StudentController->enroll()
+#6 C:\xampp\htdocs\ITE311-JEMINEZ\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\StudentController))
+#7 C:\xampp\htdocs\ITE311-JEMINEZ\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\ITE311-JEMINEZ\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\ITE311-JEMINEZ\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp\htdocs\ITE311-JEMINEZ\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+DEBUG - 2025-10-23 07:51:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-23 07:51:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-23 07:52:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-23 07:52:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-10-23 07:52:25 --> ErrorException: Undefined variable $user
+[Method: GET, Route: admin/course/2/upload]
+in APPPATH\Views\templates\header.php on line 12.
+ 1 APPPATH\Views\templates\header.php(12): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $user', 'C:\\xampp\\htdocs\\ITE311-JEMINEZ\\app\\Views\\templates\\header.php', 12)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\ITE311-JEMINEZ\\app\\Views\\templates\\header.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('templates/header', [], true)
+ 5 APPPATH\Controllers\Materials.php(58): view('templates/header')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Materials->upload('2')
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Materials))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-10-23 07:52:25 --> mysqli_sql_exception: Column 'course_id' cannot be null in C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\MySQLi\Connection.php(327): mysqli->query('INSERT INTO `en...', 0)
+#1 C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `en...')
+#2 C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `en...')
+#3 C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `en...', Array, false)
+#4 C:\xampp\htdocs\ITE311-JEMINEZ\app\Controllers\StudentController.php(131): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 C:\xampp\htdocs\ITE311-JEMINEZ\system\CodeIgniter.php(933): App\Controllers\StudentController->enroll()
+#6 C:\xampp\htdocs\ITE311-JEMINEZ\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\StudentController))
+#7 C:\xampp\htdocs\ITE311-JEMINEZ\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\ITE311-JEMINEZ\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\ITE311-JEMINEZ\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp\htdocs\ITE311-JEMINEZ\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+CRITICAL - 2025-10-23 07:53:08 --> ErrorException: Undefined property: App\Controllers\Materials::$session
+[Method: GET, Route: admin/course/2/upload]
+in APPPATH\Controllers\Materials.php on line 58.
+ 1 APPPATH\Controllers\Materials.php(58): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\Materials::$session', 'C:\\xampp\\htdocs\\ITE311-JEMINEZ\\app\\Controllers\\Materials.php', 58)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Materials->upload('2')
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Materials))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-10-23 07:53:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-23 07:53:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-10-23 07:53:12 --> ErrorException: Undefined property: App\Controllers\Materials::$session
+[Method: GET, Route: admin/course/2/upload]
+in APPPATH\Controllers\Materials.php on line 58.
+ 1 APPPATH\Controllers\Materials.php(58): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\Materials::$session', 'C:\\xampp\\htdocs\\ITE311-JEMINEZ\\app\\Controllers\\Materials.php', 58)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Materials->upload('2')
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Materials))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-10-23 07:53:12 --> mysqli_sql_exception: Column 'course_id' cannot be null in C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\MySQLi\Connection.php(327): mysqli->query('INSERT INTO `en...', 0)
+#1 C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `en...')
+#2 C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `en...')
+#3 C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `en...', Array, false)
+#4 C:\xampp\htdocs\ITE311-JEMINEZ\app\Controllers\StudentController.php(131): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 C:\xampp\htdocs\ITE311-JEMINEZ\system\CodeIgniter.php(933): App\Controllers\StudentController->enroll()
+#6 C:\xampp\htdocs\ITE311-JEMINEZ\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\StudentController))
+#7 C:\xampp\htdocs\ITE311-JEMINEZ\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\ITE311-JEMINEZ\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\ITE311-JEMINEZ\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp\htdocs\ITE311-JEMINEZ\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+DEBUG - 2025-10-23 07:54:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-10-23 07:54:16 --> Error: Object of class CodeIgniter\Session\Session could not be converted to string
+[Method: GET, Route: admin/course/2/upload]
+in APPPATH\Controllers\Materials.php on line 58.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Materials->upload('2')
+ 2 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Materials))
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-10-23 07:54:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-23 07:54:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-10-23 07:54:20 --> mysqli_sql_exception: Column 'course_id' cannot be null in C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\MySQLi\Connection.php(327): mysqli->query('INSERT INTO `en...', 0)
+#1 C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `en...')
+#2 C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `en...')
+#3 C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `en...', Array, false)
+#4 C:\xampp\htdocs\ITE311-JEMINEZ\app\Controllers\StudentController.php(131): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 C:\xampp\htdocs\ITE311-JEMINEZ\system\CodeIgniter.php(933): App\Controllers\StudentController->enroll()
+#6 C:\xampp\htdocs\ITE311-JEMINEZ\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\StudentController))
+#7 C:\xampp\htdocs\ITE311-JEMINEZ\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\ITE311-JEMINEZ\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\ITE311-JEMINEZ\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp\htdocs\ITE311-JEMINEZ\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+DEBUG - 2025-10-23 07:54:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-10-23 07:54:20 --> Error: Object of class CodeIgniter\Session\Session could not be converted to string
+[Method: GET, Route: admin/course/2/upload]
+in APPPATH\Controllers\Materials.php on line 58.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Materials->upload('2')
+ 2 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Materials))
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-10-23 07:58:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-10-23 07:58:24 --> ErrorException: Trying to access array offset on value of type null
+[Method: GET, Route: admin/course/2/upload]
+in APPPATH\Views\templates\header.php on line 12.
+ 1 APPPATH\Views\templates\header.php(12): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\xampp\\htdocs\\ITE311-JEMINEZ\\app\\Views\\templates\\header.php', 12)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\ITE311-JEMINEZ\\app\\Views\\templates\\header.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('templates/header', [], true)
+ 5 APPPATH\Controllers\Materials.php(57): view('templates/header', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Materials->upload('2')
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Materials))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-10-23 07:58:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-23 07:58:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-10-23 07:58:27 --> mysqli_sql_exception: Column 'course_id' cannot be null in C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\MySQLi\Connection.php(327): mysqli->query('INSERT INTO `en...', 0)
+#1 C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `en...')
+#2 C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `en...')
+#3 C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `en...', Array, false)
+#4 C:\xampp\htdocs\ITE311-JEMINEZ\app\Controllers\StudentController.php(131): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 C:\xampp\htdocs\ITE311-JEMINEZ\system\CodeIgniter.php(933): App\Controllers\StudentController->enroll()
+#6 C:\xampp\htdocs\ITE311-JEMINEZ\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\StudentController))
+#7 C:\xampp\htdocs\ITE311-JEMINEZ\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\ITE311-JEMINEZ\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\ITE311-JEMINEZ\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp\htdocs\ITE311-JEMINEZ\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+DEBUG - 2025-10-23 07:58:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-10-23 07:58:27 --> ErrorException: Trying to access array offset on value of type null
+[Method: GET, Route: admin/course/2/upload]
+in APPPATH\Views\templates\header.php on line 12.
+ 1 APPPATH\Views\templates\header.php(12): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\xampp\\htdocs\\ITE311-JEMINEZ\\app\\Views\\templates\\header.php', 12)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\ITE311-JEMINEZ\\app\\Views\\templates\\header.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('templates/header', [], true)
+ 5 APPPATH\Controllers\Materials.php(57): view('templates/header', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Materials->upload('2')
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Materials))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-10-23 07:58:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-10-23 07:58:44 --> TypeError: Cannot access offset of type string on string
+[Method: GET, Route: admin/course/2/upload]
+in APPPATH\Views\templates\header.php on line 12.
+ 1 SYSTEMPATH\View\View.php(226): include()
+ 2 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('templates/header', [], true)
+ 4 APPPATH\Controllers\Materials.php(57): view('templates/header', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Materials->upload('2')
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Materials))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-10-23 07:58:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-23 07:59:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-10-23 07:59:00 --> mysqli_sql_exception: Column 'course_id' cannot be null in C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\MySQLi\Connection.php(327): mysqli->query('INSERT INTO `en...', 0)
+#1 C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `en...')
+#2 C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `en...')
+#3 C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `en...', Array, false)
+#4 C:\xampp\htdocs\ITE311-JEMINEZ\app\Controllers\StudentController.php(131): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 C:\xampp\htdocs\ITE311-JEMINEZ\system\CodeIgniter.php(933): App\Controllers\StudentController->enroll()
+#6 C:\xampp\htdocs\ITE311-JEMINEZ\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\StudentController))
+#7 C:\xampp\htdocs\ITE311-JEMINEZ\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\ITE311-JEMINEZ\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\ITE311-JEMINEZ\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp\htdocs\ITE311-JEMINEZ\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+DEBUG - 2025-10-23 07:59:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-23 17:19:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-23 17:19:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-23 17:19:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-23 17:19:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-23 17:19:56 --> Current User ID from session: 5
+DEBUG - 2025-10-23 17:19:56 --> Session data: {"__ci_last_regenerate":1761239982,"_ci_previous_url":"http:\/\/localhost\/ITE311-JEMINEZ\/student\/dashboard","userID":"5","name":"Jela Jeminez","email":"jelajeminez8@gmail.com","role":"student","isLoggedIn":true}
+DEBUG - 2025-10-23 17:19:56 --> All enrollments for user: [{"id":"1","user_id":"5","course_id":"2","enrollment_date":"2025-10-13 16:04:11","status":"active"},{"id":"2","user_id":"5","course_id":"1","enrollment_date":"2025-10-13 16:16:41","status":"active"},{"id":"3","user_id":"5","course_id":"3","enrollment_date":"2025-10-13 16:26:33","status":"active"}]
+DEBUG - 2025-10-23 17:19:56 --> User data from database: [{"id":"5","name":"Jela Jeminez","email":"jelajeminez8@gmail.com","password":"$2y$10$mIfpjpwXxy3DZTC55tFxqOzGmEZ7mQL\/qROA0lJu2eNAcCECFdc.C","role":"student","created_at":"2025-10-13 16:03:55","updated_at":null}]
+ERROR - 2025-10-23 17:19:56 --> mysqli_sql_exception: Unknown column 'c.name' in 'field list' in C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\MySQLi\Connection.php(327): mysqli->query('\r\n             ...', 0)
+#1 C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('\r\n             ...')
+#2 C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('\r\n             ...')
+#3 C:\xampp\htdocs\ITE311-JEMINEZ\app\Controllers\Course.php(38): CodeIgniter\Database\BaseConnection->query('\r\n             ...', Array)
+#4 C:\xampp\htdocs\ITE311-JEMINEZ\system\CodeIgniter.php(933): App\Controllers\Course->index()
+#5 C:\xampp\htdocs\ITE311-JEMINEZ\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+#6 C:\xampp\htdocs\ITE311-JEMINEZ\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\ITE311-JEMINEZ\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#8 C:\xampp\htdocs\ITE311-JEMINEZ\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#9 C:\xampp\htdocs\ITE311-JEMINEZ\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#10 {main}
+ERROR - 2025-10-23 17:19:56 --> Database error in Course controller: Unknown column 'c.name' in 'field list'
+DEBUG - 2025-10-23 17:20:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-23 17:21:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-23 17:21:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-23 17:22:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-23 17:22:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-23 17:22:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-10-23 17:22:18 --> [DEPRECATED] strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in APPPATH\Views\admin\manage_users.php on line 643.
+ 1 APPPATH\Views\admin\manage_users.php(643): strtotime(null)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\ITE311-JEMINEZ\\app\\Views\\admin\\manage_users.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('admin/manage_users', [], true)
+ 5 APPPATH\Controllers\AdminController.php(127): view('admin/manage_users', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\AdminController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-10-23 17:23:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-23 17:23:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-23 17:23:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-23 17:23:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-23 17:23:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-10-23 17:23:46 --> mysqli_sql_exception: Column 'course_id' cannot be null in C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\MySQLi\Connection.php(327): mysqli->query('INSERT INTO `en...', 0)
+#1 C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `en...')
+#2 C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `en...')
+#3 C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `en...', Array, false)
+#4 C:\xampp\htdocs\ITE311-JEMINEZ\app\Controllers\StudentController.php(131): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 C:\xampp\htdocs\ITE311-JEMINEZ\system\CodeIgniter.php(933): App\Controllers\StudentController->enroll()
+#6 C:\xampp\htdocs\ITE311-JEMINEZ\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\StudentController))
+#7 C:\xampp\htdocs\ITE311-JEMINEZ\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\ITE311-JEMINEZ\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\ITE311-JEMINEZ\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp\htdocs\ITE311-JEMINEZ\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+DEBUG - 2025-10-23 17:23:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

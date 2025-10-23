@@ -1,0 +1,82 @@
+DEBUG - 2025-10-15 10:27:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-15 10:27:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-15 10:28:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-15 10:28:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-15 10:28:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-10-15 10:28:11 --> [DEPRECATED] strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in APPPATH\Views\admin\manage_users.php on line 643.
+ 1 APPPATH\Views\admin\manage_users.php(643): strtotime(null)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\ITE311-JEMINEZ\\app\\Views\\admin\\manage_users.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('admin/manage_users', [], true)
+ 5 APPPATH\Controllers\AdminController.php(127): view('admin/manage_users', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\AdminController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-10-15 10:28:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-15 10:28:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-15 10:28:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-15 10:28:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-15 10:28:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-15 10:28:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-15 10:28:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-15 10:28:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-15 10:28:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-15 10:28:56 --> Current User ID from session: 5
+DEBUG - 2025-10-15 10:28:56 --> Session data: {"__ci_last_regenerate":1760524114,"_ci_previous_url":"http:\/\/localhost\/ITE311-JEMINEZ\/student\/dashboard","userID":"5","name":"Jela Jeminez","email":"jelajeminez8@gmail.com","role":"student","isLoggedIn":true}
+DEBUG - 2025-10-15 10:28:56 --> All enrollments for user: [{"id":"1","user_id":"5","course_id":"2","enrollment_date":"2025-10-13 16:04:11","status":"active"},{"id":"2","user_id":"5","course_id":"1","enrollment_date":"2025-10-13 16:16:41","status":"active"},{"id":"3","user_id":"5","course_id":"3","enrollment_date":"2025-10-13 16:26:33","status":"active"}]
+DEBUG - 2025-10-15 10:28:56 --> User data from database: [{"id":"5","name":"Jela Jeminez","email":"jelajeminez8@gmail.com","password":"$2y$10$mIfpjpwXxy3DZTC55tFxqOzGmEZ7mQL\/qROA0lJu2eNAcCECFdc.C","role":"student","created_at":"2025-10-13 16:03:55","updated_at":null}]
+ERROR - 2025-10-15 10:28:56 --> mysqli_sql_exception: Unknown column 'c.name' in 'field list' in C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\MySQLi\Connection.php(327): mysqli->query('\r\n             ...', 0)
+#1 C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('\r\n             ...')
+#2 C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('\r\n             ...')
+#3 C:\xampp\htdocs\ITE311-JEMINEZ\app\Controllers\Course.php(38): CodeIgniter\Database\BaseConnection->query('\r\n             ...', Array)
+#4 C:\xampp\htdocs\ITE311-JEMINEZ\system\CodeIgniter.php(933): App\Controllers\Course->index()
+#5 C:\xampp\htdocs\ITE311-JEMINEZ\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+#6 C:\xampp\htdocs\ITE311-JEMINEZ\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\ITE311-JEMINEZ\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#8 C:\xampp\htdocs\ITE311-JEMINEZ\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#9 C:\xampp\htdocs\ITE311-JEMINEZ\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#10 {main}
+ERROR - 2025-10-15 10:28:56 --> Database error in Course controller: Unknown column 'c.name' in 'field list'
+DEBUG - 2025-10-15 10:28:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-15 10:29:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-15 10:29:01 --> Current User ID from session: 5
+DEBUG - 2025-10-15 10:29:01 --> Session data: {"__ci_last_regenerate":1760524114,"_ci_previous_url":"http:\/\/localhost\/ITE311-JEMINEZ\/student\/dashboard","userID":"5","name":"Jela Jeminez","email":"jelajeminez8@gmail.com","role":"student","isLoggedIn":true}
+DEBUG - 2025-10-15 10:29:01 --> All enrollments for user: [{"id":"1","user_id":"5","course_id":"2","enrollment_date":"2025-10-13 16:04:11","status":"active"},{"id":"2","user_id":"5","course_id":"1","enrollment_date":"2025-10-13 16:16:41","status":"active"},{"id":"3","user_id":"5","course_id":"3","enrollment_date":"2025-10-13 16:26:33","status":"active"}]
+DEBUG - 2025-10-15 10:29:01 --> User data from database: [{"id":"5","name":"Jela Jeminez","email":"jelajeminez8@gmail.com","password":"$2y$10$mIfpjpwXxy3DZTC55tFxqOzGmEZ7mQL\/qROA0lJu2eNAcCECFdc.C","role":"student","created_at":"2025-10-13 16:03:55","updated_at":null}]
+ERROR - 2025-10-15 10:29:01 --> mysqli_sql_exception: Unknown column 'c.name' in 'field list' in C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\MySQLi\Connection.php(327): mysqli->query('\r\n             ...', 0)
+#1 C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('\r\n             ...')
+#2 C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('\r\n             ...')
+#3 C:\xampp\htdocs\ITE311-JEMINEZ\app\Controllers\Course.php(38): CodeIgniter\Database\BaseConnection->query('\r\n             ...', Array)
+#4 C:\xampp\htdocs\ITE311-JEMINEZ\system\CodeIgniter.php(933): App\Controllers\Course->index()
+#5 C:\xampp\htdocs\ITE311-JEMINEZ\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+#6 C:\xampp\htdocs\ITE311-JEMINEZ\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\ITE311-JEMINEZ\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#8 C:\xampp\htdocs\ITE311-JEMINEZ\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#9 C:\xampp\htdocs\ITE311-JEMINEZ\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#10 {main}
+ERROR - 2025-10-15 10:29:01 --> Database error in Course controller: Unknown column 'c.name' in 'field list'
+DEBUG - 2025-10-15 10:29:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-15 10:29:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-15 10:29:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-15 10:29:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-15 10:29:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-15 10:29:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-10-15 10:29:58 --> [DEPRECATED] strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in APPPATH\Views\admin\manage_users.php on line 643.
+ 1 APPPATH\Views\admin\manage_users.php(643): strtotime(null)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\ITE311-JEMINEZ\\app\\Views\\admin\\manage_users.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('admin/manage_users', [], true)
+ 5 APPPATH\Controllers\AdminController.php(127): view('admin/manage_users', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\AdminController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
