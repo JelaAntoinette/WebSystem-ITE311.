@@ -35,6 +35,10 @@ $routes->get('course/view/(:num)', 'Course::view/$1');
 $routes->post('course/enroll', 'StudentController::enroll');  // ✅ Fixed route
 $routes->post('student/enroll', 'StudentController::enroll');
 
+// 🔧 Change 'course/manage' → 'courses/manage'
+$routes->get('courses/manage', 'CoursesController::manage');
+$routes->post('courses/manage', 'CoursesController::manage');
+
 //announcement route
 $routes->get('/announcements', 'Announcement::index');
 
@@ -44,6 +48,8 @@ $routes->post('/admin/course/(:num)/upload', 'Materials::upload/$1');
 
 $routes->get('/materials/delete/(:num)', 'Materials::delete/$1');
 $routes->get('/materials/download/(:num)', 'Materials::download/$1');
+$routes->post('/materials/upload/(:num)', 'Materials::upload/$1');
+
 
 // Optional: For student view
 $routes->get('/materials/course/(:num)', 'Materials::viewCourseMaterials/$1');
