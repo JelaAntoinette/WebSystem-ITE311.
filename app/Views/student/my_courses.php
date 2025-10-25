@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Courses - Student Dashboard</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -61,6 +62,8 @@
         .course-meta {
             display: flex; justify-content: space-between; align-items: center;
             padding-top: 15px; border-top: 1px solid #eee;
+            flex-wrap: wrap;
+            gap: 10px;
         }
         
         .enrollment-date {
@@ -70,6 +73,24 @@
         .course-status {
             background: #28a745; color: white; padding: 4px 8px;
             border-radius: 12px; font-size: 11px; font-weight: 600;
+        }
+        
+        .view-materials-btn {
+            display: inline-block;
+            background: #8B5FBF;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .view-materials-btn:hover {
+            background: #7A4FB0;
+            text-decoration: none;
+            color: white;
         }
         
         .no-courses {
@@ -104,10 +125,107 @@
             background: rgba(255,255,255,0.95); backdrop-filter: blur(10px);
             border-radius: 15px; padding: 20px; margin-bottom: 30px;
             display: flex; justify-content: space-around; text-align: center;
+            flex-wrap: wrap;
+            gap: 20px;
         }
         
         .stat-item h4 { color: #8B5FBF; font-size: 24px; margin-bottom: 5px; }
         .stat-item p { color: #666; font-size: 14px; }
+        
+        /* Materials Section Styles */
+        .materials-section {
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 30px;
+            margin-top: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .materials-section h3 {
+            color: #8B5FBF;
+            font-size: 24px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .materials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 15px;
+        }
+        
+        .material-card {
+            background: white;
+            border: 1px solid #eee;
+            border-radius: 10px;
+            padding: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .material-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .material-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        
+        .material-title {
+            color: #333;
+            font-weight: 600;
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+        
+        .material-course {
+            color: #8B5FBF;
+            font-size: 12px;
+            margin-bottom: 5px;
+        }
+        
+        .material-date {
+            color: #999;
+            font-size: 11px;
+            margin-bottom: 10px;
+        }
+        
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            background: #28a745;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .download-btn:hover {
+            background: #218838;
+            text-decoration: none;
+            color: white;
+        }
+        
+        .no-materials {
+            text-align: center;
+            padding: 40px;
+            color: #999;
+        }
+        
+        .no-materials i {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            opacity: 0.5;
+        }
     </style>
 </head>
 <body>
@@ -147,8 +265,8 @@
                 <p>Active Enrollments</p>
             </div>
             <div class="stat-item">
-                <h4><?= date('Y') ?></h4>
-                <p>Current Year</p>
+                <h4><?= !empty($materials) ? count($materials) : 0 ?></h4>
+                <p>Available Materials</p>
             </div>
         </div>
         <?php endif; ?>
@@ -171,6 +289,9 @@
                             <span class="course-status">
                                 <?= ucfirst($course['status'] ?? 'Active') ?>
                             </span>
+                            <a href="<?= base_url('materials/viewCourseMaterials/' . $course['id']) ?>" class="view-materials-btn">
+                                <i class="bi bi-folder2-open"></i> View Materials
+                            </a>
                         </div>
                     </div>
                 <?php endforeach; ?>
@@ -185,22 +306,88 @@
                 </a>
             </div>
         <?php endif; ?>
+        
+        <!-- Materials Section -->
+        <?php if (!empty($enrolled_courses)): ?>
+        <div class="materials-section">
+            <h3>
+                <i class="bi bi-files"></i>
+                Recent Course Materials
+            </h3>
+            
+            <?php if (!empty($materials)): ?>
+                <div class="materials-grid">
+                    <?php foreach (array_slice($materials, 0, 6) as $material): ?>
+                        <div class="material-card">
+                            <div class="material-icon">
+                                <?php 
+                                $extension = pathinfo($material['file_name'], PATHINFO_EXTENSION);
+                                $iconClass = 'bi-file-earmark';
+                                $iconColor = '#6c757d';
+                                
+                                switch(strtolower($extension)) {
+                                    case 'pdf':
+                                        $iconClass = 'bi-file-earmark-pdf';
+                                        $iconColor = '#dc3545';
+                                        break;
+                                    case 'doc':
+                                    case 'docx':
+                                        $iconClass = 'bi-file-earmark-word';
+                                        $iconColor = '#0d6efd';
+                                        break;
+                                    case 'xls':
+                                    case 'xlsx':
+                                        $iconClass = 'bi-file-earmark-excel';
+                                        $iconColor = '#28a745';
+                                        break;
+                                    case 'ppt':
+                                    case 'pptx':
+                                        $iconClass = 'bi-file-earmark-ppt';
+                                        $iconColor = '#fd7e14';
+                                        break;
+                                    case 'jpg':
+                                    case 'jpeg':
+                                    case 'png':
+                                    case 'gif':
+                                        $iconClass = 'bi-file-earmark-image';
+                                        $iconColor = '#0dcaf0';
+                                        break;
+                                }
+                                ?>
+                                <i class="bi <?= $iconClass ?>" style="color: <?= $iconColor ?>;"></i>
+                            </div>
+                            <div class="material-title">
+                                <?= esc($material['file_name']) ?>
+                            </div>
+                            <div class="material-course">
+                                <i class="bi bi-book"></i> <?= esc($material['course_name']) ?>
+                            </div>
+                            <div class="material-date">
+                                <i class="bi bi-calendar3"></i> <?= date('M d, Y', strtotime($material['created_at'])) ?>
+                            </div>
+                            <a href="<?= base_url('materials/download/' . $material['id']) ?>" class="download-btn">
+                                <i class="bi bi-download"></i> Download
+                            </a>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+                
+                <?php if (count($materials) > 6): ?>
+                <div style="text-align: center; margin-top: 20px;">
+                    <p style="color: #666;">
+                        Showing 6 of <?= count($materials) ?> materials. 
+                        Click "View Materials" on each course to see all files.
+                    </p>
+                </div>
+                <?php endif; ?>
+            <?php else: ?>
+                <div class="no-materials">
+                    <i class="bi bi-inbox"></i>
+                    <p>No materials available yet for your enrolled courses.</p>
+                </div>
+            <?php endif; ?>
+        </div>
+        <?php endif; ?>
     </div>
 </body>
 </html>
-
-<h3>Uploaded Materials</h3>
-
-<?php if (!empty($materials)): ?>
-    <ul>
-        <?php foreach ($materials as $material): ?>
-            <li>
-                <strong><?= esc($material['title']) ?></strong>
-                (<?= esc($material['course_name']) ?>) —
-                <a href="<?= base_url($material['file_path']) ?>" target="_blank">Download</a>
-            </li>
-        <?php endforeach; ?>
-    </ul>
-<?php else: ?>
-    <p>No materials available yet.</p>
-<?php endif; ?>

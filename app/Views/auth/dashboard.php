@@ -20,7 +20,7 @@
         }
         .container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; position: relative; z-index: 1; }
         .alert { padding: 15px 20px; border-radius: 12px; margin-bottom: 25px; font-size: 14px; font-weight: 500; }
-        .alert-success { background: rgba(212, 237, 218, 0.9); color: #155724; border-left: 4px solid #28a745; backdrop-filter: blur(10px); }
+        .alert-success { background: rgba(101, 114, 104, 0.9); color: #155724; border-left: 4px solid #28a745; backdrop-filter: blur(10px); }
         .alert-danger { background: rgba(248, 215, 218, 0.9); color: #721c24; border-left: 4px solid #dc3545; backdrop-filter: blur(10px); }
         .welcome-card, .user-info-card, .role-card {
             background: rgba(255,255,255,0.95); backdrop-filter: blur(10px);
@@ -43,6 +43,45 @@
         .enroll-btn:hover { background:#7A4FB0; }
         .view-all-link { font-size: 12px; float: right; color: #8B5FBF; text-decoration: none; }
         .view-all-link:hover { color: #7A4FB0; text-decoration: underline; }
+        
+        /* NEW: Admin Quick Actions */
+        .admin-actions {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .action-card {
+            background: linear-gradient(135deg, #8B5FBF 0%, #7A4FB0 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(139, 95, 191, 0.3);
+        }
+        .action-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(139, 95, 191, 0.4);
+            text-decoration: none;
+            color: white;
+        }
+        .action-icon {
+            font-size: 32px;
+        }
+        .action-text h6 {
+            margin: 0;
+            font-size: 16px;
+            font-weight: 600;
+        }
+        .action-text p {
+            margin: 5px 0 0 0;
+            font-size: 12px;
+            opacity: 0.9;
+        }
     </style>
 </head>
 <body>
@@ -74,9 +113,38 @@
                 <div class="info-item"><span class="info-label">Account Role</span><span class="role-badge"><?= ucfirst(esc($user['role'])) ?></span></div>
             </div>
 
-            <!-- ✅ Fixed Admin Section -->
+            <!-- ✅ Admin Section with Quick Actions -->
             <?php if ($user['role'] === 'admin'): ?>
-                <div class="role-card">
+                <!-- NEW: Admin Quick Actions -->
+                <div class="role-card" style="grid-column: 1 / -1;">
+                    <h5>Admin Quick Actions</h5>
+                    <div class="admin-actions">
+                        <a href="<?= base_url('admin/manage') ?>" class="action-card">
+                            <div class="action-icon">👥</div>
+                            <div class="action-text">
+                                <h6>Manage Users</h6>
+                                <p>Add, edit, or remove users</p>
+                            </div>
+                        </a>
+                        <a href="<?= base_url('admin/materials') ?>" class="action-card">
+                            <div class="action-icon">📁</div>
+                            <div class="action-text">
+                                <h6>Manage Materials</h6>
+                                <p>Upload & organize course materials</p>
+                            </div>
+                        </a>
+                        <a href="<?= base_url('reports') ?>" class="action-card">
+                            <div class="action-icon">📊</div>
+                            <div class="action-text">
+                                <h6>Reports</h6>
+                                <p>View system reports & analytics</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- All Users Table -->
+                <div class="role-card" style="grid-column: 1 / -1;">
                     <h5>All Users</h5>
                     <?php if (isset($allUsers) && !empty($allUsers)): ?>
                         <table border="1" cellpadding="8" cellspacing="0" style="width:100%; border-collapse:collapse; font-size:14px;">
