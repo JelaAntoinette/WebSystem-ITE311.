@@ -36,8 +36,8 @@ $routes->post('course/enroll', 'StudentController::enroll');  // ✅ Fixed route
 $routes->post('student/enroll', 'StudentController::enroll');
 
 // 🔧 Change 'course/manage' → 'courses/manage'
-$routes->get('courses/manage', 'CoursesController::manage');
-$routes->post('courses/manage', 'CoursesController::manage');
+$routes->get('courses/manage', 'Course::manage');
+$routes->post('courses/manage', 'Course::manage');
 
 //announcement route
 $routes->get('/announcements', 'Announcement::index');
@@ -66,6 +66,8 @@ $routes->group('admin', function($routes) {
     $routes->get('users/delete/(:num)', 'AdminController::delete/$1');
     $routes->get('logout', 'AdminController::logout');
 });
+
+$routes->get('materials/download/(:num)', 'Materials::download/$1');
 
 // Optional shortcut route for managing users
 $routes->get('users', 'AdminController::index');

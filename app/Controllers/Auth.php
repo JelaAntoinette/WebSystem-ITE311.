@@ -60,7 +60,7 @@ class Auth extends BaseController
             if ($login === 'admin' && $password === 'admin123') {
                 $this->session->set([
                     'userID'     => 1,
-                    'name'       => 'Administrator',
+                    'name'       => 'System Administrator',
                     'email'      => 'admin@lms.com',
                     'role'       => 'admin',
                     'isLoggedIn' => true

@@ -17,46 +17,44 @@ class AdminController extends BaseController
     {
         $this->checkAdminAccess();
 
+        // Get all users for admin view
+        $builder = $this->db->table('users');
+        $allUsers = $builder->get()->getResultArray();
+        
+        // Get counts for dashboard statistics  
+        $count_admin = $this->db->table('users')->where('role', 'admin')->countAllResults();
+        $count_teacher = $this->db->table('users')->where('role', 'teacher')->countAllResults();
+        $count_student = $this->db->table('users')->where('role', 'student')->countAllResults();
+
+        // Get all uploaded materials with related course
         try {
-            // Get counts for dashboard statistics
-            $count_admin = $this->db->table('users')->where('role', 'admin')->countAllResults();
-            $count_teacher = $this->db->table('users')->where('role', 'teacher')->countAllResults();
-            $count_student = $this->db->table('users')->where('role', 'student')->countAllResults();
-            
-            // Get all users for admin view
-            $builder = $this->db->table('users');
-            $allUsers = $builder->get()->getResultArray();
-
-            // Prepare user data
-            $data = [
-                'user' => [
-                    'userID' => $this->session->get('userID'),
-                    'name'   => $this->session->get('name'),
-                    'email'  => $this->session->get('email'),
-                    'role'   => $this->session->get('role')
-                ],
-                'title' => 'Admin Dashboard',
-                'admin_count' => $count_admin,
-                'teacher_count' => $count_teacher,
-                'student_count' => $count_student,
-                'allUsers' => $allUsers
-            ];
-
-            return view('auth/dashboard', $data);
+            $materials = $this->db->query("
+                SELECT m.*, c.course_name 
+                FROM materials m
+                LEFT JOIN courses c ON m.course_id = c.id
+                ORDER BY m.created_at DESC
+            ")->getResultArray();
         } catch (\Exception $e) {
-            $data = [
-                'user' => [
-                    'userID' => $this->session->get('userID'),
-                    'name'   => $this->session->get('name'),
-                    'email'  => $this->session->get('email'),
-                    'role'   => $this->session->get('role')
-                ],
-                'title' => 'Admin Dashboard',
-                'error' => $e->getMessage(),
-                'allUsers' => []
-            ];
-            return view('auth/dashboard', $data);
+            $materials = [];
         }
+
+        // Prepare user data
+        $data = [
+            'user' => [
+                'userID' => $this->session->get('userID'),
+                'name'   => $this->session->get('name'),
+                'email'  => $this->session->get('email'),
+                'role'   => $this->session->get('role')
+            ],
+            'title' => 'Admin Dashboard',
+            'admin_count' => $count_admin,
+            'teacher_count' => $count_teacher,
+            'student_count' => $count_student,
+            'allUsers' => $allUsers,
+            'materials' => $materials
+        ];
+
+        return view('auth/dashboard', $data);
     }
 
     public function logout()
@@ -68,7 +66,8 @@ class AdminController extends BaseController
     private function checkAdminAccess()
     {
         if ($this->session->get('role') !== 'admin') {
-            return redirect()->to('/login');
+            redirect()->to('/login')->send();
+            exit;
         }
     }
 
@@ -180,7 +179,6 @@ class AdminController extends BaseController
             'updated_at' => date('Y-m-d H:i:s')
         ];
 
-        // Only update password if a new one is provided
         if ($password = $this->request->getPost('password')) {
             if (strlen($password) >= 6) {
                 $data['password'] = password_hash($password, PASSWORD_DEFAULT);
@@ -190,7 +188,6 @@ class AdminController extends BaseController
         }
 
         try {
-            // Check if user exists
             $user = $this->db->table('users')->where('id', $id)->get()->getRowArray();
             if (!$user) {
                 throw new \Exception('User not found');
@@ -208,13 +205,11 @@ class AdminController extends BaseController
         $this->checkAdminAccess();
         
         try {
-            // Check if user exists and get their role
             $user = $this->db->table('users')->where('id', $id)->get()->getRowArray();
             if (!$user) {
                 throw new \Exception('User not found');
             }
 
-            // Don't allow deleting the last admin
             if ($user['role'] === 'admin') {
                 $adminCount = $this->db->table('users')->where('role', 'admin')->countAllResults();
                 if ($adminCount <= 1) {

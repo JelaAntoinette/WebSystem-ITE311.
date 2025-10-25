@@ -123,4 +123,19 @@ class Materials extends Controller
 
         return redirect()->back()->with('error', 'File not found on the server.');
     }
+
+    // ✅ NEW: Display all uploaded materials (for admin and student dashboards)
+    public function allMaterials()
+    {
+        $db = \Config\Database::connect();
+        $materials = $db->query("
+            SELECT m.*, c.course_name, u.name AS uploaded_by
+            FROM materials m
+            LEFT JOIN courses c ON m.course_id = c.id
+            LEFT JOIN users u ON c.teacher_id = u.id
+            ORDER BY m.created_at DESC
+        ")->getResultArray();
+
+        return view('materials/all_materials', ['materials' => $materials]);
+    }
 }

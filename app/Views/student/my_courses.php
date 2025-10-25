@@ -188,3 +188,19 @@
     </div>
 </body>
 </html>
+
+<h3>Uploaded Materials</h3>
+
+<?php if (!empty($materials)): ?>
+    <ul>
+        <?php foreach ($materials as $material): ?>
+            <li>
+                <strong><?= esc($material['title']) ?></strong>
+                (<?= esc($material['course_name']) ?>) —
+                <a href="<?= base_url($material['file_path']) ?>" target="_blank">Download</a>
+            </li>
+        <?php endforeach; ?>
+    </ul>
+<?php else: ?>
+    <p>No materials available yet.</p>
+<?php endif; ?>

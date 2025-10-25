@@ -19,10 +19,11 @@ class StudentController extends BaseController
         $db = \Config\Database::connect();
         
         try {
+            // Get all courses
             $query = $db->query("SELECT * FROM courses ORDER BY course_name");
             $data['courses'] = $query->getResultArray();
 
-            // Fetch user's enrolled courses
+            // Get user's enrolled courses
             $userId = $session->get('userID');
             $enrolledQuery = $db->query("
                 SELECT c.* 
@@ -33,14 +34,27 @@ class StudentController extends BaseController
             ", [$userId]);
             $data['enrolled'] = $enrolledQuery->getResultArray();
 
+            // ✅ Fetch uploaded materials for user's enrolled courses
+            $materialsQuery = $db->query("
+                SELECT m.*, c.course_name
+                FROM materials m
+                INNER JOIN courses c ON m.course_id = c.id
+                WHERE m.course_id IN (
+                    SELECT course_id FROM enrollments WHERE user_id = ?
+                )
+                ORDER BY m.created_at DESC
+            ", [$userId]);
+            $data['materials'] = $materialsQuery->getResultArray();
+
         } catch (\Exception $e) {
-            // Handle database errors gracefully
+            // Fallbacks in case of database errors
             $data['courses'] = [];
             $data['enrolled'] = [];
+            $data['materials'] = [];
             log_message('error', 'Database error in StudentController: ' . $e->getMessage());
         }
 
-        // User data
+        // User info
         $data['user'] = [
             'userID' => $session->get('userID'),
             'name'   => $session->get('name'),
@@ -53,7 +67,7 @@ class StudentController extends BaseController
         return view('auth/dashboard', $data);
     }
 
-    // ✅ NEW METHOD: My Courses Page
+    // ✅ My Courses Page (with materials)
     public function myCourses()
     {
         $session = session();
@@ -77,10 +91,23 @@ class StudentController extends BaseController
             ", [$userId]);
             $data['enrolled_courses'] = $enrolledQuery->getResultArray();
 
+            // Fetch uploaded materials for enrolled courses
+            $materialsQuery = $db->query("
+                SELECT m.*, c.course_name
+                FROM materials m
+                INNER JOIN courses c ON m.course_id = c.id
+                WHERE m.course_id IN (
+                    SELECT course_id FROM enrollments WHERE user_id = ?
+                )
+                ORDER BY m.created_at DESC
+            ", [$userId]);
+
+            $data['materials'] = $materialsQuery->getResultArray();
+
         } catch (\Exception $e) {
-            // Handle database errors gracefully
             $data['enrolled_courses'] = [];
-            $data['error'] = 'Unable to load your courses at this time. Please try again later.';
+            $data['materials'] = [];
+            $data['error'] = 'Unable to load your courses or materials. Please try again later.';
             log_message('error', 'Database error in StudentController::myCourses: ' . $e->getMessage());
         }
 
@@ -127,12 +154,12 @@ class StudentController extends BaseController
                 ]);
             }
 
-            // Insert enrollment
+            // Insert new enrollment
             $db->table('enrollments')->insert([
                 'user_id' => $user_id,
                 'course_id' => $course_id,
                 'enrollment_date' => date('Y-m-d H:i:s'),
-                'status' => 'active'  // ✅ Added status field
+                'status' => 'active'
             ]);
 
             return $this->response->setJSON([

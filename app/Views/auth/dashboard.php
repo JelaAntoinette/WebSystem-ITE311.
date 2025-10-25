@@ -74,48 +74,71 @@
                 <div class="info-item"><span class="info-label">Account Role</span><span class="role-badge"><?= ucfirst(esc($user['role'])) ?></span></div>
             </div>
 
-            <!-- Role-specific content -->
-            <?php if ($user['role'] === 'admin' && isset($allUsers)): ?>
+            <!-- ✅ Fixed Admin Section -->
+            <?php if ($user['role'] === 'admin'): ?>
                 <div class="role-card">
                     <h5>All Users</h5>
+                    <?php if (isset($allUsers) && !empty($allUsers)): ?>
+                        <table border="1" cellpadding="8" cellspacing="0" style="width:100%; border-collapse:collapse; font-size:14px;">
+                            <thead>
+                                <tr style="background:#8B5FBF;color:white;">
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Role</th>
+                                    <th>Date Registered</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach ($allUsers as $u): ?>
+                                    <tr style="background:#f9f9f9;text-align:center;">
+                                        <td><?= esc($u['id']) ?></td>
+                                        <td><?= esc($u['name']) ?></td>
+                                        <td><?= esc($u['email']) ?></td>
+                                        <td><?= ucfirst(esc($u['role'])) ?></td>
+                                        <td><?= esc($u['created_at'] ?? 'N/A') ?></td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                    <?php else: ?>
+                        <p style="color: #dc3545;">No users found in database.</p>
+                        <p style="font-size: 12px; color: #666;">Debug: allUsers variable is <?= isset($allUsers) ? (empty($allUsers) ? 'empty' : 'set with ' . count($allUsers) . ' users') : 'not set' ?></p>
+                    <?php endif; ?>
+                </div>
+            <?php endif; ?>
+
+            <!-- Teacher Section -->
+            <?php if ($user['role'] === 'teacher' && isset($user['courses'])): ?>
+                <div class="role-card">
+                    <h5>Classes</h5>
                     <ul>
-                        <?php foreach($allUsers as $u): ?>
-                            <li><?= esc($u['name']) ?> (<?= esc($u['role']) ?>)</li>
-                        <?php endforeach; ?>
+                        <?php if (!empty($user['courses'])): ?>
+                            <?php foreach ($user['courses'] as $course): ?>
+                                <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid #eee;">
+                                    <div>
+                                        <strong><?= esc($course['course_name']) ?></strong><br>
+                                        <small><?= esc($course['description'] ?? '') ?></small>
+                                    </div>
+                                    <a href="<?= base_url('/admin/course/' . $course['id'] . '/upload') ?>" class="enroll-btn">Upload Materials</a>
+                                </div>
+                            <?php endforeach; ?>
+                        <?php else: ?>
+                            <p>No available courses.</p>
+                        <?php endif; ?>
                     </ul>
                 </div>
+            <?php endif; ?>
 
-           <?php elseif ($user['role'] === 'teacher' && isset($user['courses'])): ?>
-            <div class="role-card">
-                <h5>Classes</h5>
-                <ul>
-                    <?php if (!empty($user['courses'])): ?>
-                        <?php foreach ($user['courses'] as $course): ?>
-                            <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid #eee;">
-                                <div>
-                                    <strong><?= esc($course['course_name']) ?></strong><br>
-                                    <small><?= esc($course['description'] ?? '') ?></small>
-                                </div>
-                                <a href="<?= base_url('/admin/course/' . $course['id'] . '/upload') ?>" class="enroll-btn">Upload Materials</a>
-                            </div>
-                        <?php endforeach; ?>
-                    <?php else: ?>
-                        <p>No available courses.</p>
-                    <?php endif; ?>
-                </ul>
-            </div>
-
-
-
-            <?php elseif ($user['role'] === 'student'): ?>
-                <!-- ✅ Available Courses Section -->
+            <!-- Student Section -->
+            <?php if ($user['role'] === 'student'): ?>
                 <div class="role-card">
                     <h5>Available Courses</h5>
                     <?php if (!empty($courses)): ?>
                         <?php foreach ($courses as $course): ?>
                             <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid #eee;">
                                 <div>
-                                    <strong><?= esc($course['course_name']) ?></strong><br>  <!-- ✅ Fixed column name -->
+                                    <strong><?= esc($course['course_name']) ?></strong><br>
                                     <small><?= esc($course['description'] ?? '') ?></small>
                                 </div>
                                 <button class="enroll-btn" data-id="<?= $course['id'] ?>">Enroll</button>
@@ -127,7 +150,6 @@
                     <?php endif; ?>
                 </div>
 
-                <!-- ✅ My Courses Section with View All Link -->
                 <div class="role-card">
                     <h5>My Courses 
                         <a href="<?= base_url('student/my-courses') ?>" class="view-all-link">View All →</a>
@@ -137,7 +159,7 @@
                             <?php 
                             $displayCount = 0;
                             foreach ($enrolled as $course): 
-                                if ($displayCount >= 3) break; // Show only first 3 courses
+                                if ($displayCount >= 3) break;
                                 $displayCount++;
                             ?>
                                 <li><?= esc($course['course_name']) ?></li>
@@ -167,7 +189,7 @@
             let msgBox = $('#msg-' + courseId);
 
             $.ajax({
-                url: '<?= base_url('student/enroll') ?>', // ✅ Fixed to point to StudentController
+                url: '<?= base_url('student/enroll') ?>',
                 type: 'POST',
                 data: { course_id: courseId },
                 dataType: 'json',
@@ -176,10 +198,7 @@
                     if (response.status === 'success') {
                         button.prop('disabled', true).text('Enrolled');
                         msgBox.css('color', 'green');
-                        // Auto-refresh after 2 seconds to show course in "My Courses"
-                        setTimeout(function() {
-                            location.reload();
-                        }, 2000);
+                        setTimeout(function() { location.reload(); }, 2000);
                     } else {
                         msgBox.css('color', 'red');
                     }

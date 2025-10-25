@@ -73,7 +73,6 @@ class Course extends Controller
         return view('student/my_courses', $data);
     }
 
-    // Keep the rest of your methods the same...
     public function enroll()
     {
         $session = session();
@@ -138,4 +137,31 @@ class Course extends Controller
 
         return view('auth/dashboard', $data);
     }
+
+    public function manage()
+{
+    $session = session();
+
+    // Check if user is logged in
+    if (!$session->get('isLoggedIn') || !$session->has('userID')) {
+        return redirect()->to('/login');
+    }
+
+    // Optional: force redirect if not coming from dashboard
+    $referrer = $this->request->getHeader('Referer');
+    if (!$referrer || strpos($referrer->getValue(), '/dashboard') === false) {
+        return redirect()->to('/dashboard');
+    }
+
+    $db = \Config\Database::connect();
+    try {
+        $query = $db->table('courses')->get();
+        $data['courses'] = $query->getResultArray();
+    } catch (\Exception $e) {
+        $data['courses'] = [];
+        log_message('error', 'Course manage error: ' . $e->getMessage());
+    }
+
+    return view('courses/manage', $data);
+}
 }
