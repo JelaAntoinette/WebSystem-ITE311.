@@ -96,3 +96,9 @@ $routes->get('materials/download/(:num)', 'Materials::download/$1');
 $routes->get('materials/preview/(:num)', 'Materials::preview/$1');
 $routes->post('materials/delete/(:num)', 'Materials::delete/$1');
 $routes->get('materials/ajax/course/(:num)', 'Materials::getMaterialsByCourse/$1');
+
+// Admin Materials Management
+$routes->get('admin/materials', 'Materials::adminMaterialsPage');
+
+// Teacher Materials Management  
+$routes->get('teacher/materials', 'Materials::adminMaterialsPage');
