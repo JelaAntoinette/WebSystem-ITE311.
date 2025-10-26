@@ -188,7 +188,7 @@
                                         <strong><?= esc($course['course_name']) ?></strong><br>
                                         <small><?= esc($course['description'] ?? '') ?></small>
                                     </div>
-                                    <a href="<?= base_url('/admin/course/' . $course['id'] . '/upload') ?>" class="enroll-btn">Upload Materials</a>
+                                    <a href="<?= base_url('/teacher/course/' . $course['id'] . '/upload') ?>" class="enroll-btn">Upload Materials</a>
                                 </div>
                             <?php endforeach; ?>
                         <?php else: ?>
