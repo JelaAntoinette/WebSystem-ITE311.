@@ -9,32 +9,21 @@ class Course extends Controller
     {
         $session = session();
         
-        // Check if user is logged in
         if (!$session->get('isLoggedIn') || !$session->has('userID')) {
             return redirect()->to('/login');
         }
         
-        // Connect to DB directly
         $db = \Config\Database::connect();
         
         try {
             $userId = $session->get('userID');
             
-            // ✅ Add debugging - let's see what we're working with
-            log_message('debug', 'Current User ID from session: ' . $userId);
-            log_message('debug', 'Session data: ' . json_encode($session->get()));
-            
-            // ✅ First, let's check what's in the enrollments table
             $allEnrollmentsQuery = $db->query("SELECT * FROM enrollments WHERE user_id = ?", [$userId]);
             $allEnrollments = $allEnrollmentsQuery->getResultArray();
-            log_message('debug', 'All enrollments for user: ' . json_encode($allEnrollments));
             
-            // ✅ Check the users table to see the actual user ID
             $userQuery = $db->query("SELECT * FROM users WHERE email = ?", [$session->get('email')]);
             $userData = $userQuery->getResultArray();
-            log_message('debug', 'User data from database: ' . json_encode($userData));
             
-            // ✅ Get enrolled courses with more detailed debugging
             $enrolledQuery = $db->query("
                 SELECT c.id, c.name AS course_name, c.description, c.created_at, c.updated_at, 
                        e.enrollment_date, e.status, e.user_id, e.course_id
@@ -45,29 +34,13 @@ class Course extends Controller
             ", [$userId]);
             
             $data['enrolled_courses'] = $enrolledQuery->getResultArray();
-            log_message('debug', 'Enrolled courses found: ' . count($data['enrolled_courses']));
-            log_message('debug', 'Enrolled courses data: ' . json_encode($data['enrolled_courses']));
-            
-            $data['courses'] = []; // Empty - no available courses on this page
-            
-            // Get user data from session
-            $data['user'] = [
-                'name' => $session->get('name') ?? 'Student'
-            ];
-            
-            // ✅ Add debug info to the view
-            $data['debug_info'] = [
-                'user_id' => $userId,
-                'total_enrollments' => count($allEnrollments),
-                'enrolled_courses_count' => count($data['enrolled_courses'])
-            ];
+            $data['courses'] = [];
+            $data['user'] = ['name' => $session->get('name') ?? 'Student'];
             
         } catch (\Exception $e) {
-            log_message('error', 'Database error in Course controller: ' . $e->getMessage());
             $data['enrolled_courses'] = [];
             $data['courses'] = [];
             $data['user'] = ['name' => $session->get('name') ?? 'Student'];
-            $data['debug_info'] = ['error' => $e->getMessage()];
         }
 
         return view('student/my_courses', $data);
@@ -89,7 +62,6 @@ class Course extends Controller
         $user_id = $session->get('userID');
 
         try {
-            // Check if already enrolled
             $exists = $db->table('enrollments')
                         ->where(['user_id' => $user_id, 'course_id' => $course_id])
                         ->get()
@@ -102,13 +74,48 @@ class Course extends Controller
                 ]);
             }
 
-            // Enroll user
+            // ✅ Enroll student
             $db->table('enrollments')->insert([
                 'user_id' => $user_id,
                 'course_id' => $course_id,
                 'enrollment_date' => date('Y-m-d H:i:s'),
                 'status' => 'active'
             ]);
+
+            // ✅ Get course info
+            $course = $db->table('courses')->where('id', $course_id)->get()->getRow();
+
+            // ✅ Student notification
+            $db->table('notifications')->insert([
+                'user_id' => $user_id,
+                'message' => "You have successfully enrolled in: " . $course->course_name,
+                'is_read'    => 0,
+                'created_at' => date('Y-m-d H:i:s')
+            ]);
+
+            // ✅ Get ALL teachers and send notification to each
+            $teachers = $db->table('users')->where('role', 'teacher')->get()->getResultArray();
+            
+            foreach ($teachers as $teacher) {
+                $db->table('notifications')->insert([
+                    'user_id' => $teacher['id'],
+                    'message' => $session->get('name') . " enrolled in: " . $course->course_name,
+                    'is_read' => 0,
+                    'created_at' => date('Y-m-d H:i:s')
+                ]);
+            }
+
+            // ✅ Admin notification (get all admins)
+            $admins = $db->table('users')->where('role', 'admin')->get()->getResultArray();
+            
+            foreach ($admins as $admin) {
+                $db->table('notifications')->insert([
+                    'user_id' => $admin['id'],
+                    'message' => $session->get('name') . " has enrolled in: " . $course->course_name,
+                    'is_read' => 0,
+                    'created_at' => date('Y-m-d H:i:s')
+                ]);
+            }
 
             return $this->response->setJSON([
                 'status' => 'success',
@@ -132,36 +139,27 @@ class Course extends Controller
             $data['courses'] = $query->getResultArray();
         } catch (\Exception $e) {
             $data['courses'] = [];
-            log_message('error', 'Database error in Course showCoursesForDashboard: ' . $e->getMessage());
         }
 
         return view('auth/dashboard', $data);
     }
 
     public function manage()
-{
-    $session = session();
+    {
+        $session = session();
 
-    // Check if user is logged in
-    if (!$session->get('isLoggedIn') || !$session->has('userID')) {
-        return redirect()->to('/login');
+        if (!$session->get('isLoggedIn') || !$session->has('userID')) {
+            return redirect()->to('/login');
+        }
+
+        $db = \Config\Database::connect();
+        try {
+            $query = $db->table('courses')->get();
+            $data['courses'] = $query->getResultArray();
+        } catch (\Exception $e) {
+            $data['courses'] = [];
+        }
+
+        return view('courses/manage', $data);
     }
-
-    // Optional: force redirect if not coming from dashboard
-    $referrer = $this->request->getHeader('Referer');
-    if (!$referrer || strpos($referrer->getValue(), '/dashboard') === false) {
-        return redirect()->to('/dashboard');
-    }
-
-    $db = \Config\Database::connect();
-    try {
-        $query = $db->table('courses')->get();
-        $data['courses'] = $query->getResultArray();
-    } catch (\Exception $e) {
-        $data['courses'] = [];
-        log_message('error', 'Course manage error: ' . $e->getMessage());
-    }
-
-    return view('courses/manage', $data);
-}
 }

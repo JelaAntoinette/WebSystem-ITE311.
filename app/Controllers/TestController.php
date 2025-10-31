@@ -37,4 +37,44 @@
             echo "</pre>";
         }
     }
+
+    public function createTestNotification()
+    {
+        try {
+            $db = \Config\Database::connect();
+            $session = session();
+            
+            // Get current logged-in user ID
+            $userId = $session->get('userID');
+            
+            if (!$userId) {
+                echo "Error: No user is logged in.<br>";
+                echo "Please log in first and then visit this page again.";
+                return;
+            }
+            
+            // Create test notification
+            $data = [
+                'user_id' => $userId,
+                'message' => 'Test notification created at ' . date('Y-m-d H:i:s'),
+                'is_read' => 0,
+                'created_at' => date('Y-m-d H:i:s')
+            ];
+            
+            $inserted = $db->table('notifications')->insert($data);
+            
+            if ($inserted) {
+                echo "✅ Test notification created successfully!<br>";
+                echo "User ID: " . $userId . "<br>";
+                echo "Message: " . $data['message'] . "<br><br>";
+                echo '<a href="' . base_url('dashboard') . '">Go to Dashboard</a> to see the notification.';
+            } else {
+                echo "❌ Failed to create notification.<br>";
+                echo "Error: " . print_r($db->error(), true);
+            }
+            
+        } catch (\Exception $e) {
+            echo "Error: " . $e->getMessage();
+        }
+    }
 }

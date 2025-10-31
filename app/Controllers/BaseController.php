@@ -8,6 +8,7 @@ use CodeIgniter\HTTP\IncomingRequest;
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 use Psr\Log\LoggerInterface;
+use App\Models\NotificationModel; // ✅ Add this line
 
 /**
  * Class BaseController
@@ -37,11 +38,9 @@ abstract class BaseController extends Controller
      */
     protected $helpers = [];
 
-    /**
-     * Be sure to declare properties for any property fetch you initialized.
-     * The creation of dynamic property is deprecated in PHP 8.2.
-     */
-    // protected $session;
+    // ✅ Add these properties
+    protected $notificationModel;
+    protected $data = [];
 
     /**
      * @return void
@@ -51,8 +50,18 @@ abstract class BaseController extends Controller
         // Do Not Edit This Line
         parent::initController($request, $response, $logger);
 
-        // Preload any models, libraries, etc, here.
+        // Load session service
+        $session = session();
 
-        // E.g.: $this->session = service('session');
+        // ✅ Load Notification Model
+        $this->notificationModel = new NotificationModel();
+
+        // ✅ Check if user is logged in and fetch unread count
+        if ($session->get('userID')) {
+            $userId = $session->get('userID');
+            $this->data['unreadCount'] = $this->notificationModel->getUnreadCount($userId);
+        } else {
+            $this->data['unreadCount'] = 0;
+        }
     }
 }

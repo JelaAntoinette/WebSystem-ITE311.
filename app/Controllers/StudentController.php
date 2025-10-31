@@ -19,12 +19,24 @@ class StudentController extends BaseController
         $db = \Config\Database::connect();
         
         try {
+            $userId = $session->get('userID');
+            
+            // ✅ Check if user has any notifications, if not create a welcome notification (student only)
+            $notifCount = $db->table('notifications')->where('user_id', $userId)->countAllResults();
+            if ($notifCount == 0 && $session->get('role') === 'student') {
+                $db->table('notifications')->insert([
+                    'user_id' => $userId,
+                    'message' => 'Welcome to the Learning Management System! Start by enrolling in courses below.',
+                    'is_read' => 0,
+                    'created_at' => date('Y-m-d H:i:s')
+                ]);
+            }
+            
             // Get all courses
             $query = $db->query("SELECT * FROM courses ORDER BY course_name");
             $data['courses'] = $query->getResultArray();
 
             // Get user's enrolled courses
-            $userId = $session->get('userID');
             $enrolledQuery = $db->query("
                 SELECT c.* 
                 FROM courses c
@@ -161,6 +173,34 @@ class StudentController extends BaseController
                 'enrollment_date' => date('Y-m-d H:i:s'),
                 'status' => 'active'
             ]);
+
+            // ✅ Get course details and student name
+            $course = $db->table('courses')->where('id', $course_id)->get()->getRowArray();
+            $student = $db->table('users')->where('id', $user_id)->get()->getRowArray();
+            
+            if ($course && $student) {
+                $studentName = $student['name'];
+                $courseName = $course['course_name'];
+                
+                // ✅ Create notification for student
+                $db->table('notifications')->insert([
+                    'user_id' => $user_id,
+                    'message' => 'You have successfully enrolled in ' . $courseName,
+                    'is_read' => 0,
+                    'created_at' => date('Y-m-d H:i:s')
+                ]);
+                
+                // ✅ Create notification for all teachers (role-based)
+                $teachers = $db->table('users')->where('role', 'teacher')->get()->getResultArray();
+                foreach ($teachers as $teacher) {
+                    $db->table('notifications')->insert([
+                        'user_id' => $teacher['id'],
+                        'message' => $studentName . ' has enrolled in ' . $courseName,
+                        'is_read' => 0,
+                        'created_at' => date('Y-m-d H:i:s')
+                    ]);
+                }
+            }
 
             return $this->response->setJSON([
                 'status' => 'success',

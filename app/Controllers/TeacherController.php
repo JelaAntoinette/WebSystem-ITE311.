@@ -17,6 +17,19 @@ class TeacherController extends BaseController
         }
 
         $db = \Config\Database::connect();
+        
+        $userId = $session->get('userID');
+        
+        // ✅ Check if teacher has any notifications, if not create a welcome notification (teacher only)
+        $notifCount = $db->table('notifications')->where('user_id', $userId)->countAllResults();
+        if ($notifCount == 0 && $session->get('role') === 'teacher') {
+            $db->table('notifications')->insert([
+                'user_id' => $userId,
+                'message' => 'Welcome to the LMS Teacher Portal! You will be notified when students enroll in courses.',
+                'is_read' => 0,
+                'created_at' => date('Y-m-d H:i:s')
+            ]);
+        }
 
         // Get all courses for dropdown or display
         $getAllCourses = $db->query("SELECT * FROM courses ORDER BY course_name");

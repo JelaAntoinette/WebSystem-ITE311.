@@ -25,24 +25,24 @@ $routes->get('dashboard', 'Auth::dashboardRedirect');
 
 // Role-specific Dashboard Routes
 $routes->get('student/dashboard', 'StudentController::dashboard');
-$routes->get('student/my-courses', 'StudentController::myCourses');  // ✅ NEW ROUTE
+$routes->get('student/my-courses', 'StudentController::myCourses'); 
 $routes->get('teacher/dashboard', 'TeacherController::dashboard');
 $routes->get('admin/dashboard', 'AdminController::dashboard');
 
 // Course Routes (Student)
 $routes->get('courses', 'Course::index');
 $routes->get('course/view/(:num)', 'Course::view/$1');
-$routes->post('course/enroll', 'StudentController::enroll');  // ✅ Fixed route
+$routes->post('course/enroll', 'StudentController::enroll');
 $routes->post('student/enroll', 'StudentController::enroll');
 
-// 🔧 Change 'course/manage' → 'courses/manage'
+// Manage Courses
 $routes->get('courses/manage', 'Course::manage');
 $routes->post('courses/manage', 'Course::manage');
 
-//announcement route
+// Announcements
 $routes->get('/announcements', 'Announcement::index');
 
-// Material Management Routes - TEACHER ROUTES (Changed from admin to teacher)
+// Material Management Routes - TEACHER
 $routes->get('/teacher/course/(:num)/upload', 'Materials::upload/$1');
 $routes->post('/teacher/course/(:num)/upload', 'Materials::upload/$1');
 
@@ -50,10 +50,8 @@ $routes->get('/materials/delete/(:num)', 'Materials::delete/$1');
 $routes->get('/materials/download/(:num)', 'Materials::download/$1');
 $routes->post('/materials/upload/(:num)', 'Materials::upload/$1');
 
-
-// Optional: For student view
+// Optional student view
 $routes->get('/materials/course/(:num)', 'Materials::viewCourseMaterials/$1');
-
 
 // Admin Routes
 $routes->group('admin', function($routes) {
@@ -69,20 +67,20 @@ $routes->group('admin', function($routes) {
 
 $routes->get('materials/download/(:num)', 'Materials::download/$1');
 
-// Optional shortcut route for managing users
+// Shortcuts
 $routes->get('users', 'AdminController::index');
 
-// Test route
+// Test DB
 $routes->get('test-db', 'TestController::testDb');
+$routes->get('test-notification', 'TestController::createTestNotification');
 
-
-//Lab seben - TEACHER ROUTES (Changed from admin to teacher)
+// Teacher / Materials
 $routes->get('/teacher/course/(:num)/upload', 'Materials::upload/$1');
 $routes->post('/teacher/course/(:num)/upload', 'Materials::upload/$1');
 $routes->get('/materials/delete/(:num)', 'Materials::delete/$1');
 $routes->get('/materials/download/(:num)', 'Materials::download/$1');
 
-// Teacher Materials Management (Changed from admin to teacher)
+// Teacher Materials Page
 $routes->get('teacher/materials', 'Materials::adminMaterialsPage');
 
 // AJAX Routes
@@ -90,15 +88,21 @@ $routes->post('materials/ajax-upload', 'Materials::ajaxUpload');
 $routes->get('materials/ajax/all', 'Materials::getAllMaterialsAjax');
 $routes->get('materials/ajax/courses', 'Materials::getAllCourses');
 $routes->get('materials/stats/dashboard', 'Materials::getDashboardStats');
-
-// Material Actions
-$routes->get('materials/download/(:num)', 'Materials::download/$1');
-$routes->get('materials/preview/(:num)', 'Materials::preview/$1');
-$routes->post('materials/delete/(:num)', 'Materials::delete/$1');
 $routes->get('materials/ajax/course/(:num)', 'Materials::getMaterialsByCourse/$1');
 
-// Admin Materials Management
+// Admin Materials Page
 $routes->get('admin/materials', 'Materials::adminMaterialsPage');
 
-// Teacher Materials Management  
+// Teacher Materials Page
 $routes->get('teacher/materials', 'Materials::adminMaterialsPage');
+
+
+// Notifications Routes
+$routes->get('notifications', 'Notifications::get');
+$routes->get('notifications/all', 'Notifications::all'); // ✅ View all page
+$routes->get('notifications/fetch', 'Notifications::get'); // ✅ AJAX fetch
+$routes->post('notifications/mark-read/(:num)', 'Notifications::mark_as_read/$1');
+$routes->post('notifications/mark-all-read', 'Notifications::mark_all_read');
+
+
+
