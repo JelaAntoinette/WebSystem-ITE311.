@@ -1,0 +1,380 @@
+DEBUG - 2025-11-12 10:01:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-12 10:01:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-11-12 10:03:34 --> mysqli_sql_exception: Table 'lms_jeminez.migrations' doesn't exist in engine in C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT MAX(`bat...', 0)
+#1 C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT MAX(`bat...')
+#2 C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT MAX(`bat...')
+#3 C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT MAX(`bat...', Array, false)
+#4 C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\MigrationRunner.php(708): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\ITE311-JEMINEZ\system\Commands\Database\MigrateRollback.php(86): CodeIgniter\Database\MigrationRunner->getLastBatch()
+#6 C:\xampp\htdocs\ITE311-JEMINEZ\system\CLI\Commands.php(74): CodeIgniter\Commands\Database\MigrateRollback->run(Array)
+#7 C:\xampp\htdocs\ITE311-JEMINEZ\system\CLI\Console.php(47): CodeIgniter\CLI\Commands->run('migrate:rollbac...', Array)
+#8 C:\xampp\htdocs\ITE311-JEMINEZ\system\Boot.php(388): CodeIgniter\CLI\Console->run()
+#9 C:\xampp\htdocs\ITE311-JEMINEZ\system\Boot.php(133): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+#10 C:\xampp\htdocs\ITE311-JEMINEZ\spark(87): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+#11 {main}
+DEBUG - 2025-11-12 11:32:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-12 11:37:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-12 11:37:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-12 11:37:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-12 11:38:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-12 11:38:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-12 11:38:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-12 11:38:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-11-12 11:38:26 --> mysqli_sql_exception: Unknown column 'm.file_size' in 'field list' in C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\MySQLi\Connection.php(327): mysqli->query('\r\n            S...', 0)
+#1 C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('\r\n            S...')
+#2 C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('\r\n            S...')
+#3 C:\xampp\htdocs\ITE311-JEMINEZ\app\Controllers\Materials.php(426): CodeIgniter\Database\BaseConnection->query('\r\n            S...')
+#4 C:\xampp\htdocs\ITE311-JEMINEZ\system\CodeIgniter.php(933): App\Controllers\Materials->getAllMaterialsAjax()
+#5 C:\xampp\htdocs\ITE311-JEMINEZ\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Materials))
+#6 C:\xampp\htdocs\ITE311-JEMINEZ\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\ITE311-JEMINEZ\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#8 C:\xampp\htdocs\ITE311-JEMINEZ\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#9 C:\xampp\htdocs\ITE311-JEMINEZ\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#10 {main}
+CRITICAL - 2025-11-12 11:38:26 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'm.file_size' in 'field list'
+[Method: GET, Route: materials/ajax/all]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 APPPATH\Controllers\Materials.php(426): CodeIgniter\Database\BaseConnection->query('
+            SELECT m.*, 
+                   c.course_name, 
+                   u.name AS uploader_name,
+                   CONCAT(ROUND(m.file_size / 1024, 2), \' KB\') as file_size_formatted
+            FROM materials m
+            LEFT JOIN courses c ON m.course_id = c.id
+            LEFT JOIN users u ON m.uploaded_by = u.id
+            ORDER BY m.created_at DESC
+        ')
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Materials->getAllMaterialsAjax()
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Materials))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-12 11:38:26 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'm.file_size' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('
+            SELECT m.*, 
+                   c.course_name, 
+                   u.name AS uploader_name,
+                   CONCAT(ROUND(m.file_size / 1024, 2), \' KB\') as file_size_formatted
+            FROM materials m
+            LEFT JOIN courses c ON m.course_id = c.id
+            LEFT JOIN users u ON m.uploaded_by = u.id
+            ORDER BY m.created_at DESC
+        ')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('
+            SELECT m.*, 
+                   c.course_name, 
+                   u.name AS uploader_name,
+                   CONCAT(ROUND(m.file_size / 1024, 2), \' KB\') as file_size_formatted
+            FROM materials m
+            LEFT JOIN courses c ON m.course_id = c.id
+            LEFT JOIN users u ON m.uploaded_by = u.id
+            ORDER BY m.created_at DESC
+        ')
+ 3 APPPATH\Controllers\Materials.php(426): CodeIgniter\Database\BaseConnection->query('
+            SELECT m.*, 
+                   c.course_name, 
+                   u.name AS uploader_name,
+                   CONCAT(ROUND(m.file_size / 1024, 2), \' KB\') as file_size_formatted
+            FROM materials m
+            LEFT JOIN courses c ON m.course_id = c.id
+            LEFT JOIN users u ON m.uploaded_by = u.id
+            ORDER BY m.created_at DESC
+        ')
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Materials->getAllMaterialsAjax()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Materials))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-12 11:38:26 --> [Caused by] mysqli_sql_exception: Unknown column 'm.file_size' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('
+            SELECT m.*, 
+                   c.course_name, 
+                   u.name AS uploader_name,
+                   CONCAT(ROUND(m.file_size / 1024, 2), \' KB\') as file_size_formatted
+            FROM materials m
+            LEFT JOIN courses c ON m.course_id = c.id
+            LEFT JOIN users u ON m.uploaded_by = u.id
+            ORDER BY m.created_at DESC
+        ', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('
+            SELECT m.*, 
+                   c.course_name, 
+                   u.name AS uploader_name,
+                   CONCAT(ROUND(m.file_size / 1024, 2), \' KB\') as file_size_formatted
+            FROM materials m
+            LEFT JOIN courses c ON m.course_id = c.id
+            LEFT JOIN users u ON m.uploaded_by = u.id
+            ORDER BY m.created_at DESC
+        ')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('
+            SELECT m.*, 
+                   c.course_name, 
+                   u.name AS uploader_name,
+                   CONCAT(ROUND(m.file_size / 1024, 2), \' KB\') as file_size_formatted
+            FROM materials m
+            LEFT JOIN courses c ON m.course_id = c.id
+            LEFT JOIN users u ON m.uploaded_by = u.id
+            ORDER BY m.created_at DESC
+        ')
+ 4 APPPATH\Controllers\Materials.php(426): CodeIgniter\Database\BaseConnection->query('
+            SELECT m.*, 
+                   c.course_name, 
+                   u.name AS uploader_name,
+                   CONCAT(ROUND(m.file_size / 1024, 2), \' KB\') as file_size_formatted
+            FROM materials m
+            LEFT JOIN courses c ON m.course_id = c.id
+            LEFT JOIN users u ON m.uploaded_by = u.id
+            ORDER BY m.created_at DESC
+        ')
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Materials->getAllMaterialsAjax()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Materials))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-11-12 11:38:26 --> mysqli_sql_exception: Unknown column 'file_size' in 'field list' in C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT SUM(`fil...', 0)
+#1 C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT SUM(`fil...')
+#2 C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT SUM(`fil...')
+#3 C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT SUM(`fil...', Array, false)
+#4 C:\xampp\htdocs\ITE311-JEMINEZ\app\Controllers\Materials.php(538): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\ITE311-JEMINEZ\system\CodeIgniter.php(933): App\Controllers\Materials->getDashboardStats()
+#6 C:\xampp\htdocs\ITE311-JEMINEZ\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Materials))
+#7 C:\xampp\htdocs\ITE311-JEMINEZ\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\ITE311-JEMINEZ\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\ITE311-JEMINEZ\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp\htdocs\ITE311-JEMINEZ\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+CRITICAL - 2025-11-12 11:38:26 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'file_size' in 'field list'
+[Method: GET, Route: materials/stats/dashboard]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT SUM(`file_size`) AS `file_size`
+FROM `materials`', [], false)
+ 2 APPPATH\Controllers\Materials.php(538): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Materials->getDashboardStats()
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Materials))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-12 11:38:26 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'file_size' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT SUM(`file_size`) AS `file_size`
+FROM `materials`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT SUM(`file_size`) AS `file_size`
+FROM `materials`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT SUM(`file_size`) AS `file_size`
+FROM `materials`', [], false)
+ 4 APPPATH\Controllers\Materials.php(538): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Materials->getDashboardStats()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Materials))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-12 11:38:26 --> [Caused by] mysqli_sql_exception: Unknown column 'file_size' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT SUM(`file_size`) AS `file_size`
+FROM `materials`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT SUM(`file_size`) AS `file_size`
+FROM `materials`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT SUM(`file_size`) AS `file_size`
+FROM `materials`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT SUM(`file_size`) AS `file_size`
+FROM `materials`', [], false)
+ 5 APPPATH\Controllers\Materials.php(538): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Materials->getDashboardStats()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Materials))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-11-12 11:39:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-11-12 11:39:38 --> mysqli_sql_exception: Unknown column 'm.file_size' in 'field list' in C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\MySQLi\Connection.php(327): mysqli->query('\r\n            S...', 0)
+#1 C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('\r\n            S...')
+#2 C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('\r\n            S...')
+#3 C:\xampp\htdocs\ITE311-JEMINEZ\app\Controllers\Materials.php(426): CodeIgniter\Database\BaseConnection->query('\r\n            S...')
+#4 C:\xampp\htdocs\ITE311-JEMINEZ\system\CodeIgniter.php(933): App\Controllers\Materials->getAllMaterialsAjax()
+#5 C:\xampp\htdocs\ITE311-JEMINEZ\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Materials))
+#6 C:\xampp\htdocs\ITE311-JEMINEZ\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\ITE311-JEMINEZ\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#8 C:\xampp\htdocs\ITE311-JEMINEZ\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#9 C:\xampp\htdocs\ITE311-JEMINEZ\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#10 {main}
+CRITICAL - 2025-11-12 11:39:38 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'm.file_size' in 'field list'
+[Method: GET, Route: materials/ajax/all]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 APPPATH\Controllers\Materials.php(426): CodeIgniter\Database\BaseConnection->query('
+            SELECT m.*, 
+                   c.course_name, 
+                   u.name AS uploader_name,
+                   CONCAT(ROUND(m.file_size / 1024, 2), \' KB\') as file_size_formatted
+            FROM materials m
+            LEFT JOIN courses c ON m.course_id = c.id
+            LEFT JOIN users u ON m.uploaded_by = u.id
+            ORDER BY m.created_at DESC
+        ')
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Materials->getAllMaterialsAjax()
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Materials))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-12 11:39:38 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'm.file_size' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('
+            SELECT m.*, 
+                   c.course_name, 
+                   u.name AS uploader_name,
+                   CONCAT(ROUND(m.file_size / 1024, 2), \' KB\') as file_size_formatted
+            FROM materials m
+            LEFT JOIN courses c ON m.course_id = c.id
+            LEFT JOIN users u ON m.uploaded_by = u.id
+            ORDER BY m.created_at DESC
+        ')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('
+            SELECT m.*, 
+                   c.course_name, 
+                   u.name AS uploader_name,
+                   CONCAT(ROUND(m.file_size / 1024, 2), \' KB\') as file_size_formatted
+            FROM materials m
+            LEFT JOIN courses c ON m.course_id = c.id
+            LEFT JOIN users u ON m.uploaded_by = u.id
+            ORDER BY m.created_at DESC
+        ')
+ 3 APPPATH\Controllers\Materials.php(426): CodeIgniter\Database\BaseConnection->query('
+            SELECT m.*, 
+                   c.course_name, 
+                   u.name AS uploader_name,
+                   CONCAT(ROUND(m.file_size / 1024, 2), \' KB\') as file_size_formatted
+            FROM materials m
+            LEFT JOIN courses c ON m.course_id = c.id
+            LEFT JOIN users u ON m.uploaded_by = u.id
+            ORDER BY m.created_at DESC
+        ')
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Materials->getAllMaterialsAjax()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Materials))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-12 11:39:38 --> [Caused by] mysqli_sql_exception: Unknown column 'm.file_size' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('
+            SELECT m.*, 
+                   c.course_name, 
+                   u.name AS uploader_name,
+                   CONCAT(ROUND(m.file_size / 1024, 2), \' KB\') as file_size_formatted
+            FROM materials m
+            LEFT JOIN courses c ON m.course_id = c.id
+            LEFT JOIN users u ON m.uploaded_by = u.id
+            ORDER BY m.created_at DESC
+        ', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('
+            SELECT m.*, 
+                   c.course_name, 
+                   u.name AS uploader_name,
+                   CONCAT(ROUND(m.file_size / 1024, 2), \' KB\') as file_size_formatted
+            FROM materials m
+            LEFT JOIN courses c ON m.course_id = c.id
+            LEFT JOIN users u ON m.uploaded_by = u.id
+            ORDER BY m.created_at DESC
+        ')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('
+            SELECT m.*, 
+                   c.course_name, 
+                   u.name AS uploader_name,
+                   CONCAT(ROUND(m.file_size / 1024, 2), \' KB\') as file_size_formatted
+            FROM materials m
+            LEFT JOIN courses c ON m.course_id = c.id
+            LEFT JOIN users u ON m.uploaded_by = u.id
+            ORDER BY m.created_at DESC
+        ')
+ 4 APPPATH\Controllers\Materials.php(426): CodeIgniter\Database\BaseConnection->query('
+            SELECT m.*, 
+                   c.course_name, 
+                   u.name AS uploader_name,
+                   CONCAT(ROUND(m.file_size / 1024, 2), \' KB\') as file_size_formatted
+            FROM materials m
+            LEFT JOIN courses c ON m.course_id = c.id
+            LEFT JOIN users u ON m.uploaded_by = u.id
+            ORDER BY m.created_at DESC
+        ')
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Materials->getAllMaterialsAjax()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Materials))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-11-12 11:39:38 --> mysqli_sql_exception: Unknown column 'file_size' in 'field list' in C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT SUM(`fil...', 0)
+#1 C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT SUM(`fil...')
+#2 C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT SUM(`fil...')
+#3 C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT SUM(`fil...', Array, false)
+#4 C:\xampp\htdocs\ITE311-JEMINEZ\app\Controllers\Materials.php(538): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\ITE311-JEMINEZ\system\CodeIgniter.php(933): App\Controllers\Materials->getDashboardStats()
+#6 C:\xampp\htdocs\ITE311-JEMINEZ\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Materials))
+#7 C:\xampp\htdocs\ITE311-JEMINEZ\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\ITE311-JEMINEZ\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\ITE311-JEMINEZ\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp\htdocs\ITE311-JEMINEZ\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+CRITICAL - 2025-11-12 11:39:38 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'file_size' in 'field list'
+[Method: GET, Route: materials/stats/dashboard]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT SUM(`file_size`) AS `file_size`
+FROM `materials`', [], false)
+ 2 APPPATH\Controllers\Materials.php(538): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Materials->getDashboardStats()
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Materials))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-12 11:39:38 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'file_size' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT SUM(`file_size`) AS `file_size`
+FROM `materials`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT SUM(`file_size`) AS `file_size`
+FROM `materials`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT SUM(`file_size`) AS `file_size`
+FROM `materials`', [], false)
+ 4 APPPATH\Controllers\Materials.php(538): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Materials->getDashboardStats()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Materials))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-12 11:39:38 --> [Caused by] mysqli_sql_exception: Unknown column 'file_size' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT SUM(`file_size`) AS `file_size`
+FROM `materials`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT SUM(`file_size`) AS `file_size`
+FROM `materials`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT SUM(`file_size`) AS `file_size`
+FROM `materials`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT SUM(`file_size`) AS `file_size`
+FROM `materials`', [], false)
+ 5 APPPATH\Controllers\Materials.php(538): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Materials->getDashboardStats()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Materials))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-11-12 11:39:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-12 11:39:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-12 11:39:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

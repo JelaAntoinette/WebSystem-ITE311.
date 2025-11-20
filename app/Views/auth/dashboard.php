@@ -8,7 +8,7 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #8B5FBF 0%, #7A4FB0 50%, #8B5FBF 100%);
+            background: linear-gradient(135deg, #b1a7bcff 0%, #743cc3ff 50%, #8B5FBF 100%);
             min-height: 100vh;
             position: relative;
         }
@@ -120,21 +120,21 @@
                     <h5>Admin Quick Actions</h5>
                     <div class="admin-actions">
                         <a href="<?= base_url('admin/manage') ?>" class="action-card">
-                            <div class="action-icon">👥</div>
+                            <div class="action-icon"></div>
                             <div class="action-text">
                                 <h6>Manage Users</h6>
                                 <p>Add, edit, or remove users</p>
                             </div>
                         </a>
                         <a href="<?= base_url('teacher/materials') ?>" class="action-card">
-                            <div class="action-icon">📁</div>
+                            <div class="action-icon"></div>
                             <div class="action-text">
                                 <h6>Manage Materials</h6>
                                 <p>Upload & organize course materials</p>
                             </div>
                         </a>
                         <a href="<?= base_url('reports') ?>" class="action-card">
-                            <div class="action-icon">📊</div>
+                            <div class="action-icon"></div>
                             <div class="action-text">
                                 <h6>Reports</h6>
                                 <p>View system reports & analytics</p>

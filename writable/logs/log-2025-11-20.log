@@ -1,0 +1,783 @@
+DEBUG - 2025-11-20 11:55:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-20 11:55:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-20 15:38:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-20 15:38:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-20 15:38:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-20 15:38:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-20 15:38:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-20 15:38:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-20 15:38:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-20 15:39:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-20 15:40:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-20 15:40:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-20 15:40:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-20 15:40:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-20 15:40:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-20 15:40:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-20 15:40:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-20 15:40:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-20 15:40:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-20 15:41:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-11-20 15:41:03 --> mysqli_sql_exception: Unknown column 'm.file_size' in 'field list' in C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\MySQLi\Connection.php(327): mysqli->query('\r\n            S...', 0)
+#1 C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('\r\n            S...')
+#2 C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('\r\n            S...')
+#3 C:\xampp\htdocs\ITE311-JEMINEZ\app\Controllers\Materials.php(426): CodeIgniter\Database\BaseConnection->query('\r\n            S...')
+#4 C:\xampp\htdocs\ITE311-JEMINEZ\system\CodeIgniter.php(933): App\Controllers\Materials->getAllMaterialsAjax()
+#5 C:\xampp\htdocs\ITE311-JEMINEZ\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Materials))
+#6 C:\xampp\htdocs\ITE311-JEMINEZ\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\ITE311-JEMINEZ\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#8 C:\xampp\htdocs\ITE311-JEMINEZ\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#9 C:\xampp\htdocs\ITE311-JEMINEZ\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#10 {main}
+ERROR - 2025-11-20 15:41:03 --> mysqli_sql_exception: Unknown column 'file_size' in 'field list' in C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT SUM(`fil...', 0)
+#1 C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT SUM(`fil...')
+#2 C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT SUM(`fil...')
+#3 C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT SUM(`fil...', Array, false)
+#4 C:\xampp\htdocs\ITE311-JEMINEZ\app\Controllers\Materials.php(538): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\ITE311-JEMINEZ\system\CodeIgniter.php(933): App\Controllers\Materials->getDashboardStats()
+#6 C:\xampp\htdocs\ITE311-JEMINEZ\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Materials))
+#7 C:\xampp\htdocs\ITE311-JEMINEZ\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\ITE311-JEMINEZ\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\ITE311-JEMINEZ\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp\htdocs\ITE311-JEMINEZ\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+CRITICAL - 2025-11-20 15:41:03 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'm.file_size' in 'field list'
+[Method: GET, Route: materials/ajax/all]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 APPPATH\Controllers\Materials.php(426): CodeIgniter\Database\BaseConnection->query('
+            SELECT m.*, 
+                   c.course_name, 
+                   u.name AS uploader_name,
+                   CONCAT(ROUND(m.file_size / 1024, 2), \' KB\') as file_size_formatted
+            FROM materials m
+            LEFT JOIN courses c ON m.course_id = c.id
+            LEFT JOIN users u ON m.uploaded_by = u.id
+            ORDER BY m.created_at DESC
+        ')
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Materials->getAllMaterialsAjax()
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Materials))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-20 15:41:03 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'file_size' in 'field list'
+[Method: GET, Route: materials/stats/dashboard]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT SUM(`file_size`) AS `file_size`
+FROM `materials`', [], false)
+ 2 APPPATH\Controllers\Materials.php(538): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Materials->getDashboardStats()
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Materials))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-20 15:41:03 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'm.file_size' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('
+            SELECT m.*, 
+                   c.course_name, 
+                   u.name AS uploader_name,
+                   CONCAT(ROUND(m.file_size / 1024, 2), \' KB\') as file_size_formatted
+            FROM materials m
+            LEFT JOIN courses c ON m.course_id = c.id
+            LEFT JOIN users u ON m.uploaded_by = u.id
+            ORDER BY m.created_at DESC
+        ')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('
+            SELECT m.*, 
+                   c.course_name, 
+                   u.name AS uploader_name,
+                   CONCAT(ROUND(m.file_size / 1024, 2), \' KB\') as file_size_formatted
+            FROM materials m
+            LEFT JOIN courses c ON m.course_id = c.id
+            LEFT JOIN users u ON m.uploaded_by = u.id
+            ORDER BY m.created_at DESC
+        ')
+ 3 APPPATH\Controllers\Materials.php(426): CodeIgniter\Database\BaseConnection->query('
+            SELECT m.*, 
+                   c.course_name, 
+                   u.name AS uploader_name,
+                   CONCAT(ROUND(m.file_size / 1024, 2), \' KB\') as file_size_formatted
+            FROM materials m
+            LEFT JOIN courses c ON m.course_id = c.id
+            LEFT JOIN users u ON m.uploaded_by = u.id
+            ORDER BY m.created_at DESC
+        ')
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Materials->getAllMaterialsAjax()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Materials))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-20 15:41:03 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'file_size' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT SUM(`file_size`) AS `file_size`
+FROM `materials`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT SUM(`file_size`) AS `file_size`
+FROM `materials`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT SUM(`file_size`) AS `file_size`
+FROM `materials`', [], false)
+ 4 APPPATH\Controllers\Materials.php(538): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Materials->getDashboardStats()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Materials))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-20 15:41:03 --> [Caused by] mysqli_sql_exception: Unknown column 'file_size' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT SUM(`file_size`) AS `file_size`
+FROM `materials`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT SUM(`file_size`) AS `file_size`
+FROM `materials`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT SUM(`file_size`) AS `file_size`
+FROM `materials`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT SUM(`file_size`) AS `file_size`
+FROM `materials`', [], false)
+ 5 APPPATH\Controllers\Materials.php(538): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Materials->getDashboardStats()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Materials))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-20 15:41:03 --> [Caused by] mysqli_sql_exception: Unknown column 'm.file_size' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('
+            SELECT m.*, 
+                   c.course_name, 
+                   u.name AS uploader_name,
+                   CONCAT(ROUND(m.file_size / 1024, 2), \' KB\') as file_size_formatted
+            FROM materials m
+            LEFT JOIN courses c ON m.course_id = c.id
+            LEFT JOIN users u ON m.uploaded_by = u.id
+            ORDER BY m.created_at DESC
+        ', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('
+            SELECT m.*, 
+                   c.course_name, 
+                   u.name AS uploader_name,
+                   CONCAT(ROUND(m.file_size / 1024, 2), \' KB\') as file_size_formatted
+            FROM materials m
+            LEFT JOIN courses c ON m.course_id = c.id
+            LEFT JOIN users u ON m.uploaded_by = u.id
+            ORDER BY m.created_at DESC
+        ')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('
+            SELECT m.*, 
+                   c.course_name, 
+                   u.name AS uploader_name,
+                   CONCAT(ROUND(m.file_size / 1024, 2), \' KB\') as file_size_formatted
+            FROM materials m
+            LEFT JOIN courses c ON m.course_id = c.id
+            LEFT JOIN users u ON m.uploaded_by = u.id
+            ORDER BY m.created_at DESC
+        ')
+ 4 APPPATH\Controllers\Materials.php(426): CodeIgniter\Database\BaseConnection->query('
+            SELECT m.*, 
+                   c.course_name, 
+                   u.name AS uploader_name,
+                   CONCAT(ROUND(m.file_size / 1024, 2), \' KB\') as file_size_formatted
+            FROM materials m
+            LEFT JOIN courses c ON m.course_id = c.id
+            LEFT JOIN users u ON m.uploaded_by = u.id
+            ORDER BY m.created_at DESC
+        ')
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Materials->getAllMaterialsAjax()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Materials))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-11-20 15:41:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-20 15:41:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-20 15:42:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-20 15:42:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-20 15:42:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-20 15:43:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-20 15:43:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-20 15:43:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-20 15:43:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-20 15:43:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-11-20 15:43:47 --> mysqli_sql_exception: Unknown column 'file_size' in 'field list' in C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT SUM(`fil...', 0)
+#1 C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT SUM(`fil...')
+#2 C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT SUM(`fil...')
+#3 C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT SUM(`fil...', Array, false)
+#4 C:\xampp\htdocs\ITE311-JEMINEZ\app\Controllers\Materials.php(538): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\ITE311-JEMINEZ\system\CodeIgniter.php(933): App\Controllers\Materials->getDashboardStats()
+#6 C:\xampp\htdocs\ITE311-JEMINEZ\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Materials))
+#7 C:\xampp\htdocs\ITE311-JEMINEZ\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\ITE311-JEMINEZ\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\ITE311-JEMINEZ\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp\htdocs\ITE311-JEMINEZ\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+CRITICAL - 2025-11-20 15:43:47 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'file_size' in 'field list'
+[Method: GET, Route: materials/stats/dashboard]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT SUM(`file_size`) AS `file_size`
+FROM `materials`', [], false)
+ 2 APPPATH\Controllers\Materials.php(538): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Materials->getDashboardStats()
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Materials))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-11-20 15:43:47 --> mysqli_sql_exception: Unknown column 'm.file_size' in 'field list' in C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\MySQLi\Connection.php(327): mysqli->query('\r\n            S...', 0)
+#1 C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('\r\n            S...')
+#2 C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('\r\n            S...')
+#3 C:\xampp\htdocs\ITE311-JEMINEZ\app\Controllers\Materials.php(426): CodeIgniter\Database\BaseConnection->query('\r\n            S...')
+#4 C:\xampp\htdocs\ITE311-JEMINEZ\system\CodeIgniter.php(933): App\Controllers\Materials->getAllMaterialsAjax()
+#5 C:\xampp\htdocs\ITE311-JEMINEZ\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Materials))
+#6 C:\xampp\htdocs\ITE311-JEMINEZ\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\ITE311-JEMINEZ\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#8 C:\xampp\htdocs\ITE311-JEMINEZ\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#9 C:\xampp\htdocs\ITE311-JEMINEZ\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#10 {main}
+CRITICAL - 2025-11-20 15:43:47 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'file_size' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT SUM(`file_size`) AS `file_size`
+FROM `materials`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT SUM(`file_size`) AS `file_size`
+FROM `materials`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT SUM(`file_size`) AS `file_size`
+FROM `materials`', [], false)
+ 4 APPPATH\Controllers\Materials.php(538): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Materials->getDashboardStats()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Materials))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-20 15:43:47 --> [Caused by] mysqli_sql_exception: Unknown column 'file_size' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT SUM(`file_size`) AS `file_size`
+FROM `materials`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT SUM(`file_size`) AS `file_size`
+FROM `materials`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT SUM(`file_size`) AS `file_size`
+FROM `materials`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT SUM(`file_size`) AS `file_size`
+FROM `materials`', [], false)
+ 5 APPPATH\Controllers\Materials.php(538): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Materials->getDashboardStats()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Materials))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-20 15:43:47 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'm.file_size' in 'field list'
+[Method: GET, Route: materials/ajax/all]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 APPPATH\Controllers\Materials.php(426): CodeIgniter\Database\BaseConnection->query('
+            SELECT m.*, 
+                   c.course_name, 
+                   u.name AS uploader_name,
+                   CONCAT(ROUND(m.file_size / 1024, 2), \' KB\') as file_size_formatted
+            FROM materials m
+            LEFT JOIN courses c ON m.course_id = c.id
+            LEFT JOIN users u ON m.uploaded_by = u.id
+            ORDER BY m.created_at DESC
+        ')
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Materials->getAllMaterialsAjax()
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Materials))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-20 15:43:47 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'm.file_size' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('
+            SELECT m.*, 
+                   c.course_name, 
+                   u.name AS uploader_name,
+                   CONCAT(ROUND(m.file_size / 1024, 2), \' KB\') as file_size_formatted
+            FROM materials m
+            LEFT JOIN courses c ON m.course_id = c.id
+            LEFT JOIN users u ON m.uploaded_by = u.id
+            ORDER BY m.created_at DESC
+        ')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('
+            SELECT m.*, 
+                   c.course_name, 
+                   u.name AS uploader_name,
+                   CONCAT(ROUND(m.file_size / 1024, 2), \' KB\') as file_size_formatted
+            FROM materials m
+            LEFT JOIN courses c ON m.course_id = c.id
+            LEFT JOIN users u ON m.uploaded_by = u.id
+            ORDER BY m.created_at DESC
+        ')
+ 3 APPPATH\Controllers\Materials.php(426): CodeIgniter\Database\BaseConnection->query('
+            SELECT m.*, 
+                   c.course_name, 
+                   u.name AS uploader_name,
+                   CONCAT(ROUND(m.file_size / 1024, 2), \' KB\') as file_size_formatted
+            FROM materials m
+            LEFT JOIN courses c ON m.course_id = c.id
+            LEFT JOIN users u ON m.uploaded_by = u.id
+            ORDER BY m.created_at DESC
+        ')
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Materials->getAllMaterialsAjax()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Materials))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-20 15:43:47 --> [Caused by] mysqli_sql_exception: Unknown column 'm.file_size' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('
+            SELECT m.*, 
+                   c.course_name, 
+                   u.name AS uploader_name,
+                   CONCAT(ROUND(m.file_size / 1024, 2), \' KB\') as file_size_formatted
+            FROM materials m
+            LEFT JOIN courses c ON m.course_id = c.id
+            LEFT JOIN users u ON m.uploaded_by = u.id
+            ORDER BY m.created_at DESC
+        ', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('
+            SELECT m.*, 
+                   c.course_name, 
+                   u.name AS uploader_name,
+                   CONCAT(ROUND(m.file_size / 1024, 2), \' KB\') as file_size_formatted
+            FROM materials m
+            LEFT JOIN courses c ON m.course_id = c.id
+            LEFT JOIN users u ON m.uploaded_by = u.id
+            ORDER BY m.created_at DESC
+        ')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('
+            SELECT m.*, 
+                   c.course_name, 
+                   u.name AS uploader_name,
+                   CONCAT(ROUND(m.file_size / 1024, 2), \' KB\') as file_size_formatted
+            FROM materials m
+            LEFT JOIN courses c ON m.course_id = c.id
+            LEFT JOIN users u ON m.uploaded_by = u.id
+            ORDER BY m.created_at DESC
+        ')
+ 4 APPPATH\Controllers\Materials.php(426): CodeIgniter\Database\BaseConnection->query('
+            SELECT m.*, 
+                   c.course_name, 
+                   u.name AS uploader_name,
+                   CONCAT(ROUND(m.file_size / 1024, 2), \' KB\') as file_size_formatted
+            FROM materials m
+            LEFT JOIN courses c ON m.course_id = c.id
+            LEFT JOIN users u ON m.uploaded_by = u.id
+            ORDER BY m.created_at DESC
+        ')
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Materials->getAllMaterialsAjax()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Materials))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-11-20 15:44:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-11-20 15:44:03 --> mysqli_sql_exception: Unknown column 'file_size' in 'field list' in C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\MySQLi\Connection.php(327): mysqli->query('INSERT INTO `ma...', 0)
+#1 C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `ma...')
+#2 C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `ma...')
+#3 C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `ma...', Array, false)
+#4 C:\xampp\htdocs\ITE311-JEMINEZ\system\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\ITE311-JEMINEZ\system\BaseModel.php(838): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\ITE311-JEMINEZ\system\Model.php(797): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\ITE311-JEMINEZ\app\Controllers\Materials.php(397): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\ITE311-JEMINEZ\system\CodeIgniter.php(933): App\Controllers\Materials->ajaxUpload()
+#9 C:\xampp\htdocs\ITE311-JEMINEZ\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Materials))
+#10 C:\xampp\htdocs\ITE311-JEMINEZ\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\ITE311-JEMINEZ\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\ITE311-JEMINEZ\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\ITE311-JEMINEZ\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2025-11-20 15:44:03 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'file_size' in 'field list'
+[Method: POST, Route: materials/ajax-upload]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `materials` (`course_id`, `file_name`, `file_path`, `file_size`, `uploaded_by`, `created_at`) VALUES (:course_id:, :file_name:, :file_path:, :file_size:, :uploaded_by:, :created_at:)', [...], false)
+ 2 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(838): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(797): CodeIgniter\BaseModel->insert([...], true)
+ 5 APPPATH\Controllers\Materials.php(397): CodeIgniter\Model->insert([...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Materials->ajaxUpload()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Materials))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-20 15:44:03 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'file_size' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `materials` (`course_id`, `file_name`, `file_path`, `file_size`, `uploaded_by`, `created_at`) VALUES (\'4\', \'Laboratory Exercise 5 ADMIN, TEACHER, AND STUDENT DASHBOARDS (1).docx\', \'uploads/materials/1763653443_205dee2d164ef6cb853f.docx\', 7014484, \'1\', \'2025-11-20 15:44:03\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `materials` (`course_id`, `file_name`, `file_path`, `file_size`, `uploaded_by`, `created_at`) VALUES (\'4\', \'Laboratory Exercise 5 ADMIN, TEACHER, AND STUDENT DASHBOARDS (1).docx\', \'uploads/materials/1763653443_205dee2d164ef6cb853f.docx\', 7014484, \'1\', \'2025-11-20 15:44:03\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `materials` (`course_id`, `file_name`, `file_path`, `file_size`, `uploaded_by`, `created_at`) VALUES (:course_id:, :file_name:, :file_path:, :file_size:, :uploaded_by:, :created_at:)', [...], false)
+ 4 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\BaseModel.php(838): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH\Model.php(797): CodeIgniter\BaseModel->insert([...], true)
+ 7 APPPATH\Controllers\Materials.php(397): CodeIgniter\Model->insert([...])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Materials->ajaxUpload()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Materials))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-20 15:44:03 --> [Caused by] mysqli_sql_exception: Unknown column 'file_size' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('INSERT INTO `materials` (`course_id`, `file_name`, `file_path`, `file_size`, `uploaded_by`, `created_at`) VALUES (\'4\', \'Laboratory Exercise 5 ADMIN, TEACHER, AND STUDENT DASHBOARDS (1).docx\', \'uploads/materials/1763653443_205dee2d164ef6cb853f.docx\', 7014484, \'1\', \'2025-11-20 15:44:03\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `materials` (`course_id`, `file_name`, `file_path`, `file_size`, `uploaded_by`, `created_at`) VALUES (\'4\', \'Laboratory Exercise 5 ADMIN, TEACHER, AND STUDENT DASHBOARDS (1).docx\', \'uploads/materials/1763653443_205dee2d164ef6cb853f.docx\', 7014484, \'1\', \'2025-11-20 15:44:03\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `materials` (`course_id`, `file_name`, `file_path`, `file_size`, `uploaded_by`, `created_at`) VALUES (\'4\', \'Laboratory Exercise 5 ADMIN, TEACHER, AND STUDENT DASHBOARDS (1).docx\', \'uploads/materials/1763653443_205dee2d164ef6cb853f.docx\', 7014484, \'1\', \'2025-11-20 15:44:03\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `materials` (`course_id`, `file_name`, `file_path`, `file_size`, `uploaded_by`, `created_at`) VALUES (:course_id:, :file_name:, :file_path:, :file_size:, :uploaded_by:, :created_at:)', [...], false)
+ 5 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(838): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(797): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\Materials.php(397): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Materials->ajaxUpload()
+10 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Materials))
+11 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-11-20 15:44:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-11-20 15:44:12 --> mysqli_sql_exception: Unknown column 'file_size' in 'field list' in C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\MySQLi\Connection.php(327): mysqli->query('INSERT INTO `ma...', 0)
+#1 C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `ma...')
+#2 C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `ma...')
+#3 C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `ma...', Array, false)
+#4 C:\xampp\htdocs\ITE311-JEMINEZ\system\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\ITE311-JEMINEZ\system\BaseModel.php(838): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\ITE311-JEMINEZ\system\Model.php(797): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\ITE311-JEMINEZ\app\Controllers\Materials.php(397): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\ITE311-JEMINEZ\system\CodeIgniter.php(933): App\Controllers\Materials->ajaxUpload()
+#9 C:\xampp\htdocs\ITE311-JEMINEZ\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Materials))
+#10 C:\xampp\htdocs\ITE311-JEMINEZ\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\ITE311-JEMINEZ\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\ITE311-JEMINEZ\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\ITE311-JEMINEZ\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2025-11-20 15:44:12 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'file_size' in 'field list'
+[Method: POST, Route: materials/ajax-upload]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `materials` (`course_id`, `file_name`, `file_path`, `file_size`, `uploaded_by`, `created_at`) VALUES (:course_id:, :file_name:, :file_path:, :file_size:, :uploaded_by:, :created_at:)', [...], false)
+ 2 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(838): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(797): CodeIgniter\BaseModel->insert([...], true)
+ 5 APPPATH\Controllers\Materials.php(397): CodeIgniter\Model->insert([...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Materials->ajaxUpload()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Materials))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-20 15:44:12 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'file_size' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `materials` (`course_id`, `file_name`, `file_path`, `file_size`, `uploaded_by`, `created_at`) VALUES (\'4\', \'Laboratory Exercise 5 ADMIN, TEACHER, AND STUDENT DASHBOARDS (1).docx\', \'uploads/materials/1763653452_4921a33daea16e519d4a.docx\', 7014484, \'1\', \'2025-11-20 15:44:12\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `materials` (`course_id`, `file_name`, `file_path`, `file_size`, `uploaded_by`, `created_at`) VALUES (\'4\', \'Laboratory Exercise 5 ADMIN, TEACHER, AND STUDENT DASHBOARDS (1).docx\', \'uploads/materials/1763653452_4921a33daea16e519d4a.docx\', 7014484, \'1\', \'2025-11-20 15:44:12\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `materials` (`course_id`, `file_name`, `file_path`, `file_size`, `uploaded_by`, `created_at`) VALUES (:course_id:, :file_name:, :file_path:, :file_size:, :uploaded_by:, :created_at:)', [...], false)
+ 4 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\BaseModel.php(838): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH\Model.php(797): CodeIgniter\BaseModel->insert([...], true)
+ 7 APPPATH\Controllers\Materials.php(397): CodeIgniter\Model->insert([...])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Materials->ajaxUpload()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Materials))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-20 15:44:12 --> [Caused by] mysqli_sql_exception: Unknown column 'file_size' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('INSERT INTO `materials` (`course_id`, `file_name`, `file_path`, `file_size`, `uploaded_by`, `created_at`) VALUES (\'4\', \'Laboratory Exercise 5 ADMIN, TEACHER, AND STUDENT DASHBOARDS (1).docx\', \'uploads/materials/1763653452_4921a33daea16e519d4a.docx\', 7014484, \'1\', \'2025-11-20 15:44:12\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `materials` (`course_id`, `file_name`, `file_path`, `file_size`, `uploaded_by`, `created_at`) VALUES (\'4\', \'Laboratory Exercise 5 ADMIN, TEACHER, AND STUDENT DASHBOARDS (1).docx\', \'uploads/materials/1763653452_4921a33daea16e519d4a.docx\', 7014484, \'1\', \'2025-11-20 15:44:12\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `materials` (`course_id`, `file_name`, `file_path`, `file_size`, `uploaded_by`, `created_at`) VALUES (\'4\', \'Laboratory Exercise 5 ADMIN, TEACHER, AND STUDENT DASHBOARDS (1).docx\', \'uploads/materials/1763653452_4921a33daea16e519d4a.docx\', 7014484, \'1\', \'2025-11-20 15:44:12\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `materials` (`course_id`, `file_name`, `file_path`, `file_size`, `uploaded_by`, `created_at`) VALUES (:course_id:, :file_name:, :file_path:, :file_size:, :uploaded_by:, :created_at:)', [...], false)
+ 5 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(838): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(797): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\Materials.php(397): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Materials->ajaxUpload()
+10 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Materials))
+11 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-11-20 15:46:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-11-20 15:46:39 --> mysqli_sql_exception: Unknown column 'uploaded_by' in 'field list' in C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\MySQLi\Connection.php(327): mysqli->query('INSERT INTO `ma...', 0)
+#1 C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `ma...')
+#2 C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `ma...')
+#3 C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `ma...', Array, false)
+#4 C:\xampp\htdocs\ITE311-JEMINEZ\system\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\ITE311-JEMINEZ\system\BaseModel.php(838): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\ITE311-JEMINEZ\system\Model.php(797): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\ITE311-JEMINEZ\app\Controllers\Materials.php(397): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\ITE311-JEMINEZ\system\CodeIgniter.php(933): App\Controllers\Materials->ajaxUpload()
+#9 C:\xampp\htdocs\ITE311-JEMINEZ\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Materials))
+#10 C:\xampp\htdocs\ITE311-JEMINEZ\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\ITE311-JEMINEZ\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\ITE311-JEMINEZ\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\ITE311-JEMINEZ\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2025-11-20 15:46:39 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'uploaded_by' in 'field list'
+[Method: POST, Route: materials/ajax-upload]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `materials` (`course_id`, `file_name`, `file_path`, `file_size`, `uploaded_by`, `created_at`) VALUES (:course_id:, :file_name:, :file_path:, :file_size:, :uploaded_by:, :created_at:)', [...], false)
+ 2 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(838): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(797): CodeIgniter\BaseModel->insert([...], true)
+ 5 APPPATH\Controllers\Materials.php(397): CodeIgniter\Model->insert([...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Materials->ajaxUpload()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Materials))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-20 15:46:39 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'uploaded_by' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `materials` (`course_id`, `file_name`, `file_path`, `file_size`, `uploaded_by`, `created_at`) VALUES (\'4\', \'Laboratory Exercise 5 ADMIN, TEACHER, AND STUDENT DASHBOARDS (1).docx\', \'uploads/materials/1763653599_572636062dda76612f2e.docx\', 7014484, \'1\', \'2025-11-20 15:46:39\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `materials` (`course_id`, `file_name`, `file_path`, `file_size`, `uploaded_by`, `created_at`) VALUES (\'4\', \'Laboratory Exercise 5 ADMIN, TEACHER, AND STUDENT DASHBOARDS (1).docx\', \'uploads/materials/1763653599_572636062dda76612f2e.docx\', 7014484, \'1\', \'2025-11-20 15:46:39\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `materials` (`course_id`, `file_name`, `file_path`, `file_size`, `uploaded_by`, `created_at`) VALUES (:course_id:, :file_name:, :file_path:, :file_size:, :uploaded_by:, :created_at:)', [...], false)
+ 4 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\BaseModel.php(838): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH\Model.php(797): CodeIgniter\BaseModel->insert([...], true)
+ 7 APPPATH\Controllers\Materials.php(397): CodeIgniter\Model->insert([...])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Materials->ajaxUpload()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Materials))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-20 15:46:39 --> [Caused by] mysqli_sql_exception: Unknown column 'uploaded_by' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('INSERT INTO `materials` (`course_id`, `file_name`, `file_path`, `file_size`, `uploaded_by`, `created_at`) VALUES (\'4\', \'Laboratory Exercise 5 ADMIN, TEACHER, AND STUDENT DASHBOARDS (1).docx\', \'uploads/materials/1763653599_572636062dda76612f2e.docx\', 7014484, \'1\', \'2025-11-20 15:46:39\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `materials` (`course_id`, `file_name`, `file_path`, `file_size`, `uploaded_by`, `created_at`) VALUES (\'4\', \'Laboratory Exercise 5 ADMIN, TEACHER, AND STUDENT DASHBOARDS (1).docx\', \'uploads/materials/1763653599_572636062dda76612f2e.docx\', 7014484, \'1\', \'2025-11-20 15:46:39\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `materials` (`course_id`, `file_name`, `file_path`, `file_size`, `uploaded_by`, `created_at`) VALUES (\'4\', \'Laboratory Exercise 5 ADMIN, TEACHER, AND STUDENT DASHBOARDS (1).docx\', \'uploads/materials/1763653599_572636062dda76612f2e.docx\', 7014484, \'1\', \'2025-11-20 15:46:39\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `materials` (`course_id`, `file_name`, `file_path`, `file_size`, `uploaded_by`, `created_at`) VALUES (:course_id:, :file_name:, :file_path:, :file_size:, :uploaded_by:, :created_at:)', [...], false)
+ 5 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(838): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(797): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\Materials.php(397): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Materials->ajaxUpload()
+10 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Materials))
+11 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-11-20 15:47:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-11-20 15:47:22 --> mysqli_sql_exception: Unknown column 'm.uploaded_by' in 'on clause' in C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\MySQLi\Connection.php(327): mysqli->query('\r\n            S...', 0)
+#1 C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('\r\n            S...')
+#2 C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('\r\n            S...')
+#3 C:\xampp\htdocs\ITE311-JEMINEZ\app\Controllers\Materials.php(426): CodeIgniter\Database\BaseConnection->query('\r\n            S...')
+#4 C:\xampp\htdocs\ITE311-JEMINEZ\system\CodeIgniter.php(933): App\Controllers\Materials->getAllMaterialsAjax()
+#5 C:\xampp\htdocs\ITE311-JEMINEZ\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Materials))
+#6 C:\xampp\htdocs\ITE311-JEMINEZ\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\ITE311-JEMINEZ\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#8 C:\xampp\htdocs\ITE311-JEMINEZ\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#9 C:\xampp\htdocs\ITE311-JEMINEZ\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#10 {main}
+CRITICAL - 2025-11-20 15:47:22 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'm.uploaded_by' in 'on clause'
+[Method: GET, Route: materials/ajax/all]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 APPPATH\Controllers\Materials.php(426): CodeIgniter\Database\BaseConnection->query('
+            SELECT m.*, 
+                   c.course_name, 
+                   u.name AS uploader_name,
+                   CONCAT(ROUND(m.file_size / 1024, 2), \' KB\') as file_size_formatted
+            FROM materials m
+            LEFT JOIN courses c ON m.course_id = c.id
+            LEFT JOIN users u ON m.uploaded_by = u.id
+            ORDER BY m.created_at DESC
+        ')
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Materials->getAllMaterialsAjax()
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Materials))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-20 15:47:22 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'm.uploaded_by' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('
+            SELECT m.*, 
+                   c.course_name, 
+                   u.name AS uploader_name,
+                   CONCAT(ROUND(m.file_size / 1024, 2), \' KB\') as file_size_formatted
+            FROM materials m
+            LEFT JOIN courses c ON m.course_id = c.id
+            LEFT JOIN users u ON m.uploaded_by = u.id
+            ORDER BY m.created_at DESC
+        ')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('
+            SELECT m.*, 
+                   c.course_name, 
+                   u.name AS uploader_name,
+                   CONCAT(ROUND(m.file_size / 1024, 2), \' KB\') as file_size_formatted
+            FROM materials m
+            LEFT JOIN courses c ON m.course_id = c.id
+            LEFT JOIN users u ON m.uploaded_by = u.id
+            ORDER BY m.created_at DESC
+        ')
+ 3 APPPATH\Controllers\Materials.php(426): CodeIgniter\Database\BaseConnection->query('
+            SELECT m.*, 
+                   c.course_name, 
+                   u.name AS uploader_name,
+                   CONCAT(ROUND(m.file_size / 1024, 2), \' KB\') as file_size_formatted
+            FROM materials m
+            LEFT JOIN courses c ON m.course_id = c.id
+            LEFT JOIN users u ON m.uploaded_by = u.id
+            ORDER BY m.created_at DESC
+        ')
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Materials->getAllMaterialsAjax()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Materials))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-20 15:47:22 --> [Caused by] mysqli_sql_exception: Unknown column 'm.uploaded_by' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('
+            SELECT m.*, 
+                   c.course_name, 
+                   u.name AS uploader_name,
+                   CONCAT(ROUND(m.file_size / 1024, 2), \' KB\') as file_size_formatted
+            FROM materials m
+            LEFT JOIN courses c ON m.course_id = c.id
+            LEFT JOIN users u ON m.uploaded_by = u.id
+            ORDER BY m.created_at DESC
+        ', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('
+            SELECT m.*, 
+                   c.course_name, 
+                   u.name AS uploader_name,
+                   CONCAT(ROUND(m.file_size / 1024, 2), \' KB\') as file_size_formatted
+            FROM materials m
+            LEFT JOIN courses c ON m.course_id = c.id
+            LEFT JOIN users u ON m.uploaded_by = u.id
+            ORDER BY m.created_at DESC
+        ')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('
+            SELECT m.*, 
+                   c.course_name, 
+                   u.name AS uploader_name,
+                   CONCAT(ROUND(m.file_size / 1024, 2), \' KB\') as file_size_formatted
+            FROM materials m
+            LEFT JOIN courses c ON m.course_id = c.id
+            LEFT JOIN users u ON m.uploaded_by = u.id
+            ORDER BY m.created_at DESC
+        ')
+ 4 APPPATH\Controllers\Materials.php(426): CodeIgniter\Database\BaseConnection->query('
+            SELECT m.*, 
+                   c.course_name, 
+                   u.name AS uploader_name,
+                   CONCAT(ROUND(m.file_size / 1024, 2), \' KB\') as file_size_formatted
+            FROM materials m
+            LEFT JOIN courses c ON m.course_id = c.id
+            LEFT JOIN users u ON m.uploaded_by = u.id
+            ORDER BY m.created_at DESC
+        ')
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Materials->getAllMaterialsAjax()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Materials))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-11-20 15:47:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-11-20 15:47:32 --> mysqli_sql_exception: Unknown column 'uploaded_by' in 'field list' in C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\MySQLi\Connection.php(327): mysqli->query('INSERT INTO `ma...', 0)
+#1 C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `ma...')
+#2 C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `ma...')
+#3 C:\xampp\htdocs\ITE311-JEMINEZ\system\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `ma...', Array, false)
+#4 C:\xampp\htdocs\ITE311-JEMINEZ\system\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\ITE311-JEMINEZ\system\BaseModel.php(838): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\ITE311-JEMINEZ\system\Model.php(797): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\ITE311-JEMINEZ\app\Controllers\Materials.php(397): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\ITE311-JEMINEZ\system\CodeIgniter.php(933): App\Controllers\Materials->ajaxUpload()
+#9 C:\xampp\htdocs\ITE311-JEMINEZ\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Materials))
+#10 C:\xampp\htdocs\ITE311-JEMINEZ\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\ITE311-JEMINEZ\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\ITE311-JEMINEZ\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\ITE311-JEMINEZ\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2025-11-20 15:47:32 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'uploaded_by' in 'field list'
+[Method: POST, Route: materials/ajax-upload]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `materials` (`course_id`, `file_name`, `file_path`, `file_size`, `uploaded_by`, `created_at`) VALUES (:course_id:, :file_name:, :file_path:, :file_size:, :uploaded_by:, :created_at:)', [...], false)
+ 2 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(838): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(797): CodeIgniter\BaseModel->insert([...], true)
+ 5 APPPATH\Controllers\Materials.php(397): CodeIgniter\Model->insert([...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Materials->ajaxUpload()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Materials))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-20 15:47:32 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'uploaded_by' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `materials` (`course_id`, `file_name`, `file_path`, `file_size`, `uploaded_by`, `created_at`) VALUES (\'4\', \'Laboratory Exercise 5 ADMIN, TEACHER, AND STUDENT DASHBOARDS (1).docx\', \'uploads/materials/1763653652_529819f15797145bafef.docx\', 7014484, \'1\', \'2025-11-20 15:47:32\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `materials` (`course_id`, `file_name`, `file_path`, `file_size`, `uploaded_by`, `created_at`) VALUES (\'4\', \'Laboratory Exercise 5 ADMIN, TEACHER, AND STUDENT DASHBOARDS (1).docx\', \'uploads/materials/1763653652_529819f15797145bafef.docx\', 7014484, \'1\', \'2025-11-20 15:47:32\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `materials` (`course_id`, `file_name`, `file_path`, `file_size`, `uploaded_by`, `created_at`) VALUES (:course_id:, :file_name:, :file_path:, :file_size:, :uploaded_by:, :created_at:)', [...], false)
+ 4 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\BaseModel.php(838): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH\Model.php(797): CodeIgniter\BaseModel->insert([...], true)
+ 7 APPPATH\Controllers\Materials.php(397): CodeIgniter\Model->insert([...])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Materials->ajaxUpload()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Materials))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-20 15:47:32 --> [Caused by] mysqli_sql_exception: Unknown column 'uploaded_by' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('INSERT INTO `materials` (`course_id`, `file_name`, `file_path`, `file_size`, `uploaded_by`, `created_at`) VALUES (\'4\', \'Laboratory Exercise 5 ADMIN, TEACHER, AND STUDENT DASHBOARDS (1).docx\', \'uploads/materials/1763653652_529819f15797145bafef.docx\', 7014484, \'1\', \'2025-11-20 15:47:32\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `materials` (`course_id`, `file_name`, `file_path`, `file_size`, `uploaded_by`, `created_at`) VALUES (\'4\', \'Laboratory Exercise 5 ADMIN, TEACHER, AND STUDENT DASHBOARDS (1).docx\', \'uploads/materials/1763653652_529819f15797145bafef.docx\', 7014484, \'1\', \'2025-11-20 15:47:32\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `materials` (`course_id`, `file_name`, `file_path`, `file_size`, `uploaded_by`, `created_at`) VALUES (\'4\', \'Laboratory Exercise 5 ADMIN, TEACHER, AND STUDENT DASHBOARDS (1).docx\', \'uploads/materials/1763653652_529819f15797145bafef.docx\', 7014484, \'1\', \'2025-11-20 15:47:32\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `materials` (`course_id`, `file_name`, `file_path`, `file_size`, `uploaded_by`, `created_at`) VALUES (:course_id:, :file_name:, :file_path:, :file_size:, :uploaded_by:, :created_at:)', [...], false)
+ 5 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(838): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(797): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\Materials.php(397): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Materials->ajaxUpload()
+10 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Materials))
+11 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-11-20 15:48:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-20 15:48:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-20 15:49:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-20 15:49:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-20 15:49:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-20 15:49:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-20 15:49:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-20 15:49:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-20 15:49:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-20 15:49:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-20 15:49:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-20 15:49:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-20 15:49:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-20 15:49:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-20 15:49:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-20 15:50:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-20 15:50:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-20 15:50:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-20 15:50:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-20 15:50:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-20 15:50:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-20 15:50:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-20 15:50:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-20 15:50:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-20 15:50:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-20 15:50:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-20 15:50:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-20 15:50:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-20 15:51:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-20 15:51:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

@@ -392,7 +392,7 @@
 <body>
     <!-- Navigation Bar -->
     <div class="navbar">
-        <h2>📚 LMS Admin</h2>
+        <h2> LMS Admin</h2>
         <div class="nav-links">
             <a href="<?= base_url('admin/dashboard') ?>">Dashboard</a>
             <a href="<?= base_url('admin/manage') ?>">Manage Users</a>
@@ -407,7 +407,7 @@
 
         <!-- Header -->
         <div class="header-section">
-            <h1>📁 Manage Course Materials</h1>
+            <h1> Manage Course Materials</h1>
             <p style="color: #666; margin-top: 10px;">Upload, manage, and organize learning materials for all courses</p>
         </div>
 
@@ -433,7 +433,7 @@
 
         <!-- Upload Section -->
         <div class="upload-section">
-            <h2>📤 Upload New Material</h2>
+            <h2>Upload New Material</h2>
             
             <form id="uploadForm" enctype="multipart/form-data">
                 <div class="form-grid">
@@ -469,17 +469,17 @@
                 </div>
 
                 <button type="submit" class="btn btn-primary" id="uploadBtn">
-                    🚀 Upload Material
+                     Upload Material
                 </button>
             </form>
         </div>
 
         <!-- Materials List -->
         <div class="materials-section">
-            <h2>📋 All Uploaded Materials</h2>
+            <h2>All Uploaded Materials</h2>
             
             <div class="search-bar">
-                <input type="text" id="searchInput" placeholder="🔍 Search materials by name, course, or uploader...">
+                <input type="text" id="searchInput" placeholder=" Search materials by name, course, or uploader...">
             </div>
 
             <table class="materials-table">
