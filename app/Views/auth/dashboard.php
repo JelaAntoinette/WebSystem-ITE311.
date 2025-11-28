@@ -238,7 +238,7 @@
     </div>
 
     <!-- Logout Button -->
-    <a href="<?= base_url('logout') ?>" class="logout-btn" onclick="return confirm('Are you sure you want to logout?')">🚪 Logout</a>
+    <a href="<?= base_url('logout') ?>" class="logout-btn" onclick="return confirm('Are you sure you want to logout?')"> Logout</a>
 
     <!-- ✅ Enroll AJAX Script -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
