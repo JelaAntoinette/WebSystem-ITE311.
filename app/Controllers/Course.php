@@ -74,7 +74,7 @@ class Course extends Controller
                 ]);
             }
 
-            // ✅ Enroll student
+            // Enroll student
             $db->table('enrollments')->insert([
                 'user_id' => $user_id,
                 'course_id' => $course_id,
@@ -82,10 +82,10 @@ class Course extends Controller
                 'status' => 'active'
             ]);
 
-            // ✅ Get course info
+            // Get course info
             $course = $db->table('courses')->where('id', $course_id)->get()->getRow();
 
-            // ✅ Student notification
+            // Student notification
             $db->table('notifications')->insert([
                 'user_id' => $user_id,
                 'message' => "You have successfully enrolled in: " . $course->course_name,
@@ -93,7 +93,7 @@ class Course extends Controller
                 'created_at' => date('Y-m-d H:i:s')
             ]);
 
-            // ✅ Get ALL teachers and send notification to each
+            // Notify teachers
             $teachers = $db->table('users')->where('role', 'teacher')->get()->getResultArray();
             
             foreach ($teachers as $teacher) {
@@ -105,7 +105,7 @@ class Course extends Controller
                 ]);
             }
 
-            // ✅ Admin notification (get all admins)
+            // Notify admins
             $admins = $db->table('users')->where('role', 'admin')->get()->getResultArray();
             
             foreach ($admins as $admin) {
@@ -161,5 +161,33 @@ class Course extends Controller
         }
 
         return view('courses/manage', $data);
+    }
+
+
+    /* ------------------------------------------------------------
+     |  ⭐ NEW: SEARCH METHOD (AJAX + NORMAL REQUEST)
+     ------------------------------------------------------------ */
+    public function search()
+    {
+        $db = \Config\Database::connect();
+        $keyword = $this->request->getVar('keyword'); // GET or POST
+
+        $builder = $db->table('courses');
+
+        if (!empty($keyword)) {
+            $builder->like('name', $keyword);
+            $builder->orLike('description', $keyword);
+        }
+
+        $query = $builder->get();
+        $results = $query->getResultArray();
+
+        // If AJAX → return JSON
+        if ($this->request->isAJAX()) {
+            return $this->response->setJSON($results);
+        }
+
+        // If normal page load → return view
+        return view('courses/search_results', ['courses' => $results]);
     }
 }

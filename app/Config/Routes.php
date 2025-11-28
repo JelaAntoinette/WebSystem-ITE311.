@@ -102,5 +102,8 @@ $routes->get('notifications/fetch', 'Notifications::get'); // ✅ AJAX fetch
 $routes->post('notifications/mark-read/(:num)', 'Notifications::mark_as_read/$1');
 $routes->post('notifications/mark-all-read', 'Notifications::mark_all_read');
 
+// Search Routes
+$routes->get('/courses/search', 'Course::search');
+$routes->post('/courses/search', 'Course::search');
 
 
