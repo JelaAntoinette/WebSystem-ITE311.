@@ -405,7 +405,7 @@
         .alert-success {
             background: #d4edda;
             color: #155724;
-            border: 1px solid #c3e6cb;
+            border: 1px solid #abd7b5ff;
         }
         .alert-danger {
             background: #f8d7da;
