@@ -128,7 +128,7 @@
             <?php if ($user['role'] === 'admin'): ?>
                 <!-- NEW: Admin Quick Actions -->
                 <div class="admin-actions">
-    <a href="<?= base_url('teacher/materials') ?>" class="action-card">
+    <a href="<?= base_url('admin/materials') ?>" class="action-card">
         <div class="action-icon"></div>
         <div class="action-text">
             <h6>Manage Materials</h6>

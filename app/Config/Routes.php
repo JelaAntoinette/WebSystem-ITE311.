@@ -93,8 +93,6 @@ $routes->get('materials/ajax/course/(:num)', 'Materials::getMaterialsByCourse/$1
 // Admin Materials Page
 $routes->get('admin/materials', 'Materials::adminMaterialsPage');
 
-// Teacher Materials Page
-$routes->get('teacher/materials', 'Materials::adminMaterialsPage');
 
 
 // Notifications Routes

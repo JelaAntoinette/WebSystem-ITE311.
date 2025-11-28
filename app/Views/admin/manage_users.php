@@ -46,7 +46,7 @@
             background: #28a745;
         }
         .add-btn:hover {
-            background: #218838;
+            background: #d40bdbff;
         }
         .back-btn {
             background: #7b27dbff;

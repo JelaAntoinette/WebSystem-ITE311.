@@ -19,7 +19,7 @@
         }
 
         .navbar {
-            background: #1e40af;
+            background: #800dcdff;
             padding: 15px 30px;
             display: flex;
             justify-content: space-between;
@@ -459,7 +459,7 @@
                     <label>Upload File *</label>
                     <div class="file-upload-area" id="fileUploadArea">
                         <input type="file" id="materialFile" name="material_file" accept=".pdf,.doc,.docx,.xls,.xlsx,.ppt,.pptx,.jpg,.jpeg,.png,.zip,.mp4" required>
-                        <div class="file-upload-icon">📎</div>
+                        <div class="file-upload-icon"></div>
                         <p style="color: #667eea; font-weight: 600; margin-bottom: 5px;">Click to browse or drag and drop</p>
                         <p style="color: #999; font-size: 13px;">Supported: PDF, DOC, DOCX, XLS, XLSX, PPT, PPTX, ZIP, Images, MP4 (Max 10MB)</p>
                     </div>
@@ -582,9 +582,9 @@
                             <td>${m.uploader_name || 'Unknown'}</td>
                             <td>${new Date(m.created_at).toLocaleDateString()}</td>
                             <td>
-                                <button class="btn-small btn-view" onclick="viewMaterial(${m.id})">👁️ View</button>
-                                <button class="btn-small btn-download" onclick="downloadMaterial(${m.id})">⬇️ Download</button>
-                                <button class="btn-small btn-delete" onclick="deleteMaterial(${m.id})">🗑️ Delete</button>
+                                <button class="btn-small btn-view" onclick="viewMaterial(${m.id})"> View</button>
+                                <button class="btn-small btn-download" onclick="downloadMaterial(${m.id})"> Download</button>
+                                <button class="btn-small btn-delete" onclick="deleteMaterial(${m.id})"> Delete</button>
                             </td>
                         </tr>
                     `).join('');
@@ -633,13 +633,13 @@
                     loadMaterials();
                     loadStats();
                 } else {
-                    showAlert('❌ Upload failed: ' + (data.message || 'Unknown error'), 'error');
+                    showAlert('Upload failed: ' + (data.message || 'Unknown error'), 'error');
                 }
             } catch (error) {
-                showAlert('❌ Upload failed: Network error', 'error');
+                showAlert('Upload failed: Network error', 'error');
             } finally {
                 uploadBtn.disabled = false;
-                uploadBtn.innerHTML = '🚀 Upload Material';
+                uploadBtn.innerHTML = 'Upload Material';
             }
         });
 
