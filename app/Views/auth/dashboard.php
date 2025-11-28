@@ -44,42 +44,33 @@
         .view-all-link { font-size: 12px; float: right; color: #8B5FBF; text-decoration: none; }
         .view-all-link:hover { color: #7A4FB0; text-decoration: underline; }
         
-        /* NEW: Admin Quick Actions */
-    .admin-actions {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    max-width: 450px;
-    margin: 0 auto;
-}
-
-    .action-card {
-    background: linear-gradient(135deg, #ffffff, #f3e9ff); /* light purple gradient */
-    padding: 20px 25px;
-    border-radius: 20px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    text-decoration: none;
-    color: #4b3d8f; /* soft purple text */
-    font-weight: 600;
-    transition: 0.3s;
-}
-
-    .action-card:hover {
-    transform: translateY(-3px);
-}
-
-
-
-.action-card:hover {
-    transform: translateY(-3px);
-  
-    background: linear-gradient(135deg, #5a67d8 0%, #6b42a0 100%); /* Darker on hover */
-    text-decoration: none;
-    color: black;
-}
+        /* Admin Quick Actions */
+        .admin-actions {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 450px;
+            margin: 0 auto;
+        }
+        .action-card {
+            background: linear-gradient(135deg, #ffffff, #f3e9ff);
+            padding: 20px 25px;
+            border-radius: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            text-decoration: none;
+            color: #4b3d8f;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        .action-card:hover {
+            transform: translateY(-3px);
+            background: linear-gradient(135deg, #5a67d8 0%, #6b42a0 100%);
+            text-decoration: none;
+            color: black;
+        }
         .action-icon {
             font-size: 32px;
         }
@@ -93,6 +84,18 @@
             font-size: 12px;
             opacity: 0.9;
         }
+        
+        /* Search Form Styles */
+        .row { margin-bottom: 1rem; }
+        .col-md-6 { width: 100%; max-width: 600px; margin: 0 auto; }
+        .d-flex { display: flex; }
+        .input-group { display: flex; width: 100%; }
+        .form-control { flex: 1; padding: 10px 15px; border: 1px solid #ddd; border-radius: 8px 0 0 8px; font-size: 14px; }
+        .btn { padding: 10px 20px; border: none; cursor: pointer; font-weight: 600; transition: 0.3s; }
+        .btn-outline-primary { background: white; color: #8B5FBF; border: 1px solid #8B5FBF; border-radius: 0 8px 8px 0; }
+        .btn-outline-primary:hover { background: #8B5FBF; color: white; }
+        .bi-search::before { content: '🔍'; }
+        .mb-4 { margin-bottom: 20px; }
     </style>
 </head>
 <body>
@@ -124,18 +127,18 @@
                 <div class="info-item"><span class="info-label">Account Role</span><span class="role-badge"><?= ucfirst(esc($user['role'])) ?></span></div>
             </div>
 
-            <!-- ✅ Admin Section with Quick Actions -->
+            <!-- Admin Section with Quick Actions -->
             <?php if ($user['role'] === 'admin'): ?>
-                <!-- NEW: Admin Quick Actions -->
+                <!-- Admin Quick Actions -->
                 <div class="admin-actions">
-    <a href="<?= base_url('admin/materials') ?>" class="action-card">
-        <div class="action-icon"></div>
-        <div class="action-text">
-            <h6>Manage Materials</h6>
-            <p>Upload & organize course materials</p>
-        </div>
-    </a>
-</div>
+                    <a href="<?= base_url('admin/materials') ?>" class="action-card">
+                        <div class="action-icon">📚</div>
+                        <div class="action-text">
+                            <h6>Manage Materials</h6>
+                            <p>Upload & organize course materials</p>
+                        </div>
+                    </a>
+                </div>
                 <!-- All Users Table -->
                 <div class="role-card" style="grid-column: 1 / -1;">
                     <h5>All Users</h5>
@@ -195,6 +198,21 @@
             <?php if ($user['role'] === 'student'): ?>
                 <div class="role-card">
                     <h5>Available Courses</h5>
+                    
+                    <!-- Search Form -->
+                    <div class="row mb-4">
+                        <div class="col-md-6">
+                            <form id="searchForm" class="d-flex">
+                                <div class="input-group">
+                                    <input type="text" id="searchInput" class="form-control" placeholder="Search courses..." name="search_term">
+                                    <button class="btn btn-outline-primary" type="submit">
+                                        <i class="bi bi-search"></i> Search
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    
                     <?php if (!empty($courses)): ?>
                         <?php foreach ($courses as $course): ?>
                             <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid #eee;">
@@ -238,9 +256,9 @@
     </div>
 
     <!-- Logout Button -->
-    <a href="<?= base_url('logout') ?>" class="logout-btn" onclick="return confirm('Are you sure you want to logout?')"> Logout</a>
+    <a href="<?= base_url('logout') ?>" class="logout-btn" onclick="return confirm('Are you sure you want to logout?')">🚪 Logout</a>
 
-    <!-- ✅ Enroll AJAX Script -->
+    <!-- Enroll AJAX Script -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
     $(document).ready(function(){
