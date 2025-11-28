@@ -45,30 +45,41 @@
         .view-all-link:hover { color: #7A4FB0; text-decoration: underline; }
         
         /* NEW: Admin Quick Actions */
-        .admin-actions {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-        .action-card {
-            background: linear-gradient(135deg, #8B5FBF 0%, #7A4FB0 100%);
-            color: white;
-            padding: 20px;
-            border-radius: 12px;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(139, 95, 191, 0.3);
-        }
-        .action-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(139, 95, 191, 0.4);
-            text-decoration: none;
-            color: white;
-        }
+    .admin-actions {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    max-width: 450px;
+    margin: 0 auto;
+}
+
+    .action-card {
+    background: linear-gradient(135deg, #ffffff, #f3e9ff); /* light purple gradient */
+    padding: 20px 25px;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-decoration: none;
+    color: #4b3d8f; /* soft purple text */
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+    .action-card:hover {
+    transform: translateY(-3px);
+}
+
+
+
+.action-card:hover {
+    transform: translateY(-3px);
+  
+    background: linear-gradient(135deg, #5a67d8 0%, #6b42a0 100%); /* Darker on hover */
+    text-decoration: none;
+    color: black;
+}
         .action-icon {
             font-size: 32px;
         }
@@ -116,33 +127,15 @@
             <!-- ✅ Admin Section with Quick Actions -->
             <?php if ($user['role'] === 'admin'): ?>
                 <!-- NEW: Admin Quick Actions -->
-                <div class="role-card" style="grid-column: 1 / -1;">
-                    <h5>Admin Quick Actions</h5>
-                    <div class="admin-actions">
-                        <a href="<?= base_url('admin/manage') ?>" class="action-card">
-                            <div class="action-icon"></div>
-                            <div class="action-text">
-                                <h6>Manage Users</h6>
-                                <p>Add, edit, or remove users</p>
-                            </div>
-                        </a>
-                        <a href="<?= base_url('teacher/materials') ?>" class="action-card">
-                            <div class="action-icon"></div>
-                            <div class="action-text">
-                                <h6>Manage Materials</h6>
-                                <p>Upload & organize course materials</p>
-                            </div>
-                        </a>
-                        <a href="<?= base_url('reports') ?>" class="action-card">
-                            <div class="action-icon"></div>
-                            <div class="action-text">
-                                <h6>Reports</h6>
-                                <p>View system reports & analytics</p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
+                <div class="admin-actions">
+    <a href="<?= base_url('teacher/materials') ?>" class="action-card">
+        <div class="action-icon"></div>
+        <div class="action-text">
+            <h6>Manage Materials</h6>
+            <p>Upload & organize course materials</p>
+        </div>
+    </a>
+</div>
                 <!-- All Users Table -->
                 <div class="role-card" style="grid-column: 1 / -1;">
                     <h5>All Users</h5>

@@ -13,7 +13,7 @@
             min-height: 100vh;
         }
         .header {
-            background: linear-gradient(135deg, #dc3545, #c82333);
+            background: linear-gradient(135deg, #b305ceff, #f403ecff);
             padding: 20px;
             color: white;
             display: flex;
@@ -49,7 +49,7 @@
             background: #218838;
         }
         .back-btn {
-            background: #0056b3;
+            background: #7b27dbff;
         }
         .back-btn:hover {
             background: #004494;
@@ -179,7 +179,7 @@
             color: #007bff;
         }
         .form-input {
-            width: 100%;
+            width: 93%;
             padding: 10px 12px;
             border: 2px solid #e1e1e1;
             border-radius: 6px;
@@ -210,7 +210,7 @@
             gap: 10px;
         }
         .btn-primary {
-            background: #28a745;
+            background: #129a26ff;
             color: white;
             border: none;
             padding: 10px 20px;
@@ -242,7 +242,7 @@
             background: #5a6268;
         }
         .btn-primary {
-            background: #28a745;
+            background: #176d27ff;
             color: white;
             border: none;
             padding: 10px 20px;
@@ -262,10 +262,10 @@
             background: #007bff;
         }
         .delete-btn {
-            background: #dc3545;
+            background: #cc2301ff;
         }
         .header { 
-            background: linear-gradient(135deg, #dc3545, #c82333);
+            background: linear-gradient(135deg, #6c0492ff, #cf06b4ff);
             color: white;
             padding: 20px;
             font-size: 22px;
@@ -296,7 +296,7 @@
         .card h2 { 
             margin: 0;
             font-size: 32px;
-            color: #dc3545;
+            color: #000000ff;
         }
         .card p {
             margin: 10px 0 0;
@@ -334,7 +334,7 @@
             background: #f8f9fa;
         }
         .btn { 
-            padding: 8px 16px;
+            padding: 5px 16px;
             border-radius: 6px;
             text-decoration: none;
             color: white;
@@ -359,13 +359,13 @@
         }
         .student { background: #007bff; }
         .teacher { background: #ffc107; color: #000; }
-        .admin { background: #dc3545; }
+        .admin { background: #b10202ff; }
         .header-actions {
             display: flex;
             gap: 15px;
         }
         .add-btn { 
-            background: #28a745;
+            background: #5f04c7ff;
             padding: 12px 24px;
             border-radius: 6px;
             color: white;
