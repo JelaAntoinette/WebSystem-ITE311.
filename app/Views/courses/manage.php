@@ -28,13 +28,12 @@
     </form>
 </div>
 
-<!-- 🔥 WHERE YOU SAID: INSERT THE NEW CODE HERE -->
-<!-- CLIENT-SIDE FILTERING + AJAX SEARCH -->
+
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <script>
-    // ⭐ STEP 5: CLIENT-SIDE FILTERING (Instant Filter)
+    //  STEP 5: CLIENT-SIDE FILTERING (Instant Filter)
     $("#keyword").on("keyup", function() {
         let value = $(this).val().toLowerCase();
 

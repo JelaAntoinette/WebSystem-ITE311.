@@ -94,7 +94,7 @@
         .btn { padding: 10px 20px; border: none; cursor: pointer; font-weight: 600; transition: 0.3s; }
         .btn-outline-primary { background: white; color: #8B5FBF; border: 1px solid #8B5FBF; border-radius: 0 8px 8px 0; }
         .btn-outline-primary:hover { background: #8B5FBF; color: white; }
-        .bi-search::before { content: '🔍'; }
+        .bi-search::before { content: ''; }
         .mb-4 { margin-bottom: 20px; }
     </style>
 </head>
@@ -132,7 +132,7 @@
                 <!-- Admin Quick Actions -->
                 <div class="admin-actions">
                     <a href="<?= base_url('admin/materials') ?>" class="action-card">
-                        <div class="action-icon">📚</div>
+                        <div class="action-icon"></div>
                         <div class="action-text">
                             <h6>Manage Materials</h6>
                             <p>Upload & organize course materials</p>
@@ -256,7 +256,7 @@
     </div>
 
     <!-- Logout Button -->
-    <a href="<?= base_url('logout') ?>" class="logout-btn" onclick="return confirm('Are you sure you want to logout?')">🚪 Logout</a>
+    <a href="<?= base_url('logout') ?>" class="logout-btn" onclick="return confirm('Are you sure you want to logout?')">Logout</a>
 
     <!-- Enroll AJAX Script -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

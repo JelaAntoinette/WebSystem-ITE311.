@@ -589,7 +589,7 @@
                         </tr>
                     `).join('');
                 } else {
-                    tbody.innerHTML = `<tr><td colspan="6"><div class="empty-state"><div class="empty-state-icon">📭</div><h3>No materials uploaded yet</h3></div></td></tr>`;
+                    tbody.innerHTML = `<tr><td colspan="6"><div class="empty-state"><div class="empty-state-icon"></div><h3>No materials uploaded yet</h3></div></td></tr>`;
                 }
             } catch (error) {
                 console.error('Error loading materials:', error);

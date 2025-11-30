@@ -32,9 +32,25 @@ class StudentController extends BaseController
                 ]);
             }
             
-            // Get all courses
-            $query = $db->query("SELECT * FROM courses ORDER BY course_name");
+            // ✅ GET SEARCH TERM FROM URL
+            $searchTerm = $this->request->getGet('search_term');
+            
+            // Get all courses with optional search filter
+            if ($searchTerm && trim($searchTerm) !== '') {
+                // Search in course_name and description
+                $query = $db->query("
+                    SELECT * FROM courses 
+                    WHERE course_name LIKE ? 
+                    OR description LIKE ?
+                    ORDER BY course_name
+                ", ['%' . $searchTerm . '%', '%' . $searchTerm . '%']);
+            } else {
+                // No search term, get all courses
+                $query = $db->query("SELECT * FROM courses ORDER BY course_name");
+            }
+            
             $data['courses'] = $query->getResultArray();
+            $data['search_term'] = $searchTerm; // Pass search term to view
 
             // Get user's enrolled courses
             $enrolledQuery = $db->query("
@@ -63,6 +79,7 @@ class StudentController extends BaseController
             $data['courses'] = [];
             $data['enrolled'] = [];
             $data['materials'] = [];
+            $data['search_term'] = '';
             log_message('error', 'Database error in StudentController: ' . $e->getMessage());
         }
 
