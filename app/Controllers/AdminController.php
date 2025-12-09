@@ -172,12 +172,24 @@ class AdminController extends BaseController
             return redirect()->to('/admin/users')->with('errors', $this->validator->getErrors());
         }
 
+        // Get the current user being edited FIRST
+        $currentUser = $this->db->table('users')->where('id', $id)->get()->getRowArray();
+        if (!$currentUser) {
+            return redirect()->to('/admin/users')->with('error', 'User not found');
+        }
+
         $data = [
             'name' => $this->request->getPost('name'),
             'email' => $this->request->getPost('email'),
             'role' => $this->request->getPost('role'),
             'updated_at' => date('Y-m-d H:i:s')
         ];
+
+        // PROTECTION: Prevent role change for ANY admin user
+        if ($currentUser['role'] === 'admin') {
+            // Keep the original role, don't allow changes
+            $data['role'] = $currentUser['role'];
+        }
 
         if ($password = $this->request->getPost('password')) {
             if (strlen($password) >= 6) {
@@ -188,11 +200,6 @@ class AdminController extends BaseController
         }
 
         try {
-            $user = $this->db->table('users')->where('id', $id)->get()->getRowArray();
-            if (!$user) {
-                throw new \Exception('User not found');
-            }
-
             $this->db->table('users')->where('id', $id)->update($data);
             return redirect()->to('/admin/users')->with('message', 'User updated successfully');
         } catch (\Exception $e) {

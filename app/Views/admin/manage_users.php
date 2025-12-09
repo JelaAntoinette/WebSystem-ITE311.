@@ -657,7 +657,7 @@
     </tbody>
 </table>
 
-    <script>
+   <script>
         // Add User Modal Functions
         function showAddUserModal() {
             document.getElementById('addUserModal').style.display = 'block';
@@ -674,6 +674,36 @@
             document.getElementById('edit_email').value = email;
             document.getElementById('edit_role').value = role;
             document.getElementById('editUserForm').action = '<?= site_url('admin/users/update/') ?>' + id;
+            
+            // Disable role dropdown for ANY admin user
+            const roleSelect = document.getElementById('edit_role');
+            if (role === 'admin') {
+                roleSelect.disabled = true;
+                roleSelect.style.backgroundColor = '#e9ecef';
+                roleSelect.style.cursor = 'not-allowed';
+                
+                // Add a note below the dropdown
+                let noteElement = document.getElementById('admin-role-note');
+                if (!noteElement) {
+                    noteElement = document.createElement('small');
+                    noteElement.id = 'admin-role-note';
+                    noteElement.className = 'password-hint';
+                    noteElement.style.color = '#dc3545';
+                    noteElement.innerHTML = '<i class="fas fa-lock"></i> Administrator role cannot be changed';
+                    roleSelect.parentElement.appendChild(noteElement);
+                }
+                noteElement.style.display = 'block';
+            } else {
+                roleSelect.disabled = false;
+                roleSelect.style.backgroundColor = '';
+                roleSelect.style.cursor = '';
+                
+                // Hide the note
+                const noteElement = document.getElementById('admin-role-note');
+                if (noteElement) {
+                    noteElement.style.display = 'none';
+                }
+            }
         }
 
         function hideEditUserModal() {
@@ -697,5 +727,3 @@
             }
         }
     </script>
-</body>
-</html>
