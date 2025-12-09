@@ -20,14 +20,13 @@ $routes->get('login', 'Auth::login');
 $routes->post('login', 'Auth::login');
 $routes->get('logout', 'Auth::logout');
 
-// Fallback generic dashboard route (redirects to role-specific)
-$routes->get('dashboard', 'Auth::dashboardRedirect');
+// Generic unified dashboard
+$routes->get('dashboard', 'Dashboard::index');
 
-// Role-specific Dashboard Routes
+// Specific role-based dashboards
 $routes->get('student/dashboard', 'StudentController::dashboard');
-$routes->get('student/my-courses', 'StudentController::myCourses'); 
+$routes->get('student/my-courses', 'StudentController::myCourses');
 $routes->get('teacher/dashboard', 'TeacherController::dashboard');
-$routes->get('admin/dashboard', 'AdminController::dashboard');
 
 // Course Routes (Student)
 $routes->get('courses', 'Course::index');
@@ -56,6 +55,7 @@ $routes->get('/materials/course/(:num)', 'Materials::viewCourseMaterials/$1');
 // Admin Routes
 $routes->group('admin', function($routes) {
     $routes->get('/', 'AdminController::dashboard');
+    $routes->get('dashboard', 'AdminController::dashboard'); // ✅ ADDED THIS LINE
     $routes->get('users', 'AdminController::index');
     $routes->get('users/create', 'AdminController::create');
     $routes->post('users/store', 'AdminController::store');
@@ -93,8 +93,6 @@ $routes->get('materials/ajax/course/(:num)', 'Materials::getMaterialsByCourse/$1
 // Admin Materials Page
 $routes->get('admin/materials', 'Materials::adminMaterialsPage');
 
-
-
 // Notifications Routes
 $routes->get('notifications', 'Notifications::get');
 $routes->get('notifications/all', 'Notifications::all'); // ✅ View all page
@@ -105,5 +103,3 @@ $routes->post('notifications/mark-all-read', 'Notifications::mark_all_read');
 // Search Routes
 $routes->get('/courses/search', 'Course::search');
 $routes->post('/courses/search', 'Course::search');
-
-

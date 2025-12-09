@@ -18,7 +18,7 @@
                     <li class="nav-item"><a class="nav-link" href="<?= base_url('/courses') ?>">My Courses</a></li>
                 <?php endif; ?>
 
-                <!-- ✅ Notification Dropdown -->
+                <!--Notification Dropdown -->
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="notifDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Notifications
@@ -33,7 +33,7 @@
 
                     </ul>
                 </li>
-                <!-- ✅ End Notification Dropdown -->
+                <!-- End Notification Dropdown -->
 
             </ul>
         </div>
@@ -42,7 +42,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-<!-- ✅ Temporary JS (will be replaced by AJAX but keeping it for now) -->
+<!--  Temporary JS (will be replaced by AJAX but keeping it for now) -->
 <script>
     let unreadCount = 3; // temporary demo
     if (unreadCount > 0) {
@@ -54,7 +54,7 @@
     }
 </script>
 
-<!-- ✅ REAL Step-6 Notification Auto-Refresh Script inserted here -->
+<!-- REAL Step-6 Notification Auto-Refresh Script inserted here -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <script>
@@ -105,4 +105,4 @@ $(document).ready(function () {
     setInterval(loadNotifications, 60000); // auto-refresh every minute
 });
 </script>
-<!-- ✅ End of script -->
+<!-- End of script -->

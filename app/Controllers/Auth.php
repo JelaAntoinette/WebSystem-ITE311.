@@ -65,7 +65,8 @@ class Auth extends BaseController
                     'role'       => 'admin',
                     'isLoggedIn' => true
                 ]);
-                return redirect()->to(base_url('admin/dashboard'));
+                // CHANGED: Redirect to generic dashboard
+                return redirect()->to(base_url('dashboard'));
             }
 
             // Check DB
@@ -84,7 +85,10 @@ class Auth extends BaseController
                     'isLoggedIn' => true
                 ]);
                 
-                // Redirect based on role
+                // CHANGED: Everyone redirects to the same generic dashboard
+                return redirect()->to(base_url('dashboard'));
+                
+                /* OLD CODE - Role-based redirects (now commented out)
                 $role = $user['role'];
                 if ($role === 'admin') {
                     return redirect()->to(base_url('admin/dashboard'));
@@ -93,6 +97,7 @@ class Auth extends BaseController
                 } else { // student
                     return redirect()->to(base_url('student/dashboard'));
                 }
+                */
             } else {
                 $this->session->setFlashdata('error', 'Invalid login credentials.');
             }
@@ -108,13 +113,17 @@ class Auth extends BaseController
         return redirect()->to(base_url('login'));
     }
 
-    // Fallback dashboard redirect
+    // Fallback dashboard redirect (kept for compatibility)
     public function dashboardRedirect()
     {
         if (!$this->session->get('isLoggedIn')) {
             return redirect()->to(base_url('login'));
         }
 
+        // CHANGED: Everyone goes to generic dashboard now
+        return redirect()->to(base_url('dashboard'));
+        
+        /* OLD CODE - Role-based redirects (now commented out)
         $role = $this->session->get('role');
         
         if ($role === 'admin') {
@@ -124,5 +133,6 @@ class Auth extends BaseController
         } else {
             return redirect()->to(base_url('student/dashboard'));
         }
+        */
     }
 }
