@@ -26,14 +26,24 @@ class AdminController extends BaseController
     {
         $this->checkAdminAccess();
 
-        // Get all users for admin view
+        // Get all users for admin view (exclude soft deleted)
         $builder = $this->db->table('users');
+        $builder->where('deleted_at IS NULL', null, false);
         $allUsers = $builder->get()->getResultArray();
         
-        // Get counts for dashboard statistics  
-        $count_admin = $this->db->table('users')->where('role', 'admin')->countAllResults();
-        $count_teacher = $this->db->table('users')->where('role', 'teacher')->countAllResults();
-        $count_student = $this->db->table('users')->where('role', 'student')->countAllResults();
+        // Get counts for dashboard statistics (exclude soft deleted)
+        $count_admin = $this->db->table('users')
+            ->where('role', 'admin')
+            ->where('deleted_at IS NULL', null, false)
+            ->countAllResults();
+        $count_teacher = $this->db->table('users')
+            ->where('role', 'teacher')
+            ->where('deleted_at IS NULL', null, false)
+            ->countAllResults();
+        $count_student = $this->db->table('users')
+            ->where('role', 'student')
+            ->where('deleted_at IS NULL', null, false)
+            ->countAllResults();
 
         // Get all uploaded materials with related course
         try {
@@ -97,18 +107,28 @@ class AdminController extends BaseController
         $this->checkAdminAccess();
 
         try {
-            // Get all users
+            // Get all users (exclude soft deleted)
             $builder = $this->db->table('users');
+            $builder->where('deleted_at IS NULL', null, false);
             $users = $builder->get()->getResultArray();
 
             if ($this->db->error()['code'] !== 0) {
                 throw new \Exception("Failed to fetch users: " . $this->db->error()['message']);
             }
 
-            // Count users by role
-            $count_admin = $this->db->table('users')->where('role', 'admin')->countAllResults();
-            $count_teacher = $this->db->table('users')->where('role', 'teacher')->countAllResults();
-            $count_student = $this->db->table('users')->where('role', 'student')->countAllResults();
+            // Count users by role (exclude soft deleted)
+            $count_admin = $this->db->table('users')
+                ->where('role', 'admin')
+                ->where('deleted_at IS NULL', null, false)
+                ->countAllResults();
+            $count_teacher = $this->db->table('users')
+                ->where('role', 'teacher')
+                ->where('deleted_at IS NULL', null, false)
+                ->countAllResults();
+            $count_student = $this->db->table('users')
+                ->where('role', 'student')
+                ->where('deleted_at IS NULL', null, false)
+                ->countAllResults();
             $count_total = $count_admin + $count_teacher + $count_student;
 
             $data = [
@@ -226,7 +246,7 @@ class AdminController extends BaseController
     }
 
     /**
-     * Delete a user
+     * Soft delete a user (mark as deleted without removing from database)
      */
     public function delete($id)
     {
@@ -238,16 +258,28 @@ class AdminController extends BaseController
                 throw new \Exception('User not found');
             }
 
+            // Check if user is already deleted
+            if ($user['deleted_at'] !== null) {
+                throw new \Exception('User is already deleted');
+            }
+
             // Prevent deleting the last admin
             if ($user['role'] === 'admin') {
-                $adminCount = $this->db->table('users')->where('role', 'admin')->countAllResults();
+                $adminCount = $this->db->table('users')
+                    ->where('role', 'admin')
+                    ->where('deleted_at IS NULL', null, false)
+                    ->countAllResults();
                 if ($adminCount <= 1) {
                     throw new \Exception('Cannot delete the last admin user');
                 }
             }
             
-            $this->db->table('users')->where('id', $id)->delete();
-            return redirect()->to('/admin/users')->with('message', 'User deleted successfully');
+            // Soft delete: set deleted_at timestamp
+            $this->db->table('users')->where('id', $id)->update([
+                'deleted_at' => date('Y-m-d H:i:s')
+            ]);
+            
+            return redirect()->to('/admin/users')->with('message', 'User deleted successfully (soft delete)');
         } catch (\Exception $e) {
             log_message('error', 'Error deleting user: ' . $e->getMessage());
             return redirect()->to('/admin/users')->with('error', 'Failed to delete user: ' . $e->getMessage());

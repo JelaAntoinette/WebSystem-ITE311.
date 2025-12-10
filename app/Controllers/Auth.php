@@ -69,10 +69,13 @@ class Auth extends BaseController
                 return redirect()->to(base_url('dashboard'));
             }
 
-            // Check DB
+            // Check DB (exclude soft deleted users)
             $builder = $this->db->table('users');
-            $user = $builder->where('email', $login)
-                            ->orWhere('name', $login)
+            $user = $builder->where('deleted_at IS NULL', null, false)
+                            ->groupStart()
+                                ->where('email', $login)
+                                ->orWhere('name', $login)
+                            ->groupEnd()
                             ->get()
                             ->getRowArray();
 

@@ -39,6 +39,11 @@ class CreateUsersTable extends Migration
                 'constraint' => ['admin', 'teacher', 'student'],
                 'default' => 'student',
             ],
+            'deleted_at' => [
+                'type' => 'DATETIME',
+                'null' => true,
+                'comment' => 'Soft delete timestamp',
+            ],
             'created_at' => [
                 'type' => 'DATETIME',
                 'null' => true,
