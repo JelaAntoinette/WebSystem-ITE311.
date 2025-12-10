@@ -1,14 +1,19 @@
 <?php
+
 namespace App\Controllers;
 
 use CodeIgniter\Controller;
 
 class Course extends Controller
 {
+    /**
+     * Display student's enrolled courses
+     */
     public function index()
     {
         $session = session();
         
+        // Check if user is logged in
         if (!$session->get('isLoggedIn') || !$session->has('userID')) {
             return redirect()->to('/login');
         }
@@ -18,14 +23,11 @@ class Course extends Controller
         try {
             $userId = $session->get('userID');
             
-            $allEnrollmentsQuery = $db->query("SELECT * FROM enrollments WHERE user_id = ?", [$userId]);
-            $allEnrollments = $allEnrollmentsQuery->getResultArray();
-            
-            $userQuery = $db->query("SELECT * FROM users WHERE email = ?", [$session->get('email')]);
-            $userData = $userQuery->getResultArray();
-            
+            // Get enrolled courses with details
             $enrolledQuery = $db->query("
-                SELECT c.id, c.name AS course_name, c.description, c.created_at, c.updated_at, 
+                SELECT c.id, c.course_name, c.subject_code, c.description, 
+                       c.instructor_name, c.year_level, c.date_started, c.date_ended,
+                       c.created_at, c.updated_at, 
                        e.enrollment_date, e.status, e.user_id, e.course_id
                 FROM courses c
                 INNER JOIN enrollments e ON c.id = e.course_id
@@ -33,23 +35,32 @@ class Course extends Controller
                 ORDER BY e.enrollment_date DESC
             ", [$userId]);
             
-            $data['enrolled_courses'] = $enrolledQuery->getResultArray();
-            $data['courses'] = [];
-            $data['user'] = ['name' => $session->get('name') ?? 'Student'];
+            $data = [
+                'enrolled_courses' => $enrolledQuery->getResultArray(),
+                'courses' => [],
+                'user' => ['name' => $session->get('name') ?? 'Student']
+            ];
             
         } catch (\Exception $e) {
-            $data['enrolled_courses'] = [];
-            $data['courses'] = [];
-            $data['user'] = ['name' => $session->get('name') ?? 'Student'];
+            log_message('error', 'Error fetching courses: ' . $e->getMessage());
+            $data = [
+                'enrolled_courses' => [],
+                'courses' => [],
+                'user' => ['name' => $session->get('name') ?? 'Student']
+            ];
         }
 
         return view('student/my_courses', $data);
     }
 
+    /**
+     * Enroll student in a course
+     */
     public function enroll()
     {
         $session = session();
 
+        // Check authentication
         if (!$session->get('isLoggedIn') || !$session->has('userID')) {
             return $this->response->setJSON([
                 'status' => 'error',
@@ -62,6 +73,7 @@ class Course extends Controller
         $user_id = $session->get('userID');
 
         try {
+            // Check if already enrolled
             $exists = $db->table('enrollments')
                         ->where(['user_id' => $user_id, 'course_id' => $course_id])
                         ->get()
@@ -85,11 +97,11 @@ class Course extends Controller
             // Get course info
             $course = $db->table('courses')->where('id', $course_id)->get()->getRow();
 
-            // Student notification
+            // Create notification for student
             $db->table('notifications')->insert([
                 'user_id' => $user_id,
                 'message' => "You have successfully enrolled in: " . $course->course_name,
-                'is_read'    => 0,
+                'is_read' => 0,
                 'created_at' => date('Y-m-d H:i:s')
             ]);
 
@@ -123,6 +135,7 @@ class Course extends Controller
             ]);
 
         } catch (\Exception $e) {
+            log_message('error', 'Enrollment error: ' . $e->getMessage());
             return $this->response->setJSON([
                 'status' => 'error',
                 'message' => 'Database error: ' . $e->getMessage()
@@ -130,64 +143,84 @@ class Course extends Controller
         }
     }
 
+    /**
+     * Display courses for dashboard
+     */
     public function showCoursesForDashboard()
     {
         $db = \Config\Database::connect();
         
         try {
-            $query = $db->query("SELECT id, name AS course_name, description, created_at, updated_at FROM courses ORDER BY name");
+            $query = $db->query("
+                SELECT id, course_name, subject_code, description, 
+                       instructor_name, year_level, status,
+                       created_at, updated_at 
+                FROM courses 
+                WHERE status = 'active'
+                ORDER BY course_name
+            ");
             $data['courses'] = $query->getResultArray();
         } catch (\Exception $e) {
+            log_message('error', 'Error fetching dashboard courses: ' . $e->getMessage());
             $data['courses'] = [];
         }
 
         return view('auth/dashboard', $data);
     }
 
+    /**
+     * Manage courses (view all courses)
+     */
     public function manage()
     {
         $session = session();
 
+        // Check authentication
         if (!$session->get('isLoggedIn') || !$session->has('userID')) {
             return redirect()->to('/login');
         }
 
         $db = \Config\Database::connect();
+        
         try {
-            $query = $db->table('courses')->get();
+            $query = $db->table('courses')
+                        ->orderBy('course_name', 'ASC')
+                        ->get();
             $data['courses'] = $query->getResultArray();
         } catch (\Exception $e) {
+            log_message('error', 'Error fetching courses for management: ' . $e->getMessage());
             $data['courses'] = [];
         }
 
         return view('courses/manage', $data);
     }
 
-
-    /* ------------------------------------------------------------
-     |  ⭐ NEW: SEARCH METHOD (AJAX + NORMAL REQUEST)
-     ------------------------------------------------------------ */
+    /**
+     * Search courses by keyword (AJAX and normal request)
+     */
     public function search()
     {
         $db = \Config\Database::connect();
-        $keyword = $this->request->getVar('keyword'); // GET or POST
+        $keyword = $this->request->getVar('keyword');
 
         $builder = $db->table('courses');
 
         if (!empty($keyword)) {
-            $builder->like('name', $keyword);
+            $builder->like('course_name', $keyword);
+            $builder->orLike('subject_code', $keyword);
             $builder->orLike('description', $keyword);
+            $builder->orLike('instructor_name', $keyword);
         }
 
         $query = $builder->get();
         $results = $query->getResultArray();
 
-        // If AJAX → return JSON
+        // Return JSON for AJAX requests
         if ($this->request->isAJAX()) {
             return $this->response->setJSON($results);
         }
 
-        // If normal page load → return view
+        // Return view for normal requests
         return view('courses/search_results', ['courses' => $results]);
     }
 }

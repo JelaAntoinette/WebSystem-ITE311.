@@ -1,7 +1,13 @@
-<?php namespace App\Controllers;
+<?php
+
+namespace App\Controllers;
 
 use CodeIgniter\Database\ConnectionInterface;
 
+/**
+ * Admin Controller
+ * Handles all admin-related operations including user and course management
+ */
 class AdminController extends BaseController
 {
     protected $db;
@@ -13,6 +19,9 @@ class AdminController extends BaseController
         $this->session = \Config\Services::session();
     }
 
+    /**
+     * Admin dashboard with statistics and overview
+     */
     public function dashboard()
     {
         $this->checkAdminAccess();
@@ -35,6 +44,7 @@ class AdminController extends BaseController
                 ORDER BY m.created_at DESC
             ")->getResultArray();
         } catch (\Exception $e) {
+            log_message('error', 'Error fetching materials: ' . $e->getMessage());
             $materials = [];
         }
 
@@ -57,12 +67,18 @@ class AdminController extends BaseController
         return view('auth/dashboard', $data);
     }
 
+    /**
+     * Logout admin user
+     */
     public function logout()
     {
         $this->session->destroy();
         return redirect()->to('/login');
     }
 
+    /**
+     * Check if current user has admin access
+     */
     private function checkAdminAccess()
     {
         if ($this->session->get('role') !== 'admin') {
@@ -71,6 +87,11 @@ class AdminController extends BaseController
         }
     }
 
+    // ==================== USER MANAGEMENT METHODS ====================
+
+    /**
+     * Display all users for management
+     */
     public function index()
     {
         $this->checkAdminAccess();
@@ -84,22 +105,10 @@ class AdminController extends BaseController
                 throw new \Exception("Failed to fetch users: " . $this->db->error()['message']);
             }
 
-            // Count users by role with error checking
+            // Count users by role
             $count_admin = $this->db->table('users')->where('role', 'admin')->countAllResults();
-            if ($this->db->error()['code'] !== 0) {
-                throw new \Exception("Error counting admin users: " . $this->db->error()['message']);
-            }
-            
             $count_teacher = $this->db->table('users')->where('role', 'teacher')->countAllResults();
-            if ($this->db->error()['code'] !== 0) {
-                throw new \Exception("Error counting teacher users: " . $this->db->error()['message']);
-            }
-            
             $count_student = $this->db->table('users')->where('role', 'student')->countAllResults();
-            if ($this->db->error()['code'] !== 0) {
-                throw new \Exception("Error counting student users: " . $this->db->error()['message']);
-            }
-            
             $count_total = $count_admin + $count_teacher + $count_student;
 
             $data = [
@@ -112,6 +121,7 @@ class AdminController extends BaseController
             ];
 
         } catch (\Exception $e) {
+            log_message('error', 'Error fetching users: ' . $e->getMessage());
             $data = [
                 'title' => 'Manage Users',
                 'users' => [],
@@ -126,6 +136,9 @@ class AdminController extends BaseController
         return view('admin/manage_users', $data);
     }
 
+    /**
+     * Store a new user
+     */
     public function store()
     {
         $this->checkAdminAccess();
@@ -154,10 +167,14 @@ class AdminController extends BaseController
             $this->db->table('users')->insert($data);
             return redirect()->to('/admin/users')->with('message', 'User added successfully');
         } catch (\Exception $e) {
+            log_message('error', 'Error adding user: ' . $e->getMessage());
             return redirect()->to('/admin/users')->with('error', 'Failed to add user: ' . $e->getMessage());
         }
     }
 
+    /**
+     * Update an existing user
+     */
     public function update($id)
     {
         $this->checkAdminAccess();
@@ -172,7 +189,7 @@ class AdminController extends BaseController
             return redirect()->to('/admin/users')->with('errors', $this->validator->getErrors());
         }
 
-        // Get the current user being edited FIRST
+        // Get the current user being edited
         $currentUser = $this->db->table('users')->where('id', $id)->get()->getRowArray();
         if (!$currentUser) {
             return redirect()->to('/admin/users')->with('error', 'User not found');
@@ -185,12 +202,12 @@ class AdminController extends BaseController
             'updated_at' => date('Y-m-d H:i:s')
         ];
 
-        // PROTECTION: Prevent role change for ANY admin user
+        // Protection: Prevent role change for admin users
         if ($currentUser['role'] === 'admin') {
-            // Keep the original role, don't allow changes
             $data['role'] = $currentUser['role'];
         }
 
+        // Update password if provided
         if ($password = $this->request->getPost('password')) {
             if (strlen($password) >= 6) {
                 $data['password'] = password_hash($password, PASSWORD_DEFAULT);
@@ -203,10 +220,14 @@ class AdminController extends BaseController
             $this->db->table('users')->where('id', $id)->update($data);
             return redirect()->to('/admin/users')->with('message', 'User updated successfully');
         } catch (\Exception $e) {
+            log_message('error', 'Error updating user: ' . $e->getMessage());
             return redirect()->to('/admin/users')->with('error', 'Failed to update user: ' . $e->getMessage());
         }
     }
 
+    /**
+     * Delete a user
+     */
     public function delete($id)
     {
         $this->checkAdminAccess();
@@ -217,6 +238,7 @@ class AdminController extends BaseController
                 throw new \Exception('User not found');
             }
 
+            // Prevent deleting the last admin
             if ($user['role'] === 'admin') {
                 $adminCount = $this->db->table('users')->where('role', 'admin')->countAllResults();
                 if ($adminCount <= 1) {
@@ -227,7 +249,157 @@ class AdminController extends BaseController
             $this->db->table('users')->where('id', $id)->delete();
             return redirect()->to('/admin/users')->with('message', 'User deleted successfully');
         } catch (\Exception $e) {
+            log_message('error', 'Error deleting user: ' . $e->getMessage());
             return redirect()->to('/admin/users')->with('error', 'Failed to delete user: ' . $e->getMessage());
+        }
+    }
+
+    // ==================== COURSE MANAGEMENT METHODS ====================
+
+    /**
+     * Display all courses for admin management
+     */
+    public function courses()
+    {
+        $this->checkAdminAccess();
+
+        try {
+            $builder = $this->db->table('courses');
+            $courses = $builder->orderBy('created_at', 'DESC')->get()->getResultArray();
+
+            // Get all teachers for the dropdown
+            $teachers = $this->db->table('users')
+                                 ->where('role', 'teacher')
+                                 ->orderBy('name', 'ASC')
+                                 ->get()
+                                 ->getResultArray();
+
+            $data = [
+                'title' => 'Manage Courses',
+                'courses' => $courses,
+                'teachers' => $teachers
+            ];
+
+            return view('admin/manage_courses', $data);
+        } catch (\Exception $e) {
+            return view('admin/manage_courses', [
+                'title' => 'Manage Courses',
+                'courses' => [],
+                'teachers' => [],
+                'error' => 'Failed to load courses: ' . $e->getMessage()
+            ]);
+        }
+    }
+
+    /**
+     * Store a new course
+     */
+    public function storeCourse()
+    {
+        $this->checkAdminAccess();
+        
+        $rules = [
+            'course_name' => 'required|min_length[3]',
+            'subject_code' => 'permit_empty|max_length[20]',
+            'description' => 'permit_empty',
+            'instructor_name' => 'permit_empty|max_length[100]',
+            'year_level' => 'permit_empty|max_length[50]',
+            'status' => 'required|in_list[active,inactive,completed]'
+        ];
+
+        if (!$this->validate($rules)) {
+            return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
+        }
+
+        $data = [
+            'course_name' => $this->request->getPost('course_name'),
+            'subject_code' => $this->request->getPost('subject_code'),
+            'description' => $this->request->getPost('description'),
+            'instructor_name' => $this->request->getPost('instructor_name'),
+            'year_level' => $this->request->getPost('year_level'),
+            'date_started' => $this->request->getPost('date_started') ?: null,
+            'date_ended' => $this->request->getPost('date_ended') ?: null,
+            'year_started' => $this->request->getPost('year_started') ?: null,
+            'year_ended' => $this->request->getPost('year_ended') ?: null,
+            'status' => $this->request->getPost('status'),
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s')
+        ];
+
+        try {
+            $this->db->table('courses')->insert($data);
+            return redirect()->to('/admin/courses')->with('message', 'Course added successfully');
+        } catch (\Exception $e) {
+            return redirect()->back()->withInput()->with('error', 'Failed to add course: ' . $e->getMessage());
+        }
+    }
+
+    /**
+     * Update an existing course
+     */
+    public function updateCourse($id)
+    {
+        $this->checkAdminAccess();
+        
+        $rules = [
+            'course_name' => 'required|min_length[3]',
+            'subject_code' => 'permit_empty|max_length[20]',
+            'description' => 'permit_empty',
+            'instructor_name' => 'permit_empty|max_length[100]',
+            'year_level' => 'permit_empty|max_length[50]',
+            'status' => 'required|in_list[active,inactive,completed]'
+        ];
+
+        if (!$this->validate($rules)) {
+            return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
+        }
+
+        $data = [
+            'course_name' => $this->request->getPost('course_name'),
+            'subject_code' => $this->request->getPost('subject_code'),
+            'description' => $this->request->getPost('description'),
+            'instructor_name' => $this->request->getPost('instructor_name'),
+            'year_level' => $this->request->getPost('year_level'),
+            'date_started' => $this->request->getPost('date_started') ?: null,
+            'date_ended' => $this->request->getPost('date_ended') ?: null,
+            'year_started' => $this->request->getPost('year_started') ?: null,
+            'year_ended' => $this->request->getPost('year_ended') ?: null,
+            'status' => $this->request->getPost('status'),
+            'updated_at' => date('Y-m-d H:i:s')
+        ];
+
+        try {
+            $this->db->table('courses')->where('id', $id)->update($data);
+            return redirect()->to('/admin/courses')->with('message', 'Course updated successfully');
+        } catch (\Exception $e) {
+            return redirect()->back()->withInput()->with('error', 'Failed to update course: ' . $e->getMessage());
+        }
+    }
+
+    /**
+     * Delete a course
+     */
+    public function deleteCourse($id)
+    {
+        $this->checkAdminAccess();
+        
+        try {
+            // Check if course exists
+            $course = $this->db->table('courses')->where('id', $id)->get()->getRowArray();
+            if (!$course) {
+                throw new \Exception('Course not found');
+            }
+
+            // Check if course has enrollments
+            $enrollmentCount = $this->db->table('enrollments')->where('course_id', $id)->countAllResults();
+            if ($enrollmentCount > 0) {
+                return redirect()->to('/admin/courses')->with('warning', 'Cannot delete course with active enrollments. Consider marking it as inactive instead.');
+            }
+
+            $this->db->table('courses')->where('id', $id)->delete();
+            return redirect()->to('/admin/courses')->with('message', 'Course deleted successfully');
+        } catch (\Exception $e) {
+            return redirect()->to('/admin/courses')->with('error', 'Failed to delete course: ' . $e->getMessage());
         }
     }
 }

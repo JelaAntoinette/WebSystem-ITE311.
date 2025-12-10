@@ -55,13 +55,22 @@ $routes->get('/materials/course/(:num)', 'Materials::viewCourseMaterials/$1');
 // Admin Routes
 $routes->group('admin', function($routes) {
     $routes->get('/', 'AdminController::dashboard');
-    $routes->get('dashboard', 'AdminController::dashboard'); // ✅ ADDED THIS LINE
+    $routes->get('dashboard', 'AdminController::dashboard');
+    
+    // User Management
     $routes->get('users', 'AdminController::index');
     $routes->get('users/create', 'AdminController::create');
     $routes->post('users/store', 'AdminController::store');
     $routes->get('users/edit/(:num)', 'AdminController::edit/$1');
     $routes->post('users/update/(:num)', 'AdminController::update/$1');
     $routes->get('users/delete/(:num)', 'AdminController::delete/$1');
+    
+    // Course Management
+    $routes->get('courses', 'AdminController::courses');
+    $routes->post('courses/store', 'AdminController::storeCourse');
+    $routes->post('courses/update/(:num)', 'AdminController::updateCourse/$1');
+    $routes->get('courses/delete/(:num)', 'AdminController::deleteCourse/$1');
+    
     $routes->get('logout', 'AdminController::logout');
 });
 

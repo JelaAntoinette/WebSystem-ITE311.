@@ -10,7 +10,8 @@
         <div class="collapse navbar-collapse" id="nav">
             <ul class="navbar-nav ms-auto">
                 <?php if ($user['role'] === 'admin'): ?>
-                    <li class="nav-item"><a class="nav-link" href="<?= base_url('/users') ?>">Manage Users</a></li>
+                    <li class="nav-item"><a class="nav-link" href="<?= base_url('/admin/users') ?>">Manage Users</a></li>
+                    <li class="nav-item"><a class="nav-link" href="<?= base_url('/admin/courses') ?>">Manage Courses</a></li>
                     <li class="nav-item"><a class="nav-link" href="<?= base_url('/reports') ?>">Reports</a></li>
                 <?php elseif ($user['role'] === 'teacher'): ?>
                     <li class="nav-item"><a class="nav-link" href="<?= base_url('/classes') ?>">My Classes</a></li>
