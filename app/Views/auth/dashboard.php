@@ -143,28 +143,30 @@
                 <div class="role-card" style="grid-column: 1 / -1;">
                     <h5>All Users</h5>
                     <?php if (isset($allUsers) && !empty($allUsers)): ?>
-                        <table border="1" cellpadding="8" cellspacing="0" style="width:100%; border-collapse:collapse; font-size:14px;">
-                            <thead>
-                                <tr style="background:#8B5FBF;color:white;">
-                                    <th>ID</th>
-                                    <th>Name</th>
-                                    <th>Email</th>
-                                    <th>Role</th>
-                                    <th>Date Registered</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php foreach ($allUsers as $u): ?>
-                                    <tr style="background:#f9f9f9;text-align:center;">
-                                        <td><?= esc($u['id']) ?></td>
-                                        <td><?= esc($u['name']) ?></td>
-                                        <td><?= esc($u['email']) ?></td>
-                                        <td><?= ucfirst(esc($u['role'])) ?></td>
-                                        <td><?= esc($u['created_at'] ?? 'N/A') ?></td>
+                        <div style="overflow:auto;">
+                            <table style="width:100%; border-collapse:collapse; font-size:14px;">
+                                <thead>
+                                    <tr style="background:#8B5FBF;color:white; text-align:left;">
+                                        <th style="padding:12px 10px;">ID</th>
+                                        <th style="padding:12px 10px;">Name</th>
+                                        <th style="padding:12px 10px;">Email</th>
+                                        <th style="padding:12px 10px;">Role</th>
+                                        <th style="padding:12px 10px;">Date Registered</th>
                                     </tr>
-                                <?php endforeach; ?>
-                            </tbody>
-                        </table>
+                                </thead>
+                                <tbody>
+                                    <?php foreach ($allUsers as $u): ?>
+                                        <tr style="background:#fff; text-align:center;">
+                                            <td style="padding:10px;"><?= esc($u['id']) ?></td>
+                                            <td style="padding:10px; text-align:left;"><?= esc($u['name']) ?></td>
+                                            <td style="padding:10px; text-align:left;"><?= esc($u['email']) ?></td>
+                                            <td style="padding:10px;"><?= ucfirst(esc($u['role'])) ?></td>
+                                            <td style="padding:10px;"><?= esc($u['created_at'] ?? 'N/A') ?></td>
+                                        </tr>
+                                    <?php endforeach; ?>
+                                </tbody>
+                            </table>
+                        </div>
                     <?php else: ?>
                         <p style="color: #dc3545;">No users found in database.</p>
                         <p style="font-size: 12px; color: #666;">Debug: allUsers variable is <?= isset($allUsers) ? (empty($allUsers) ? 'empty' : 'set with ' . count($allUsers) . ' users') : 'not set' ?></p>
@@ -261,31 +263,29 @@
     <!-- Enroll AJAX Script -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
-    $(document).ready(function(){
-        $('.enroll-btn').click(function(){
-            let courseId = $(this).data('id');
-            let button = $(this);
-            let msgBox = $('#msg-' + courseId);
+    $(function(){
+        $('.enroll-btn').on('click', function(){
+            var courseId = $(this).data('id');
+            var button = $(this);
+            var msgBox = $('#msg-' + courseId);
 
             $.ajax({
                 url: '<?= base_url('student/enroll') ?>',
                 type: 'POST',
                 data: { course_id: courseId },
-                dataType: 'json',
-                success: function(response){
-                    msgBox.text(response.message);
-                    if (response.status === 'success') {
-                        button.prop('disabled', true).text('Enrolled');
-                        msgBox.css('color', 'green');
-                        setTimeout(function() { location.reload(); }, 2000);
-                    } else {
-                        msgBox.css('color', 'red');
-                    }
-                },
-                error: function(){
-                    msgBox.text('Error connecting to server.');
+                dataType: 'json'
+            }).done(function(response){
+                msgBox.text(response.message || 'No response');
+                if (response.status === 'success') {
+                    button.prop('disabled', true).text('Enrolled');
+                    msgBox.css('color', 'green');
+                    setTimeout(function(){ location.reload(); }, 1200);
+                } else {
                     msgBox.css('color', 'red');
                 }
+            }).fail(function(){
+                msgBox.text('Error connecting to server.');
+                msgBox.css('color', 'red');
             });
         });
     });

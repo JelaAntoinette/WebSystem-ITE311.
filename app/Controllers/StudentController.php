@@ -183,45 +183,71 @@ class StudentController extends BaseController
                 ]);
             }
 
-            // Insert new enrollment
-            $db->table('enrollments')->insert([
+            // Instead of immediate enrollment, create a pending enrollment request
+            $insertData = [
                 'user_id' => $user_id,
                 'course_id' => $course_id,
                 'enrollment_date' => date('Y-m-d H:i:s'),
-                'status' => 'active'
-            ]);
+                'status' => 'pending'
+            ];
 
-            // ✅ Get course details and student name
+            $db->table('enrollments')->insert($insertData);
+
+            // Get course details and student name
             $course = $db->table('courses')->where('id', $course_id)->get()->getRowArray();
             $student = $db->table('users')->where('id', $user_id)->get()->getRowArray();
-            
+
             if ($course && $student) {
                 $studentName = $student['name'];
-                $courseName = $course['course_name'];
-                
-                // ✅ Create notification for student
+                $courseName = $course['course_name'] ?? ($course['name'] ?? 'the course');
+
+                // Notify student that request was submitted
                 $db->table('notifications')->insert([
                     'user_id' => $user_id,
-                    'message' => 'You have successfully enrolled in ' . $courseName,
+                    'message' => 'Your enrollment request for "' . $courseName . '" has been submitted to the course teacher.',
                     'is_read' => 0,
                     'created_at' => date('Y-m-d H:i:s')
                 ]);
-                
-                // ✅ Create notification for all teachers (role-based)
-                $teachers = $db->table('users')->where('role', 'teacher')->get()->getResultArray();
-                foreach ($teachers as $teacher) {
-                    $db->table('notifications')->insert([
-                        'user_id' => $teacher['id'],
-                        'message' => $studentName . ' has enrolled in ' . $courseName,
-                        'is_read' => 0,
-                        'created_at' => date('Y-m-d H:i:s')
-                    ]);
+
+                // If course has a specific teacher assigned, notify that teacher only
+                if (!empty($course['teacher_id'])) {
+                    $teacher = $db->table('users')->where('id', $course['teacher_id'])->get()->getRowArray();
+                    if ($teacher) {
+                        $db->table('notifications')->insert([
+                            'user_id' => $teacher['id'],
+                            'message' => $studentName . ' has requested to enroll in "' . $courseName . '". Review the request.',
+                            'is_read' => 0,
+                            'created_at' => date('Y-m-d H:i:s')
+                        ]);
+                    } else {
+                        // Fallback: notify all teachers if teacher_id is invalid
+                        $teachers = $db->table('users')->where('role', 'teacher')->get()->getResultArray();
+                        foreach ($teachers as $t) {
+                            $db->table('notifications')->insert([
+                                'user_id' => $t['id'],
+                                'message' => $studentName . ' has requested to enroll in "' . $courseName . '". Review the request.',
+                                'is_read' => 0,
+                                'created_at' => date('Y-m-d H:i:s')
+                            ]);
+                        }
+                    }
+                } else {
+                    // No teacher assigned: notify all teachers (backwards compatibility)
+                    $teachers = $db->table('users')->where('role', 'teacher')->get()->getResultArray();
+                    foreach ($teachers as $t) {
+                        $db->table('notifications')->insert([
+                            'user_id' => $t['id'],
+                            'message' => $studentName . ' has requested to enroll in "' . $courseName . '". Review the request.',
+                            'is_read' => 0,
+                            'created_at' => date('Y-m-d H:i:s')
+                        ]);
+                    }
                 }
             }
 
             return $this->response->setJSON([
                 'status' => 'success',
-                'message' => 'Enrollment successful!'
+                'message' => 'Enrollment request submitted — the course teacher will review it.'
             ]);
 
         } catch (\Exception $e) {

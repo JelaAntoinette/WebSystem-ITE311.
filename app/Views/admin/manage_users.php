@@ -650,7 +650,7 @@
                     </button>
                 </td>
             </tr>
-            <?php endforeach; ?>
+            <?php endforeach; ?>    
         <?php else: ?>
             <tr><td colspan="7" class="text-center">No users found.</td></tr>
         <?php endif; ?>
